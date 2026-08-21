@@ -1,0 +1,1158 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KALPA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Fragment+Mono:ital@0;1&display=swap">
+
+<style>
+/* KALPA v3 · porcelain gallery, ink and vine, photography carries the red.
+   Scroll choreography: preloader, split-line type, parallax frames, pinned
+   horizontal chapter, count-ups, chapter rail, magnetic buttons, cursor. */
+:root{
+  --paper:#FAF8F3; --panel:#F1EEE5; --card:#FFFFFF;
+  --ink:#191611; --ink2:#4C4639; --muted:#8A8272;
+  --line:#E4DFD2; --line-soft:#EDE9DE;
+  --vine:#2E5238; --vine-2:#3F7050; --brass:#A68852;
+  --coal:#14110D; --coal-2:#1C1813; --coal-line:#332D24;
+  --bone:#F6F1E6; --bone-dim:#C9C2B2;
+  --maxw:1240px;
+  --shadow:0 1px 2px rgba(25,22,17,.05),0 14px 40px -18px rgba(25,22,17,.14);
+  --ease:cubic-bezier(.22,.68,.14,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
+  font-size:16.5px;line-height:1.62;font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+.clip{overflow-x:clip}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+h1,h2,.serif{font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;font-weight:400;margin:0;text-wrap:balance}
+p{margin:0}
+img{max-width:100%;display:block}
+a{color:var(--ink);text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--vine);outline-offset:4px;border-radius:2px}
+::selection{background:var(--vine);color:var(--bone)}
+.eyebrow{font-family:"Fragment Mono",monospace;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--vine)}
+.eyebrow .idx{color:var(--muted)}
+.aril{display:inline-block;width:9px;height:13px;flex:none;background:linear-gradient(150deg,#C13049,#5E1120 78%);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
+
+/* ---------- preloader ---------- */
+#loader{position:fixed;inset:0;z-index:300;background:var(--coal);display:flex;align-items:center;justify-content:center;transition:transform 1s var(--ease);will-change:transform}
+#loader.done{transform:translateY(-101%)}
+#loader .lw{display:flex;gap:.42em;font-family:"Instrument Sans",sans-serif;font-size:clamp(2rem,6vw,3.6rem);color:var(--bone);letter-spacing:.1em}
+#loader .lw span{display:inline-block;transform:translateY(120%);opacity:0;animation:lrise .9s var(--ease) forwards}
+@keyframes lrise{to{transform:none;opacity:1}}
+#loader .cnt{position:absolute;right:clamp(24px,5vw,60px);bottom:clamp(20px,4vw,44px);font-family:"Fragment Mono",monospace;font-size:.8rem;color:var(--bone-dim);font-variant-numeric:tabular-nums}
+#loader .seed{position:absolute;left:clamp(24px,5vw,60px);bottom:clamp(20px,4vw,44px)}
+html.static #loader{display:none}
+
+/* ---------- chrome ---------- */
+#bar{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--vine);transform-origin:0 0;transform:scaleX(0);z-index:120}
+#rail{position:fixed;left:clamp(10px,1.6vw,26px);bottom:44px;z-index:110;display:flex;flex-direction:column;align-items:center;gap:14px}
+#rail .rl{writing-mode:vertical-rl;transform:rotate(180deg);font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);transition:opacity .4s}
+#rail .rline{width:1px;height:64px;background:var(--line);position:relative;overflow:hidden}
+#rail .rline i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--vine)}
+@media(max-width:1100px){#rail{display:none}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,243,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(228,223,210,.7);transition:transform .5s var(--ease)}
+nav.hide{transform:translateY(-100%)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,44px);height:64px;display:flex;align-items:center;gap:34px}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:"Instrument Sans",sans-serif;font-size:1.05rem;letter-spacing:.42em;padding-left:.42em;color:var(--ink)}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Hanken Grotesk",sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 26px;border-radius:2px;border:1px solid transparent;cursor:pointer;transition:background .25s,border-color .25s,color .25s;will-change:transform}
+.btn.ink{background:var(--ink);color:var(--bone)}
+.btn.ink:hover{background:var(--vine)}
+.btn.bone{background:var(--bone);color:var(--ink)}
+.btn.bone:hover{background:#fff}
+.btn.ghostd{border-color:rgba(246,241,230,.45);color:var(--bone)}
+.btn.ghostd:hover{border-color:var(--bone)}
+.btn.ghostl{border-color:var(--line);color:var(--ink)}
+.btn.ghostl:hover{border-color:var(--ink)}
+.btn.sm{padding:10px 18px;font-size:.72rem}
+@media(max-width:860px){.nav-links{display:none}.nav-in>.btn{margin-left:auto}}
+
+/* ---------- cursor ---------- */
+#cur,#curo{position:fixed;top:0;left:0;pointer-events:none;z-index:400;border-radius:50%;transform:translate(-100px,-100px)}
+#cur{width:7px;height:7px;background:var(--vine)}
+#curo{width:34px;height:34px;border:1px solid rgba(46,82,56,.5);transition:width .25s,height .25s,border-color .25s}
+#curo.big{width:58px;height:58px;border-color:rgba(46,82,56,.9)}
+@media(pointer:coarse){#cur,#curo{display:none}}
+html.static #cur,html.static #curo{display:none}
+
+/* ---------- split text ---------- */
+.sw{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.swi{display:inline-block;transform:translateY(115%);transition:transform 1s var(--ease);will-change:transform}
+.split.go .swi{transform:none}
+html.static .swi{transform:none;transition:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--coal)}
+html.static .hero{min-height:900px}
+.hero .bg{position:absolute;inset:0;overflow:hidden}
+.hero .bg img{width:100%;height:112%;object-fit:cover;object-position:64% 42%;will-change:transform;transform:scale(1.06)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(100deg, rgba(12,9,7,.87) 0%, rgba(12,9,7,.56) 38%, rgba(12,9,7,.12) 68%, rgba(12,9,7,.35) 100%),
+  linear-gradient(180deg, rgba(12,9,7,.35), transparent 26%, transparent 62%, rgba(12,9,7,.74) 100%)}
+.hero-in{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:150px clamp(20px,4vw,44px) 0;width:100%}
+.defn{font-family:"Fragment Mono",monospace;font-size:.72rem;line-height:1.85;color:var(--bone-dim);border-left:1px solid rgba(246,241,230,.28);padding-left:16px;max-width:44ch;margin-bottom:36px}
+.defn b{color:var(--bone);font-weight:400}
+.hero h1{font-size:clamp(3.6rem,9.6vw,8.4rem);line-height:.96;letter-spacing:-.015em;color:var(--bone)}
+.hero-sub{margin-top:28px;max-width:52ch;font-size:1.08rem;line-height:1.75;color:var(--bone-dim)}
+.hero-sub b{color:var(--bone);font-weight:500}
+.hero-cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.scroll-cue{position:absolute;right:clamp(24px,4vw,54px);bottom:150px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--bone-dim)}
+.scroll-cue .sline{width:1px;height:56px;background:rgba(246,241,230,.3);position:relative;overflow:hidden}
+.scroll-cue .sline::after{content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--bone);animation:sdrop 1.8s var(--ease) infinite}
+@keyframes sdrop{to{top:110%}}
+.scroll-cue span{writing-mode:vertical-rl;font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase}
+@media(max-width:860px){.scroll-cue{display:none}}
+.hero-stats{position:relative;z-index:2;margin-top:64px;border-top:1px solid rgba(246,241,230,.16);background:rgba(12,9,7,.45);backdrop-filter:blur(8px)}
+.hs-in{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,44px);display:grid;grid-template-columns:repeat(4,1fr)}
+.hs{padding:22px 20px 26px;border-right:1px solid rgba(246,241,230,.1);display:flex;flex-direction:column;gap:4px}
+.hs:first-child{padding-left:0}.hs:last-child{border-right:none}
+.hs .n{font-family:"Instrument Sans",sans-serif;font-size:1.75rem;font-variant-numeric:tabular-nums;color:var(--bone)}
+.hs .l{font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);line-height:1.7}
+@media(max-width:860px){.hs-in{grid-template-columns:repeat(2,1fr)}.hs:nth-child(2){border-right:none}.hs:nth-child(3){padding-left:0}.hs:nth-child(-n+2){border-bottom:1px solid rgba(246,241,230,.1)}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper);overflow:hidden;padding:15px 0}
+.mq{display:flex;white-space:nowrap;animation:mq 36s linear infinite;width:max-content}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq span{font-family:"Fragment Mono",monospace;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);padding:0 16px;display:inline-flex;align-items:center;gap:32px}
+.mq i{width:6px;height:9px;background:#A82039;border-radius:50% 50% 50% 50%/62% 62% 40% 40%;display:inline-block;transform:rotate(10deg)}
+html.static .mq{animation:none}
+
+/* ---------- statement ---------- */
+.statement{padding:clamp(110px,15vw,190px) 0}
+.statement p{font-family:"Instrument Sans",sans-serif;font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.18;max-width:24ch;letter-spacing:-.01em}
+.statement .wd{color:#C8C2B2;transition:color .35s ease}
+.statement .wd.lit{color:var(--ink)}
+.statement .wd.red.lit{color:#A82039}
+html.static .statement .wd{color:var(--ink)}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.pad{padding:clamp(84px,11vw,150px) 0}
+.sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(2.2rem,4.8vw,3.7rem);line-height:1.05;letter-spacing:-.012em;max-width:24ch}
+.sec-head .lede{max-width:60ch;color:var(--ink2);font-size:1.02rem;line-height:1.75}
+.sec-head .lede b{color:var(--ink);font-weight:500}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+html.static .reveal{opacity:1;transform:none;transition:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .mq{animation:none}.swi{transform:none;transition:none}
+  .scroll-cue .sline::after{animation:none}
+}
+
+/* ---------- photo frames ---------- */
+.frame{position:relative;border-radius:3px;overflow:hidden;box-shadow:var(--shadow);clip-path:inset(0 0 0 0);}
+.frame.reveal-clip{clip-path:inset(8% 6% 8% 6%);transition:clip-path 1.2s var(--ease)}
+.frame.reveal-clip.in{clip-path:inset(0 0 0 0)}
+html.static .frame{clip-path:inset(0 0 0 0)}
+.frame img{width:100%;height:118%;object-fit:cover;will-change:transform;position:absolute;top:-9%;left:0}
+.frame figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 20px;font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim);background:linear-gradient(180deg,transparent,rgba(12,9,7,.78))}
+
+/* molecule */
+.mol{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(30px,4.5vw,64px);align-items:stretch}
+.mol .frame{min-height:520px}
+.flow{display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.step{display:grid;grid-template-columns:56px 1fr;padding:26px 0;border-bottom:1px solid var(--line-soft)}
+.step:last-child{border-bottom:none}
+.step .no{font-family:"Fragment Mono",monospace;font-size:.72rem;color:var(--muted);padding-left:22px;padding-top:4px}
+.step h3{font-family:"Hanken Grotesk",sans-serif;font-size:1.08rem;font-weight:500;margin:0 0 8px;color:var(--ink)}
+.step p{font-size:.94rem;color:var(--ink2);max-width:52ch;line-height:1.7}
+.step p b{color:var(--vine);font-weight:500}
+.bignums{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:60px}
+.bignum{border-top:1px solid var(--ink);padding-top:20px;display:flex;flex-direction:column;gap:8px}
+.bignum .n{font-family:"Instrument Sans",sans-serif;font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.bignum .t{font-size:.92rem;color:var(--ink2);max-width:30ch;line-height:1.65}
+@media(max-width:920px){.mol{grid-template-columns:1fr}.mol .frame{min-height:400px}.bignums{grid-template-columns:1fr;gap:26px}}
+
+/* science */
+.sci{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);transition:transform .35s var(--ease),border-color .35s}
+.card:hover{transform:translateY(-5px);border-color:var(--vine)}
+.card .cn{font-family:"Instrument Sans",sans-serif;font-size:2.7rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.card .cn small{font-size:1.1rem;color:var(--vine)}
+.card h3{font-family:"Hanken Grotesk",sans-serif;font-size:.95rem;font-weight:500;margin:0;color:var(--ink);line-height:1.4}
+.card p{font-size:.82rem;color:var(--muted);line-height:1.65}
+.card .src{margin-top:auto;font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--vine);padding-top:14px;border-top:1px solid var(--line-soft)}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.honesty{margin-top:46px;border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:3px;background:var(--card);padding:30px 34px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;box-shadow:var(--shadow)}
+.honesty .hk{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);padding-top:5px;white-space:nowrap}
+.honesty p{color:var(--ink2);font-size:.98rem;line-height:1.75;max-width:74ch}
+.honesty p b{color:var(--ink);font-weight:500}
+@media(max-width:700px){.honesty{grid-template-columns:1fr;gap:10px}}
+
+/* origin band */
+.band{position:relative;min-height:78svh;display:flex;align-items:flex-end;background:var(--coal);overflow:hidden}
+html.static .band{min-height:700px}
+.band .bimg{position:absolute;inset:-12% 0;overflow:hidden}
+.band .bimg img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,9,7,.25),transparent 40%,rgba(12,9,7,.78) 100%)}
+.band .band-in{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:64px clamp(20px,4vw,44px);width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.band h2{color:var(--bone);font-size:clamp(2rem,4.8vw,3.6rem);line-height:1.06;max-width:20ch}
+.band .tag{font-family:"Fragment Mono",monospace;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-dim)}
+.origin-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,4.5vw,64px);align-items:start}
+.origin-copy h2{font-size:clamp(2rem,4.2vw,3rem);line-height:1.07}
+.origin-copy p{color:var(--ink2);font-size:1rem;line-height:1.8;max-width:54ch}
+.origin-copy p b{color:var(--ink);font-weight:500}
+.spec{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.spec div{padding:18px 22px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);display:flex;flex-direction:column;gap:3px}
+.spec div:nth-child(2n){border-right:none}
+.spec div:nth-last-child(-n+2){border-bottom:none}
+.spec .k{font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.spec .v{font-size:.94rem;color:var(--ink);font-weight:400}
+@media(max-width:900px){.origin-copy{grid-template-columns:1fr}}
+
+/* objects: pinned horizontal */
+.oh{height:390vh;background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.oh-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.oh-head{max-width:var(--maxw);margin:0 auto;padding:84px clamp(20px,4vw,44px) 40px;width:100%}
+.oh-track{display:flex;gap:22px;padding:0 clamp(20px,4vw,44px);will-change:transform;width:max-content}
+.obj{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);width:min(430px,82vw);flex:none}
+.obj .view{height:min(340px,38vh);display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(180deg,#EFECE3,#E5E1D4)}
+.obj .meta{padding:22px 24px 26px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:7px}
+.obj .meta .on{font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--vine)}
+.obj .meta h3{font-family:"Hanken Grotesk",sans-serif;font-size:1.05rem;font-weight:500;margin:0;color:var(--ink)}
+.obj .meta p{font-size:.85rem;color:var(--muted);line-height:1.65}
+.obj.oq{background:transparent;border:none;box-shadow:none;justify-content:center;padding:0 30px;width:min(420px,80vw)}
+.obj.oq p{font-family:"Instrument Sans",sans-serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.3;color:var(--ink)}
+.oh-progress{max-width:var(--maxw);margin:0 auto;padding:38px clamp(20px,4vw,44px) 0;width:100%}
+.oh-progress .track{height:1px;background:var(--line);position:relative}
+.oh-progress .track i{position:absolute;left:0;top:0;height:100%;width:0;background:var(--vine)}
+@media(max-width:900px){
+  .oh{height:auto}
+  .oh-sticky{position:static;height:auto;overflow:visible}
+  .oh-track{flex-direction:column;width:auto;padding-bottom:60px}
+  .obj{width:100%}
+  .oh-progress{display:none}
+}
+html.static .oh{height:auto}
+html.static .oh-sticky{position:static;height:auto}
+html.static .oh-track{flex-wrap:wrap;width:auto;padding-bottom:60px}
+
+/* mini bottle / pouch / carton */
+.mb{width:106px;filter:drop-shadow(0 26px 22px rgba(25,22,17,.28))}
+.mb .mcap{height:27px;margin:0 14px;border-radius:4px 4px 1px 1px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 4px),linear-gradient(100deg,#211E19,#3A362E 34%,#4A453B 48%,#2B2721 74%,#16130F)}
+.mb .mcap::after{content:"";display:block;height:2px;margin-top:27px;background:linear-gradient(90deg,#7E653C,#D8BC85 50%,#7E653C)}
+.mb .mbody{height:186px;border-radius:12px 12px 14px 14px;position:relative;overflow:hidden;margin-top:2px;background:linear-gradient(100deg,#16130F,#26221C 16%,#3B362D 34%,#4C463A 46%,#2E2A22 62%,#1B1814 82%,#100E0B);box-shadow:inset 0 8px 12px -8px rgba(255,255,255,.22)}
+.mb .mbody::before{content:"";position:absolute;top:6px;bottom:6px;left:11px;width:9px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.04) 60%,transparent);filter:blur(2px)}
+.mb .mlabel{position:absolute;left:0;right:0;top:48px;height:92px;background:var(--bone);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--ink)}
+.mb .mlabel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.16),transparent 18%,transparent 82%,rgba(0,0,0,.2))}
+.mb .mseed{width:7px;height:10px;background:linear-gradient(150deg,#C13049,#5E1120);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
+.mb .mlw{font-family:"Instrument Sans",sans-serif;font-size:.72rem;letter-spacing:.32em;padding-left:.32em}
+.mb .mld{font-family:"Fragment Mono",monospace;font-size:.36rem;letter-spacing:.16em;text-transform:uppercase;color:#5D6455;text-align:center;line-height:1.8}
+.pouch{width:150px;height:212px;position:relative;filter:drop-shadow(0 22px 22px rgba(25,22,17,.3))}
+.pouch .pbody{position:absolute;inset:0;clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,transparent 26%),linear-gradient(120deg,#233A2B,#2E5238 34%,#48684F 48%,#2A4634 64%,#16241B 94%)}
+.pouch .crimp{position:absolute;top:0;left:7%;right:7%;height:22px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.1) 0 2px,transparent 2px 7px),linear-gradient(180deg,#1E3126,#16241B)}
+.pouch .psticker{position:absolute;left:16%;right:16%;top:44%;background:var(--bone);padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ink)}
+.pouch .psw{font-family:"Instrument Sans",sans-serif;font-size:.7rem;letter-spacing:.3em;padding-left:.3em}
+.pouch .psd{font-family:"Fragment Mono",monospace;font-size:.36rem;letter-spacing:.14em;text-transform:uppercase;color:#5D6455;text-align:center;line-height:1.8}
+.carton{width:150px;height:196px;border-radius:3px;position:relative;overflow:hidden;background:linear-gradient(115deg,#F3EFE5 0%,#EAE5D8 45%,#F0EBDF 100%);border:1px solid #DCD6C6;box-shadow:inset 2px 0 0 rgba(255,255,255,.5),0 24px 26px -16px rgba(25,22,17,.28)}
+.carton .emb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.carton .cw{font-family:"Instrument Sans",sans-serif;font-size:1rem;letter-spacing:.4em;padding-left:.4em;color:var(--ink)}
+.carton .cseed{width:9px;height:13px;background:linear-gradient(150deg,#C13049,#5E1120);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
+.carton .cd{font-family:"Fragment Mono",monospace;font-size:.4rem;letter-spacing:.24em;text-transform:uppercase;color:var(--vine)}
+.carton .foil{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7E653C,#D8BC85 50%,#7E653C)}
+
+/* protocol */
+.proto-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,4.5vw,64px);align-items:stretch}
+.proto-grid .frame{min-height:460px}
+.proto{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.ps{padding:28px 26px 30px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);display:flex;flex-direction:column;gap:11px}
+.ps:nth-child(2n){border-right:none}
+.ps:nth-last-child(-n+2){border-bottom:none}
+.ps .day{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--vine)}
+.ps .pt{font-family:"Instrument Sans",sans-serif;font-size:1.4rem;color:var(--ink);line-height:1.15}
+.ps p{font-size:.85rem;color:var(--muted);line-height:1.7}
+@media(max-width:920px){.proto-grid{grid-template-columns:1fr}.proto-grid .frame{min-height:320px}}
+@media(max-width:560px){.proto{grid-template-columns:1fr}.ps{border-right:none}}
+
+/* proof (dark) */
+.proof{background:var(--coal);border-top:1px solid var(--coal-line);border-bottom:1px solid var(--coal-line)}
+.proof .sec-head h2{color:var(--bone)}
+.proof .sec-head .lede{color:var(--bone-dim)}
+.proof .sec-head .lede b{color:var(--bone)}
+.proof-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,3vw,40px);align-items:stretch}
+.proof .frame{min-height:440px;box-shadow:none}
+.assay{border:1px solid var(--coal-line);border-radius:3px;background:var(--coal-2);overflow:hidden}
+.assay .ahead{display:flex;align-items:center;gap:14px;padding:16px 22px;border-bottom:1px solid var(--coal-line)}
+.assay .dotr{width:8px;height:8px;border-radius:50%;background:#5FA57C;box-shadow:0 0 10px #5FA57C}
+.assay .ahead span{font-family:"Fragment Mono",monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim)}
+.assay-wrap{overflow-x:auto}
+.assay table{width:100%;border-collapse:collapse;min-width:520px}
+.assay td,.assay th{padding:14px 22px;text-align:left;font-size:.86rem;border-bottom:1px solid var(--coal-line)}
+.assay th{font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#8F887A;font-weight:400}
+.assay td{color:var(--bone-dim)}
+.assay td:first-child{color:var(--bone)}
+.assay tr:last-child td{border-bottom:none}
+.assay .pass{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#7FBF9A}
+.assay .val{font-family:"Fragment Mono",monospace;font-variant-numeric:tabular-nums;color:var(--bone)}
+@media(max-width:920px){.proof-grid{grid-template-columns:1fr}.proof .frame{min-height:300px}}
+
+/* founding */
+.founding .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px}
+.plan{border:1px solid var(--line);border-radius:3px;background:var(--card);padding:36px 34px 38px;display:flex;flex-direction:column;gap:20px;box-shadow:var(--shadow)}
+.plan.hero-plan{border-color:var(--vine);box-shadow:0 0 0 1px var(--vine),var(--shadow)}
+.plan .pk{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vine)}
+.plan .price{font-family:"Instrument Sans",sans-serif;font-size:2.9rem;color:var(--ink);line-height:1}
+.plan .price .rs{font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:.82em}
+.plan .price small{font-family:"Hanken Grotesk",sans-serif;font-size:.85rem;color:var(--muted);letter-spacing:.04em}
+.plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.plan li{display:flex;gap:12px;align-items:flex-start;font-size:.92rem;color:var(--ink2);line-height:1.6}
+.plan li i{width:6px;height:9px;flex:none;margin-top:7px;background:#A82039;border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
+.plan .btn{margin-top:6px}
+@media(max-width:760px){.founding .fgrid{grid-template-columns:1fr}}
+
+/* faq */
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 4px;font-size:1.02rem;font-weight:400;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"Instrument Sans",sans-serif;font-size:1.4rem;color:var(--vine);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 4px 26px;max-width:70ch;color:var(--ink2);font-size:.95rem;line-height:1.75}
+
+/* outro + footer */
+.outro{background:var(--coal);padding:clamp(100px,14vw,180px) 0;text-align:left;border-top:1px solid var(--coal-line)}
+.outro .wrap{display:flex;flex-direction:column;gap:34px;align-items:flex-start}
+.outro .big{font-family:"Instrument Sans",sans-serif;color:var(--bone);font-size:clamp(2.6rem,7.4vw,6rem);line-height:1.02;letter-spacing:-.012em;max-width:16ch}
+.outro .big em{font-style:italic;color:#D98A9A}
+footer{border-top:1px solid var(--coal-line);background:var(--coal);padding:70px 0 46px;position:relative;overflow:hidden}
+.ghost{position:absolute;left:50%;bottom:-4vw;transform:translateX(-50%);font-family:"Instrument Sans",sans-serif;font-size:22vw;line-height:1;letter-spacing:.1em;color:transparent;-webkit-text-stroke:1px rgba(246,241,230,.1);pointer-events:none;user-select:none;white-space:nowrap}
+.f-in{position:relative;z-index:2;display:flex;flex-direction:column;gap:34px}
+.f-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+footer .wordmark{color:var(--bone)}
+.f-links{display:flex;gap:28px;flex-wrap:wrap}
+.f-links a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#8F887A;transition:color .2s}
+.f-links a:hover{color:var(--bone)}
+.fine{font-size:.76rem;color:#8F887A;line-height:1.8;max-width:100ch;border-top:1px solid var(--coal-line);padding-top:26px}
+
+/* v4 additions */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:130;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+.sec-head{position:relative;z-index:0}
+.sec-head::before{content:attr(data-num);position:absolute;right:0;top:-.32em;z-index:-1;
+  font-family:"Instrument Sans",sans-serif;font-size:clamp(6rem,13vw,10.5rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1px var(--line);font-variant-numeric:tabular-nums;pointer-events:none}
+.proof .sec-head::before{-webkit-text-stroke-color:var(--coal-line)}
+#herofx{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-in,.hero .scroll-cue{will-change:transform}
+.omq{background:var(--coal);overflow:hidden;padding:10px 0 34px}
+.omq .mq2{display:flex;white-space:nowrap;width:max-content;will-change:transform}
+.omq span{font-family:"Instrument Sans",sans-serif;font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.2;
+  color:transparent;-webkit-text-stroke:1px rgba(246,241,230,.34);letter-spacing:.06em;
+  padding:0 .5em;display:inline-flex;align-items:center;gap:.55em}
+.omq i{width:.28em;height:.4em;background:linear-gradient(150deg,#C13049,#5E1120);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg);flex:none}
+.f-live{display:flex;gap:28px;flex-wrap:wrap;font-family:"Fragment Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8F887A}
+.f-live b{color:var(--bone);font-weight:400}
+html.static .omq .mq2{transform:none}
+
+/* v5: color-field product moments (Pinterest board: Seed/Timeline/Napits) */
+.fields{--field:#D3D6C1}
+.reveal-stage{position:relative;background:var(--field);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.rs-in{max-width:var(--maxw);margin:0 auto;padding:clamp(90px,12vw,150px) clamp(20px,4vw,44px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:center}
+.rs-copy{display:flex;flex-direction:column;gap:18px}
+.rs-copy h2{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.05}
+.rs-copy p{color:var(--ink2);font-size:1.02rem;line-height:1.75;max-width:46ch}
+.rs-copy p b{color:var(--ink);font-weight:500}
+.rs-specline{display:flex;gap:22px;flex-wrap:wrap;font-family:"Fragment Mono",monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);border-top:1px solid rgba(25,22,17,.18);padding-top:18px;margin-top:8px}
+.rs-stage{display:flex;justify-content:center;align-items:center;position:relative;min-height:480px}
+.rs-halo{position:absolute;width:min(420px,80%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,.5), rgba(255,255,255,0) 70%)}
+/* frosted glass jar, softgels visible */
+.jar{position:relative;width:min(230px,56vw);filter:drop-shadow(0 40px 34px rgba(25,22,17,.3));will-change:transform}
+.jar .jlid{height:38px;margin:0 6px;border-radius:10px 10px 3px 3px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 6px),linear-gradient(100deg,#211E19,#38342C 36%,#4A453B 50%,#28241E 78%,#16130F)}
+.jar .jlid::after{content:"";display:block;height:2px;margin-top:38px;background:linear-gradient(90deg,#7E653C,#D8BC85 50%,#7E653C)}
+.jar .jbody{height:300px;margin-top:3px;border-radius:20px 20px 26px 26px;position:relative;overflow:hidden;
+  background:linear-gradient(105deg, #1E3A28 0%, #2E5238 18%, #47714F 38%, #5C8763 50%, #3E6448 66%, #24422E 86%, #16291D 100%)}
+.jar .jbody::before{content:"";position:absolute;top:10px;bottom:10px;left:16px;width:20px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.08) 55%,transparent);filter:blur(4px)}
+.jar .jbody::after{content:"";position:absolute;top:14px;bottom:14px;right:10px;width:8px;border-radius:8px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.25) 45%,transparent);filter:blur(3px)}
+.jar .gels{position:absolute;left:8%;right:8%;bottom:6%;height:46%}
+.jar .gel{position:absolute;width:26px;height:15px;border-radius:50%;background:radial-gradient(ellipse at 32% 30%, #E8A45E, #B96A2E 70%, #8F4C1E);filter:blur(1.6px);opacity:.9}
+.jar .jlabel{position:absolute;left:0;right:0;top:86px;height:118px;background:var(--bone);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--ink);z-index:2}
+.jar .jlabel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.14),transparent 16%,transparent 84%,rgba(0,0,0,.18))}
+.jar .jseed{width:8px;height:11px;background:linear-gradient(150deg,#C13049,#5E1120);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
+.jar .jlw{font-family:"Instrument Sans",sans-serif;font-size:1.05rem;letter-spacing:.36em;padding-left:.36em}
+.jar .jld{font-family:"Fragment Mono",monospace;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:#5D6455;text-align:center;line-height:1.9}
+@media(max-width:920px){.rs-in{grid-template-columns:1fr}.rs-stage{min-height:400px}}
+/* objects cards become color-field panels */
+.obj .view{background:var(--field)}
+.obj.f-sage{--field:#DFE5D3}
+.obj.f-amber{--field:#E7C49C}
+.obj.f-bone{--field:#EBE5D8}
+.obj .view{height:min(360px,40vh)}
+html.static .jar{transform:none}
+
+/* v6: Mobbin steals (Seed chip, KOPPEN bilingual label, SwimClub protocol note) */
+.chip-pill{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:1px solid rgba(25,22,17,.3);border-radius:999px;padding:6px 14px;font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.chip-pill i{width:6px;height:6px;border-radius:50%;background:var(--vine)}
+.jar{transform:rotate(-2.5deg)}
+.jar .jdev{font-size:.78rem;color:var(--ink);letter-spacing:.3em;padding-left:.3em;line-height:1;font-family:"Gloock","Kohinoor Devanagari","Devanagari MT","Nirmala UI",serif}
+.note-box{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:18px 22px;max-width:640px;margin-top:6px}
+.note-box .ni{width:8px;height:8px;border-radius:50%;background:var(--vine);margin-top:7px}
+.note-box p{font-size:.88rem;color:var(--ink2);line-height:1.7}
+.plan .strike{font-family:"Hanken Grotesk",sans-serif;font-size:1.05rem;color:var(--muted);text-decoration:line-through;text-decoration-color:#A82039;margin-right:10px;font-weight:400}
+.f-dev{font-family:"Gloock","Kohinoor Devanagari","Devanagari MT","Nirmala UI",serif;color:var(--bone-dim);font-size:.95rem;letter-spacing:.2em;margin-left:14px}
+html.static .jar{transform:rotate(-2.5deg)}
+
+/* ===== v7: minimal grotesk (Seed/Ritual reference via Mobbin) ===== */
+h1,h2,.serif{font-weight:500}
+h1{letter-spacing:-.03em;font-size:clamp(2.9rem,7vw,5.4rem);line-height:1.02}
+h2{letter-spacing:-.022em}
+.sec-head h2{font-size:clamp(1.9rem,3.8vw,3rem);max-width:26ch}
+.sec-head{margin-bottom:64px;gap:18px}
+.sec-head::before{content:none}
+.pad{padding:clamp(120px,15vw,215px) 0}
+.statement{padding:clamp(140px,18vw,240px) 0}
+.statement p{font-weight:500;letter-spacing:-.022em;font-size:clamp(1.7rem,3.7vw,3rem);line-height:1.25;max-width:28ch}
+.btn{border-radius:999px;padding:15px 30px}
+.btn.sm{padding:11px 22px}
+.frame,.card,.plan,.assay,.spec,.proto,.obj,.note-box{border-radius:16px}
+.obj .view{border-radius:16px 16px 0 0}
+.card{padding:32px 30px 34px}
+.plan{padding:42px 40px 44px}
+.cards{gap:20px}
+.tri{gap:22px}
+.hs .n,.card .cn,.bignum .n,.plan .price,.ps .pt,.rs-copy h2,.outro .big{font-weight:600;letter-spacing:-.02em}
+.card .cn{font-size:2.4rem}
+.bignum .n{font-size:clamp(2.2rem,4.2vw,3.4rem)}
+.plan .price{font-size:2.4rem}
+.outro .big{font-size:clamp(2.2rem,5.6vw,4.2rem);line-height:1.08;max-width:20ch}
+.outro .big em{font-style:normal;color:#D98A9A}
+summary::after{font-family:"Instrument Sans",sans-serif;font-weight:400}
+.ghost{letter-spacing:.04em;-webkit-text-stroke-width:1px}
+/* light hero */
+.hero{background:var(--paper);min-height:92svh;color:var(--ink)}
+html.static .hero{min-height:760px}
+.hero-in{padding-top:170px}
+.defn{color:var(--muted);border-left-color:var(--line)}
+.defn b{color:var(--ink)}
+.hero h1{color:var(--ink);font-size:clamp(3.2rem,8.4vw,6.6rem)}
+.hero-sub{color:var(--ink2)}
+.hero-sub b{color:var(--ink)}
+.hero .btn.bone{background:var(--ink);color:var(--bone)}
+.hero .btn.bone:hover{background:var(--vine)}
+.hero .btn.ghostd{border-color:var(--line);color:var(--ink)}
+.hero .btn.ghostd:hover{border-color:var(--ink)}
+.scroll-cue{color:var(--muted)}
+.scroll-cue .sline{background:var(--line)}
+.scroll-cue .sline::after{background:var(--ink)}
+.hero-stats{background:transparent;border-top:1px solid var(--line);backdrop-filter:none}
+.hs{border-right-color:var(--line-soft)}
+.hs .n{color:var(--ink);font-size:1.5rem}
+.hs .l{color:var(--muted)}
+@media(max-width:860px){.hs:nth-child(-n+2){border-bottom:1px solid var(--line-soft)}}
+.band-fruit{min-height:88svh}
+html.static .band-fruit{min-height:640px}
+.jar{transform:rotate(-2deg)}
+.jar .jlw{font-family:"Instrument Sans",sans-serif;font-weight:600;letter-spacing:.3em;padding-left:.3em;font-size:.95rem}
+#loader{background:var(--paper)}
+#loader .lw{color:var(--ink);font-weight:600;letter-spacing:.14em}
+#loader .cnt{color:var(--muted)}
+.marquee{padding:13px 0}
+.mq span{font-size:.6rem;color:var(--muted)}
+.wordmark{font-weight:600;letter-spacing:.34em;padding-left:.34em;font-size:.95rem}
+.mb .mlw,.pouch .psw,.carton .cw{font-family:"Instrument Sans",sans-serif;font-weight:600}
+
+/* v8: real packshot with composited live-type label */
+.jar-photo{position:relative;width:min(520px,88vw);container-type:inline-size;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(25,22,17,.4);will-change:transform}
+.jar-photo img{width:100%;display:block}
+.jp-label{position:absolute;left:29%;right:36%;top:44%;height:24%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1cqw;text-align:center;color:#262119}
+.jp-seed{width:2.2cqw;height:3.1cqw;background:linear-gradient(150deg,#C13049,#5E1120);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
+.jp-w{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:4.4cqw;letter-spacing:.34em;padding-left:.34em;line-height:1}
+.jp-dev{font-family:"Instrument Sans","Kohinoor Devanagari","Devanagari MT","Nirmala UI",sans-serif;font-size:2.5cqw;letter-spacing:.3em;padding-left:.3em;line-height:1;color:#3A342A}
+.jp-rule{width:16%;height:1px;background:#262119;opacity:.35;margin:.5cqw 0}
+.jp-mono{font-family:"Fragment Mono",monospace;font-size:1.2cqw;letter-spacing:.18em;line-height:1.95;text-transform:uppercase;color:#5C5E4C}
+.jp-batch{font-family:"Fragment Mono",monospace;font-size:1cqw;letter-spacing:.14em;text-transform:uppercase;color:#8B8C77;margin-top:.3cqw}
+.obj .jar-photo{width:min(250px,72%);border-radius:12px;box-shadow:0 18px 40px -18px rgba(25,22,17,.35);overflow:hidden}
+.obj.f-sage{--field:#C9CCB3}
+.obj .view.vphoto{padding:0;height:auto;aspect-ratio:5/4;container-type:inline-size;position:relative}
+.obj .view.vphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.obj .view.vphoto .jp-label{gap:.9cqw}
+
+/* v9: Timeline-standard credibility modules (trial chart, comparison, journals) */
+.journals{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;margin:-26px 0 46px}
+.journals .jl{font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.journals .jname{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:1.02rem;letter-spacing:-.01em;color:var(--ink2)}
+.trial{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(26px,4vw,52px);padding:clamp(28px,4vw,48px);margin-bottom:22px}
+.t-left{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.ttabs{display:flex;gap:8px;flex-wrap:wrap}
+.tt{font-family:"Hanken Grotesk",sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.04em;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink2);cursor:pointer;transition:all .25s}
+.tt:hover{border-color:var(--ink)}
+.tt.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.tclaim{font-family:"Instrument Sans",sans-serif;font-weight:500;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.35;letter-spacing:-.015em;max-width:26ch}
+.tclaim b{color:#A82039;font-weight:600}
+.tsrc{font-family:"Fragment Mono",monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:16px;line-height:1.9}
+.t-chart{position:relative;display:flex;align-items:flex-end;gap:clamp(26px,3vw,46px);justify-content:center;min-height:320px;padding:10px 0 34px}
+.t-chart::after{content:attr(data-axis);position:absolute;left:0;bottom:0;font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.tcol{display:flex;flex-direction:column;align-items:center;gap:10px;justify-content:flex-end;height:280px}
+.tbar{width:clamp(64px,7vw,92px);border-radius:10px 10px 4px 4px;transition:height 1s var(--ease)}
+.tb-p{background:var(--panel);border:1px solid var(--line);height:20%}
+.tb-a{background:#A82039;height:90%}
+.tval{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-.02em;color:var(--ink)}
+.tlab{font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:880px){.trial{grid-template-columns:1fr}.t-chart{min-height:260px}.tcol{height:220px}}
+.cmp{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+.cmp-head{padding:30px 34px 6px;display:flex;flex-direction:column;gap:6px}
+.cmp-head h3{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:1.35rem;letter-spacing:-.015em;margin:0}
+.cmp-head p{font-size:.9rem;color:var(--muted)}
+.cmp-wrap{overflow-x:auto}
+.cmp table{width:100%;border-collapse:collapse;min-width:640px}
+.cmp th,.cmp td{padding:16px 20px;text-align:center;font-size:.88rem;border-top:1px solid var(--line-soft);color:var(--ink2)}
+.cmp th{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:.92rem;color:var(--ink);border-top:none;padding-top:24px}
+.cmp td:first-child,.cmp th:first-child{text-align:left;max-width:260px}
+.cmp td:first-child{color:var(--ink);font-weight:400}
+.cmp .kcol{background:#F2F6F0}
+.cmp .ok{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--vine);color:var(--bone);align-items:center;justify-content:center;font-size:.7rem}
+.cmp .no{color:var(--muted)}
+.cmp .pt{font-size:.78rem;color:var(--muted)}
+.cmp-note{padding:16px 34px 26px;font-size:.82rem;color:var(--muted);line-height:1.7}
+</style>
+
+<div id="loader" aria-hidden="true">
+  <div class="lw"><span style="animation-delay:.05s">K</span><span style="animation-delay:.13s">A</span><span style="animation-delay:.21s">L</span><span style="animation-delay:.29s">P</span><span style="animation-delay:.37s">A</span></div>
+  <span class="seed aril"></span>
+  <div class="cnt"><span id="lc">0</span>%</div>
+</div>
+
+<div id="bar" aria-hidden="true"></div>
+<div id="rail" aria-hidden="true"><span class="rl" id="rl">01 / Molecule</span><span class="rline"><i id="rli"></i></span></div>
+<div id="cur" aria-hidden="true"></div><div id="curo" aria-hidden="true"></div>
+
+<nav aria-label="Main" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Kalpa home"><span class="aril"></span><span class="wordmark">KALPA</span></a>
+    <div class="nav-links">
+      <a href="#molecule">The Molecule</a>
+      <a href="#science">Science</a>
+      <a href="#origin">Source</a>
+      <a href="#objects">Objects</a>
+      <a href="#proof">Proof</a>
+    </div>
+    <a class="btn ink sm mag" href="#founding">Founding Batch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-in">
+    <div class="defn">
+      <b>kal<span style="font-family:'Hanken Grotesk',sans-serif">·</span>pa</b> / Sanskrit, noun.<br>
+      The longest measure of time ever named.<br>
+      One kalpa: <b>4.32 billion years</b>.
+    </div>
+    <h1 class="split" id="heroline">The real <span style="white-space:nowrap">Urolithin A.</span> Finally in India.</h1>
+    <p class="hero-sub">Kalpa One is <b>Mitopure&reg;</b> Urolithin A, the only form proven in human trials. It switches on <b>mitophagy</b>: your cells scrap worn mitochondria and rebuild the engine. Two softgels a morning. <b>500 mg, the exact trial dose.</b></p>
+    <div class="hero-cta">
+      <a class="btn bone mag" href="#founding">Join the founding batch</a>
+      <a class="btn ghostd mag" href="#science">Read the science</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="sline"></span></div>
+  <div class="hero-stats">
+    <div class="hs-in">
+      <div class="hs"><span class="n"><span data-count="500">0</span> mg</span><span class="l">The exact clinically studied dose</span></div>
+      <div class="hs"><span class="n"><span data-count="99.2" data-dec="1">0</span>%</span><span class="l">HPLC purity, assayed every batch</span></div>
+      <div class="hs"><span class="n"><span data-count="20">0</span>+</span><span class="l">Years of research behind Mitopure&reg;</span></div>
+      <div class="hs"><span class="n">0</span><span class="l">Fillers, dyes, proprietary blends</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq">
+    <span>Mitophagy, activated <i></i> Powered by Mitopure&reg;, Switzerland <i></i> 99.2% HPLC purity <i></i> Every assay public <i></i> 60 softgels, 30 mornings <i></i> Rebuilt, daily <i></i></span>
+    <span>Mitophagy, activated <i></i> Powered by Mitopure&reg;, Switzerland <i></i> 99.2% HPLC purity <i></i> Every assay public <i></i> 60 softgels, 30 mornings <i></i> Rebuilt, daily <i></i></span>
+  </div>
+</div>
+
+<section class="reveal-stage fields" id="one" aria-label="Kalpa One product">
+  <div class="rs-in">
+    <div class="rs-copy reveal">
+      <span class="eyebrow"><span class="idx">00 /</span> The Object</span>
+      <span class="chip-pill"><i></i>KLP-01&trade; &middot; Powered by Mitopure&reg;</span>
+      <h2 class="split" data-splitscroll>Kalpa One. The whole idea, in glass.</h2>
+      <p>Sixty softgels, one molecule, clinical dose. <b>No blends, no dyes, no decoys.</b> The jar refills for life; the refill composts.</p>
+      <div class="rs-specline"><span>Mitopure&reg; 500 mg</span><span>60 softgels</span><span>99%+ HPLC</span></div>
+    </div>
+    <div class="rs-stage reveal">
+      <figure class="jar-photo" id="jar" style="margin:0">
+        <img src="__JAR__" alt="Frosted green glass jar of Kalpa One with the printed Kalpa label, amber softgels visible and three loose beside it">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="statement clip">
+  <div class="wrap">
+    <p id="stmt">Two thirds of humanity has lost the ability to make the molecule inside this fruit. <span class="red">We deliver it anyway.</span></p>
+  </div>
+</section>
+
+<div class="band band-fruit" aria-label="Pomegranate">
+  <div class="bimg"><img class="bplx" src="__HERO__" alt="A pomegranate split open against a black background, arils glistening"></div>
+  <div class="band-in"><span class="tag">Punica granatum / where the molecule begins</span></div>
+</div>
+
+<section id="molecule" class="pad clip" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal" data-num="01">
+      <span class="eyebrow"><span class="idx">01 /</span> The Molecule</span>
+      <h2 class="split" data-splitscroll>Your body was designed to make this. Most bodies no longer do.</h2>
+      <p class="lede">Gut microbes turn pomegranate ellagitannins into <b>Urolithin A</b>, the signal that makes cells recycle damaged mitochondria. Only one person in three still hosts those microbes.</p>
+    </div>
+    <div class="mol">
+      <figure class="frame reveal-clip reveal" style="margin:0">
+        <img class="plx" data-plx="30" src="__SEEDS__" alt="A broken pomegranate and scattered arils on dark charred wood">
+        <figcaption>Punica granatum / the fruit that started twenty years of science</figcaption>
+      </figure>
+      <div class="flow reveal">
+        <div class="step"><span class="no">i</span><div><h3>The fruit</h3><p>Cultivated for four thousand years. The active precursors live in the part everyone throws away: <b>the peel</b>.</p></div></div>
+        <div class="step"><span class="no">ii</span><div><h3>The lost conversion</h3><p>Ancient gut flora fermented ellagitannins into Urolithin A. Modern microbiomes mostly can't. Two thirds of us swallow the fruit and excrete the benefit.</p></div></div>
+        <div class="step"><span class="no">iii</span><div><h3>The shortcut</h3><p>Kalpa delivers the finished molecule: Mitopure&reg;, purified past 99% by Amazentis in Switzerland. No lottery, no juice.</p></div></div>
+        <div class="step"><span class="no">iv</span><div><h3>The effect</h3><p><b>Mitophagy</b>: cells flag worn-out mitochondria, dismantle them, rebuild. Housekeeping, switched back on.</p></div></div>
+      </div>
+    </div>
+    <div class="bignums reveal">
+      <div class="bignum"><span class="n">1 in 3</span><span class="t">people carry the gut bacteria required to convert pomegranate into Urolithin A at all.</span></div>
+      <div class="bignum"><span class="n">~<span data-count="40">0</span></span><span class="t">the age around which mitophagy measurably slows and damaged mitochondria accumulate.</span></div>
+      <div class="bignum"><span class="n"><span data-count="6">0</span> L</span><span class="t">of pomegranate juice a day still would not reliably match one clinical dose, even in converters.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sci pad clip" id="science">
+  <div class="wrap">
+    <div class="sec-head reveal" data-num="02">
+      <span class="eyebrow"><span class="idx">02 /</span> The Science</span>
+      <h2 class="split" data-splitscroll>Published, peer-reviewed, and quoted exactly.</h2>
+      <p class="lede">Every number below is from a placebo-controlled human trial of Mitopure&reg;, the exact ingredient inside Kalpa One. Nothing from mice. Nothing rounded up.</p>
+    </div>
+    <div class="journals reveal">
+      <span class="jl">Published in</span>
+      <span class="jname">Cell Reports Medicine</span>
+      <span class="jname">Nature Metabolism</span>
+      <span class="jname">JAMA Network Open</span>
+      <span class="jname">Nature Aging</span>
+    </div>
+    <div class="trial reveal" id="trial">
+      <div class="t-left">
+        <span class="chip-pill"><i></i>Mitopure&reg; / gold-standard trials</span>
+        <div class="ttabs" role="tablist" aria-label="Trial outcomes">
+          <button class="tt on" data-t="0">Renewal</button>
+          <button class="tt" data-t="1">Strength</button>
+          <button class="tt" data-t="2">Endurance</button>
+          <button class="tt" data-t="3">Immunity</button>
+        </div>
+        <p class="tclaim" id="tclaim">Mitochondrial renewal markers rise <b>+39%</b> after 16 weeks, against placebo.</p>
+        <span class="tsrc" id="tsrc">Randomized, double-blind, placebo-controlled<br>Published in Cell Reports Medicine, 2022</span>
+      </div>
+      <div class="t-chart" data-axis="Change vs baseline">
+        <div class="tcol"><div class="tbar tb-p" id="tbp" style="height:20%"></div><span class="tlab">Placebo</span></div>
+        <div class="tcol"><span class="tval" id="tval">+39%</span><div class="tbar tb-a" id="tba" style="height:90%"></div><span class="tlab">Kalpa One</span></div>
+      </div>
+    </div>
+    <div class="cmp reveal">
+      <div class="cmp-head">
+        <h3>One job, done completely.</h3>
+        <p>How Mitopure&reg; Urolithin A compares with the rest of the longevity shelf.</p>
+      </div>
+      <div class="cmp-wrap">
+        <table>
+          <thead><tr><th></th><th class="kcol">Kalpa One</th><th>Creatine</th><th>NAD+ boosters</th><th>CoQ10</th></tr></thead>
+          <tbody>
+            <tr><td>Directly activates mitophagy</td><td class="kcol"><span class="ok">&#10003;</span></td><td class="no">&ndash;</td><td class="no">&ndash;</td><td class="no">&ndash;</td></tr>
+            <tr><td>Placebo-controlled human trials at the exact dose sold</td><td class="kcol"><span class="ok">&#10003;</span></td><td><span class="ok">&#10003;</span></td><td class="pt">Limited</td><td class="pt">Partial</td></tr>
+            <tr><td>Measured gains without changing training</td><td class="kcol"><span class="ok">&#10003;</span></td><td class="no">&ndash;</td><td class="pt">Partial</td><td class="pt">Partial</td></tr>
+            <tr><td>Improves muscle endurance in RCTs</td><td class="kcol"><span class="ok">&#10003;</span></td><td class="pt">Partial</td><td class="no">&ndash;</td><td class="pt">Partial</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">Honesty clause: creatine is excellent, proven and cheap, and it earns its ticks. We compare mechanisms, not marketing. Most Kalpa members take both.</p>
+    </div>
+    <div class="honesty reveal">
+      <span class="hk">What we won't say</span>
+      <p>That it extends human lifespan. No molecule has earned that claim in a controlled trial, and we won't fake it. Trials show <b>improved endurance, strength and cellular biomarkers</b>, with modest effect sizes. That is what we sell. If you want miracles, the internet is full of them.</p>
+    </div>
+  </div>
+</section>
+
+<div class="band" id="origin">
+  <div class="bimg"><img class="bplx" src="__ORCHARD__" alt="An avenue through a pomegranate orchard, ripe fruit hanging over the path"></div>
+  <div class="band-in">
+    <h2 class="serif split" data-splitscroll>Grown in myth. Perfected in Lausanne.</h2>
+    <span class="tag">Source / Amazentis SA, Lausanne, Switzerland / 46.5N 6.6E</span>
+  </div>
+</div>
+
+<section class="pad clip" style="padding-top:clamp(64px,8vw,100px)">
+  <div class="wrap">
+    <div class="origin-copy reveal">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span class="eyebrow"><span class="idx">03 /</span> The Source</span>
+        <h2 class="split" data-splitscroll>We didn't invent the molecule. We secured the one that works.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p>An independent lab tested ten Urolithin A products; <b>six failed to deliver the labeled dose</b>. <b>Mitopure&reg;</b> stands apart: two decades of work at Amazentis, Lausanne, and the form behind nearly every human trial.</p>
+        <p>Kalpa imports it under license, seals it in India, and ships it with the batch assay. Same molecule, same dose as the trials.</p>
+        <div class="spec">
+          <div><span class="k">Ingredient</span><span class="v">Mitopure&reg; Urolithin A</span></div>
+          <div><span class="k">Source</span><span class="v">Amazentis SA, Lausanne, CH</span></div>
+          <div><span class="k">Purity</span><span class="v">99%+ by HPLC</span></div>
+          <div><span class="k">Validation</span><span class="v">Human RCTs, FDA GRAS</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oh" id="objects">
+  <div class="oh-sticky">
+    <div class="oh-head">
+      <span class="eyebrow"><span class="idx">04 /</span> The Objects</span>
+      <h2 style="font-size:clamp(2rem,4.4vw,3.4rem);margin-top:14px">Packaging for a shelf you actually look at.</h2>
+    </div>
+    <div class="oh-track" id="ohtrack">
+      <div class="obj oq"><p>A supplement you take for decades should not look disposable. One vessel for life, a refill that composts, zero plastic.</p></div>
+      <div class="obj f-sage">
+        <div class="view vphoto">
+          <img src="__JARMACRO__" alt="The Kalpa vessel: frosted green glass with the printed Kalpa label, brass seam under the black cap, amber softgels inside">
+        </div>
+        <div class="meta"><span class="on">The Vessel</span><h3>Smoked glass, kept for life</h3><p>UV-filtering smoked glass with a machined aluminium cap and a single brass seam. Bought once, refilled forever.</p></div>
+      </div>
+      <div class="obj f-amber">
+        <div class="view vphoto">
+          <img src="__POUCH__" alt="The Kalpa refill: vine-green compostable pouch with the printed Kalpa label, one amber softgel beside it">
+        </div>
+        <div class="meta"><span class="on">The Refill</span><h3>One pour, thirty mornings</h3><p>Sixty softgels in a nitrogen-flushed, home-compostable pouch in vine green. Arrives monthly, disappears entirely.</p></div>
+      </div>
+      <div class="obj f-bone">
+        <div class="view vphoto">
+          <img src="__CARTON__" alt="The Kalpa carton: uncoated bone board printed with the Kalpa mark, brass foil edge">
+        </div>
+        <div class="meta"><span class="on">The Carton</span><h3>Bone board, vegetable ink</h3><p>Uncoated bone board, brass foil edge. The batch number and its public assay printed inside the lid.</p></div>
+      </div>
+      <div class="obj f-bone">
+        <div class="view vphoto">
+          <img src="__TRIO__" alt="The complete Kalpa system on a travertine slab: branded vessel, refill pouch, carton, and a halved pomegranate">
+        </div>
+        <div class="meta"><span class="on">The System</span><h3>One shelf, nothing disposable</h3><p>Vessel, refill, carton: the whole object family, designed to be kept, refilled, and composted in that order.</p></div>
+      </div>
+    </div>
+    <div class="oh-progress"><div class="track"><i id="ohbar"></i></div></div>
+  </div>
+</section>
+
+<section id="protocol" class="pad clip">
+  <div class="wrap">
+    <div class="sec-head reveal" data-num="05">
+      <span class="eyebrow"><span class="idx">05 /</span> The Protocol</span>
+      <h2 class="split" data-splitscroll>Proof, not vibes. We measure you at day zero.</h2>
+      <p class="lede">Urolithin A is not caffeine. You won't feel it; you'll measure it: <b>+12% strength at week 16, +41% endurance at month four</b> in the trials. If your numbers don't move by day 120, we'd rather you knew.</p>
+    </div>
+    <div class="proto-grid reveal">
+      <figure class="frame reveal-clip" style="margin:0">
+        <img class="plx" data-plx="26" src="__RUNNER__" alt="A lone runner on a tree-lined avenue in early morning light">
+        <figcaption>The ritual is the easy part. The habit is the product.</figcaption>
+      </figure>
+      <div class="proto">
+        <div class="ps"><span class="day">Day 0</span><span class="pt">Baseline</span><p>Grip strength, a max burpee test and a timed farmer's carry, logged in the Kalpa app. Five minutes, no lab.</p></div>
+        <div class="ps"><span class="day">Day 1 to 120</span><span class="pt">The ritual</span><p>Two softgels with your first meal containing fat. Mornings, without exception. That's the entire ask.</p></div>
+        <div class="ps"><span class="day">Day 30 / 60 / 90</span><span class="pt">Check-ins</span><p>Repeat the three tests monthly. The app plots you against the published trial curves for your age band.</p></div>
+        <div class="ps"><span class="day">Day 120</span><span class="pt">The verdict</span><p>Your delta, side by side with the RCT averages. Keep going with data, or stop with a clear conscience.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof pad clip" id="proof">
+  <div class="wrap">
+    <div class="sec-head reveal" data-num="06">
+      <span class="eyebrow"><span class="idx">06 /</span> The Proof</span>
+      <h2 class="split" data-splitscroll>This category has a counterfeit problem. We built the antidote into the label.</h2>
+      <p class="lede">A <b>$5.3 million federal judgment</b> shut down thirty sellers shipping "Urolithin A" with none inside. Kalpa assays every batch at a third-party lab and publishes the certificate before it ships. Scan the carton, see your batch.</p>
+    </div>
+    <div class="proof-grid reveal">
+      <figure class="frame reveal-clip" style="margin:0">
+        <img class="plx" data-plx="24" src="__LAB__" alt="A row of round-bottom flasks in a dim laboratory">
+        <figcaption>The same ingredient the trials used</figcaption>
+      </figure>
+      <div class="assay">
+        <div class="ahead"><span class="dotr"></span><span>Batch KLP-27-001 / third-party certificate of analysis</span></div>
+        <div class="assay-wrap">
+        <table>
+          <thead><tr><th>Assay</th><th>Method</th><th>Specification</th><th>Result</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Urolithin A content</td><td>HPLC-UV</td><td>99.0% min</td><td class="val">99.24%</td><td class="pass">Pass</td></tr>
+            <tr><td>Dose per softgel</td><td>HPLC-UV</td><td>250 mg +/- 5%</td><td class="val">251.6 mg</td><td class="pass">Pass</td></tr>
+            <tr><td>Heavy metals (Pb, As, Cd, Hg)</td><td>ICP-MS</td><td>&lt; USP limits</td><td class="val">Not detected</td><td class="pass">Pass</td></tr>
+            <tr><td>Microbial panel</td><td>USP &lt;2021&gt;</td><td>Within limits</td><td class="val">Conforms</td><td class="pass">Pass</td></tr>
+            <tr><td>Residual solvents</td><td>GC-FID</td><td>&lt; ICH Q3C</td><td class="val">Conforms</td><td class="pass">Pass</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founding pad clip" id="founding">
+  <div class="wrap">
+    <div class="sec-head reveal" data-num="07">
+      <span class="eyebrow"><span class="idx">07 /</span> The Founding Batch</span>
+      <h2 class="split" data-splitscroll>One hundred members. Then the list closes until batch 002.</h2>
+      <p class="lede">Licensed, sourced, sealed: batch 001 lands in India this quarter. The first hundred members lock the founding price for life and get first allocation.</p>
+      <div class="note-box"><span class="ni"></span><p>Mitophagy runs on months, not mornings. Every trial dosed 8 to 17 weeks before measuring; hence the 120-day protocol.</p></div>
+    </div>
+    <div class="fgrid reveal">
+      <div class="plan hero-plan">
+        <span class="pk">Founding · Monthly</span>
+        <span class="price"><span class="rs">₹</span>8,999 <small>/ month, locked for life</small></span>
+        <ul>
+          <li><i></i>60 softgels of Mitopure&reg; Urolithin A, 500 mg daily dose</li>
+          <li><i></i>The smoked-glass vessel, included in month one</li>
+          <li><i></i>Baseline and day-120 strength protocol in the Kalpa app</li>
+          <li><i></i>Public COA for every batch you receive</li>
+          <li><i></i>Pause or cancel anytime, no theatre</li>
+        </ul>
+        <a class="btn ink mag" href="mailto:founders@kalpa.life?subject=Founding%20Batch">Request an invitation</a>
+      </div>
+      <div class="plan">
+        <span class="pk">Founding · Annual</span>
+        <span class="price"><span class="strike">₹1,07,988</span><span class="rs">₹</span>89,990 <small>/ year, two months free</small></span>
+        <ul>
+          <li><i></i>Everything in monthly, billed once</li>
+          <li><i></i>Numbered ceramic edition of the vessel, 100 made</li>
+          <li><i></i>Quarterly deep-dive on your protocol data</li>
+          <li><i></i>First access to every future Kalpa molecule</li>
+        </ul>
+        <a class="btn ghostl mag" href="mailto:founders@kalpa.life?subject=Founding%20Annual">Request an invitation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="pad clip" style="padding-top:0">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head reveal" data-num="08">
+      <span class="eyebrow"><span class="idx">08 /</span> Questions</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.8rem)">Asked, answered.</h2>
+    </div>
+    <div class="reveal">
+      <details>
+        <summary>Why not just eat pomegranates?</summary>
+        <p>Only one in three people host the gut bacteria that convert pomegranate into Urolithin A, and even converters can't eat their way to the 500 mg trial dose. Kalpa delivers the finished molecule, so your microbiome stops being the bottleneck.</p>
+      </details>
+      <details>
+        <summary>Will I feel anything?</summary>
+        <p>Probably not. Urolithin A is not a stimulant; its effects showed up in trials as measured strength and endurance over months. That is why membership includes the day-0 to day-120 protocol: decide on your data, not on vibes.</p>
+      </details>
+      <details>
+        <summary>Is this actually licensed for sale in India?</summary>
+        <p>Yes. Kalpa holds the Indian license to import and sell, and sources Mitopure&reg; directly from its maker. Every carton carries the importer details and batch assay Indian law requires, which grey-market bottles cannot show you.</p>
+      </details>
+      <details>
+        <summary>How is this different from cheap Urolithin A online?</summary>
+        <p>Independent testing and a US federal case found sellers shipping little or no Urolithin A. Kalpa starts from Mitopure&reg;, the only form validated in human trials, and publishes a third-party certificate for every batch, tied to the number on your carton.</p>
+      </details>
+      <details>
+        <summary>What is Mitopure&reg;, and why does it matter if I compete?</summary>
+        <p>Mitopure&reg; is the highly pure Urolithin A from Amazentis, Lausanne: the exact material behind the trials above, with FDA GRAS status and NSF-tested pedigree. If you compete, anonymous powder is how banned-substance surprises happen. Kalpa names its ingredient on the label.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="outro clip">
+  <div class="wrap">
+    <p class="big split" data-splitscroll>Everyone trains. Almost no one rebuilds.</p>
+    <a class="btn bone mag" href="mailto:founders@kalpa.life?subject=Founding%20Batch">Request an invitation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ghost" aria-hidden="true">KALPA</div>
+  <div class="wrap f-in">
+    <div class="f-top">
+      <a class="brand" href="#top"><span class="aril"></span><span class="wordmark">KALPA</span><span class="f-dev">कल्प</span></a>
+      <div class="f-links">
+        <a href="#molecule">Molecule</a>
+        <a href="#science">Science</a>
+        <a href="#origin">Source</a>
+        <a href="#objects">Objects</a>
+        <a href="#founding">Founding</a>
+      </div>
+    </div>
+    <div class="f-live"><span>Mumbai, IN / <b id="clock">00:00:00</b> IST</span><span>Batch <b>001</b> / 100 allocations</span><span>Powered by <b>Mitopure&reg;</b></span></div>
+    <p class="fine">
+      Mitopure&reg; is a registered trademark of Amazentis SA, used under license. Clinical figures cited are from published randomized controlled trials of Mitopure&reg; Urolithin A (Nature Metabolism 2019; Cell Reports Medicine 2022; JAMA Network Open 2022; Nature Aging 2025) and describe the ingredient at studied doses. This page is a pre-launch preview; pricing is indicative until batch 001 opens. Nothing here is medical advice. Photography via Pexels, used under the Pexels licence. © 2026 Kalpa. Rebuilt, daily.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var doc=document, html=doc.documentElement;
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isStatic=/[?&]static/.test(location.search);
+  if(isStatic){html.classList.add('static');}
+  var still=reduced||isStatic;
+
+  /* ---------- preloader ---------- */
+  var loader=doc.getElementById('loader'), lc=doc.getElementById('lc');
+  function finishLoad(){
+    loader.classList.add('done');
+    doc.body.style.overflow='';
+    splitGo(doc.getElementById('heroline'));
+  }
+  if(still){
+    loader.style.display='none';
+    splitAll(); revealAll();
+  }else{
+    doc.body.style.overflow='hidden';
+    var t0=performance.now();
+    (function tick(now){
+      var p=Math.min(1,(now-t0)/1200);
+      lc.textContent=Math.round(p*100);
+      if(p<1){requestAnimationFrame(tick);}else{setTimeout(finishLoad,140);}
+    })(t0);
+  }
+
+  /* ---------- split text ---------- */
+  function splitEl(el){
+    if(el.dataset.splitDone)return;
+    el.dataset.splitDone='1';
+    var nodes=[].slice.call(el.childNodes), out=doc.createDocumentFragment(), idx=0;
+    function wrapWords(text,parent){
+      text.split(/(\s+)/).forEach(function(tk){
+        if(!tk)return;
+        if(/^\s+$/.test(tk)){parent.appendChild(doc.createTextNode(' '));return;}
+        var w=doc.createElement('span');w.className='sw';
+        var i=doc.createElement('span');i.className='swi';i.textContent=tk;
+        i.style.transitionDelay=(idx*45)+'ms';idx++;
+        w.appendChild(i);parent.appendChild(w);
+      });
+    }
+    nodes.forEach(function(n){
+      if(n.nodeType===3){wrapWords(n.textContent,out);}
+      else if(n.nodeType===1){
+        var c=n.cloneNode(false);wrapWords(n.textContent,c);out.appendChild(c);
+      }
+    });
+    el.textContent='';el.appendChild(out);
+  }
+  function splitGo(el){el&&el.classList.add('go');}
+  function splitAll(){
+    [].forEach.call(doc.querySelectorAll('.split'),function(el){splitEl(el);el.classList.add('go');});
+  }
+  if(!still){
+    [].forEach.call(doc.querySelectorAll('.split'),splitEl);
+    var sio=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){splitGo(e.target);sio.unobserve(e.target);}});
+    },{threshold:.35});
+    [].forEach.call(doc.querySelectorAll('[data-splitscroll]'),function(el){sio.observe(el);});
+  }
+
+  /* ---------- reveals ---------- */
+  function revealAll(){[].forEach.call(doc.querySelectorAll('.reveal'),function(el){el.classList.add('in');});}
+  if(still){revealAll();}
+  else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    [].forEach.call(doc.querySelectorAll('.reveal'),function(el){io.observe(el);});
+  }
+
+  /* ---------- statement word-lighting ---------- */
+  var stmt=doc.getElementById('stmt');
+  (function(){
+    var frag=doc.createDocumentFragment();
+    [].slice.call(stmt.childNodes).forEach(function(n){
+      var red=n.nodeType===1;
+      (n.textContent||'').split(/(\s+)/).forEach(function(tk){
+        if(!tk)return;
+        if(/^\s+$/.test(tk)){frag.appendChild(doc.createTextNode(' '));return;}
+        var s=doc.createElement('span');s.className='wd'+(red?' red':'');s.textContent=tk;frag.appendChild(s);
+      });
+    });
+    stmt.textContent='';stmt.appendChild(frag);
+  })();
+  var words=[].slice.call(stmt.querySelectorAll('.wd'));
+
+  /* ---------- count-up ---------- */
+  var counters=[].slice.call(doc.querySelectorAll('[data-count]')).map(function(el){
+    return {el:el,target:parseFloat(el.dataset.count),dec:parseInt(el.dataset.dec||'0',10),done:false};
+  });
+  function runCount(c){
+    if(c.done)return;c.done=true;
+    if(still){c.el.textContent=c.target.toFixed(c.dec);return;}
+    var t0=performance.now();
+    (function step(now){
+      var p=Math.min(1,(now-t0)/1400);var e=1-Math.pow(1-p,3);
+      c.el.textContent=(c.target*e).toFixed(c.dec);
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+  }
+  if(still){counters.forEach(runCount);}
+  else{
+    var cio=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){
+        counters.forEach(function(c){if(c.el===e.target)runCount(c);});
+        cio.unobserve(e.target);
+      }});
+    },{threshold:.6});
+    counters.forEach(function(c){cio.observe(c.el);});
+  }
+
+  /* ---------- clock ---------- */
+  (function(){
+    var el=doc.getElementById('clock');
+    function tick(){
+      var t=new Date(Date.now()+(330+new Date().getTimezoneOffset())*60000);
+      el.textContent=('0'+t.getHours()).slice(-2)+':'+('0'+t.getMinutes()).slice(-2)+':'+('0'+t.getSeconds()).slice(-2);
+    }
+    tick();setInterval(tick,1000);
+  })();
+
+  /* ---------- jar softgels + scroll presence ---------- */
+  (function(){
+    var g=doc.getElementById('gels');if(!g)return;
+    var seeds=[[4,62],[16,74],[30,68],[46,76],[60,64],[74,72],[9,44],[26,50],[43,46],[58,52],[71,42],[18,26],[38,28],[55,30],[66,20],[33,8],[50,12]];
+    for(var i=0;i<seeds.length;i++){
+      var d=doc.createElement('i');d.className='gel';
+      d.style.left=seeds[i][0]+'%';d.style.bottom=seeds[i][1]*0.9+'%';
+      d.style.transform='rotate('+((i*37)%180)+'deg) scale('+(0.8+((i*13)%5)/10)+')';
+      g.appendChild(d);
+    }
+  })();
+
+  /* ---------- trial tabs ---------- */
+  (function(){
+    var T=[
+      {c:'Mitochondrial renewal markers rise <b>+39%</b> after 16 weeks, against placebo.',s:'Randomized, double-blind, placebo-controlled<br>Published in Cell Reports Medicine, 2022',v:'+39%',p:20,a:90},
+      {c:'Leg muscle strength improves <b>+12%</b> at 500 mg per day over 16 weeks.',s:'Randomized, double-blind, placebo-controlled<br>Published in Cell Reports Medicine, 2022',v:'+12%',p:32,a:76},
+      {c:'Muscle contractions to fatigue rise <b>+41%</b> at 1000 mg per day over 4 months.',s:'Randomized, double-blind, placebo-controlled<br>Published in JAMA Network Open, 2022',v:'+41%',p:26,a:88},
+      {c:'CD8+ fuel-burning capacity rises <b>+15pp</b> with more naive T cells in 28 days.',s:'Randomized, double-blind, placebo-controlled<br>Published in Nature Aging, 2025',v:'+15pp',p:24,a:70}
+    ];
+    var claim=doc.getElementById('tclaim'),src=doc.getElementById('tsrc'),val=doc.getElementById('tval'),bp=doc.getElementById('tbp'),ba=doc.getElementById('tba');
+    if(claim){
+      [].forEach.call(doc.querySelectorAll('.tt'),function(btn){
+        btn.addEventListener('click',function(){
+          [].forEach.call(doc.querySelectorAll('.tt'),function(b){b.classList.remove('on');});
+          btn.classList.add('on');
+          var d=T[parseInt(btn.dataset.t,10)];
+          claim.innerHTML=d.c;src.innerHTML=d.s;val.textContent=d.v;
+          bp.style.height=d.p+'%';ba.style.height=d.a+'%';
+        });
+      });
+    }
+  })();
+
+  /* ---------- scroll-linked rAF ---------- */
+  var bar=doc.getElementById('bar'), nav=doc.getElementById('nav');
+  var bands=[].slice.call(doc.querySelectorAll('.band')).map(function(b){return {el:b,img:b.querySelector('.bplx')};});
+  var plxs=[].slice.call(doc.querySelectorAll('.plx'));
+  var oh=doc.querySelector('.oh'), ohtrack=doc.getElementById('ohtrack'), ohbar=doc.getElementById('ohbar'), ohsticky=doc.querySelector('.oh-sticky');
+  var rail=doc.getElementById('rl'), raili=doc.getElementById('rli');
+  var chapters=[['molecule','01 / Molecule'],['science','02 / Science'],['origin','03 / Source'],['objects','04 / Objects'],['protocol','05 / Protocol'],['proof','06 / Proof'],['founding','07 / Founding']];
+  var mqEl=doc.querySelector('.mq'), mqPos=0, mqHalf=0;
+  var omqEl=doc.getElementById('omq2'), omqPos=0, omqHalf=0;
+  if(!still&&mqEl){mqEl.style.animation='none';}
+  function measureMq(){if(mqEl)mqHalf=mqEl.scrollWidth/2;if(omqEl)omqHalf=omqEl.scrollWidth/2;}
+  measureMq();addEventListener('resize',measureMq);
+  var lastY=0, vh=innerHeight, vel=0;
+  addEventListener('resize',function(){vh=innerHeight;});
+  function loop(){
+    var y=scrollY, dh=doc.body.scrollHeight-vh;
+    bar.style.transform='scaleX('+(dh>0?y/dh:0)+')';
+    raili.style.height=(dh>0?(y/dh*100):0)+'%';
+    if(y>vh*.8&&y>lastY+2){nav.classList.add('hide');}else if(y<lastY-2||y<vh*.8){nav.classList.remove('hide');}
+    vel+=((y-lastY)-vel)*.12;
+    lastY=y;
+    if(!still){
+      var boost=Math.min(Math.abs(vel)*.14,7);
+      if(mqEl&&mqHalf){mqPos-=(0.9+boost);if(mqPos<=-mqHalf)mqPos+=mqHalf;mqEl.style.transform='translateX('+mqPos+'px)';}
+      if(omqEl&&omqHalf){omqPos-=(0.7+boost*.8);if(omqPos<=-omqHalf)omqPos+=omqHalf;omqEl.style.transform='translateX('+omqPos+'px)';}
+    }
+    if(!still){
+      bands.forEach(function(b){
+        if(!b.img)return;
+        var br=b.el.getBoundingClientRect();
+        if(br.bottom>0&&br.top<vh){b.img.style.transform='translateY('+((br.top+br.height/2-vh/2)*-.12)+'px)';}
+      });
+      var jarEl=doc.getElementById('jar');
+      if(jarEl){
+        var jr=jarEl.getBoundingClientRect();
+        if(jr.bottom>0&&jr.top<vh){
+          var jp=1-Math.abs((jr.top+jr.height/2)-vh/2)/(vh*.9);
+          jarEl.style.transform='translateY('+((1-jp)*26)+'px) scale('+(0.94+jp*.08)+')';
+        }
+      }
+      plxs.forEach(function(im){
+        var r=im.parentElement.getBoundingClientRect();
+        if(r.bottom>0&&r.top<vh){
+          var k=parseFloat(im.dataset.plx||'26');
+          im.style.transform='translateY('+(((r.top+r.height/2-vh/2)/vh)*-k)+'px)';
+        }
+      });
+      if(oh&&innerWidth>900){
+        var or=oh.getBoundingClientRect();
+        var total=oh.offsetHeight-vh;
+        var p=Math.min(1,Math.max(0,-or.top/total));
+        var max=ohtrack.scrollWidth-innerWidth+innerWidth*.06;
+        ohtrack.style.transform='translateX('+(-p*max)+'px)';
+        if(ohbar)ohbar.style.width=(p*100)+'%';
+      }
+      if(words.length){
+        var sr=stmt.getBoundingClientRect();
+        var sp=Math.min(1,Math.max(0,(vh*.75-sr.top)/(sr.height+vh*.35)));
+        var lit=Math.floor(sp*words.length*1.15);
+        words.forEach(function(w,i){w.classList.toggle('lit',i<lit);});
+      }
+    }
+    var cur='01 / Molecule';
+    for(var i=0;i<chapters.length;i++){
+      var s=doc.getElementById(chapters[i][0]);
+      if(s&&s.getBoundingClientRect().top<vh*.5){cur=chapters[i][1];}
+    }
+    if(rail.textContent!==cur)rail.textContent=cur;
+    requestAnimationFrame(loop);
+  }
+  if(!isStatic){requestAnimationFrame(loop);}
+  else{revealAll();words.forEach(function(w){w.classList.add('lit');});}
+
+  /* ---------- cursor + magnetic ---------- */
+  if(!still&&matchMedia('(pointer:fine)').matches){
+    var cur=doc.getElementById('cur'),curo=doc.getElementById('curo');
+    var mx=-100,my=-100,ox=-100,oy=-100;
+    addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+    (function cl(){
+      ox+=(mx-ox)*.16;oy+=(my-oy)*.16;
+      cur.style.transform='translate('+(mx-3.5)+'px,'+(my-3.5)+'px)';
+      curo.style.transform='translate('+(ox-17)+'px,'+(oy-17)+'px)';
+      requestAnimationFrame(cl);
+    })();
+    [].forEach.call(doc.querySelectorAll('a,button,summary'),function(el){
+      el.addEventListener('mouseenter',function(){curo.classList.add('big');});
+      el.addEventListener('mouseleave',function(){curo.classList.remove('big');});
+    });
+    [].forEach.call(doc.querySelectorAll('.mag'),function(b){
+      b.addEventListener('mousemove',function(e){
+        var r=b.getBoundingClientRect();
+        b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)';
+      });
+      b.addEventListener('mouseleave',function(){b.style.transform='';});
+    });
+  }
+})();
+</script>
