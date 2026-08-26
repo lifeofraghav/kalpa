@@ -13,7 +13,7 @@
   --paper:#FFFFFF; --panel:#F6F6F3; --card:#FFFFFF;
   --ink:#161615; --ink2:#4A4A46; --muted:#8B8B85;
   --line:#E7E7E2; --line-soft:#F0F0EC;
-  --vine:#2E5238; --vine-2:#3F7050; --brass:#A68852;
+  --vine:#1C1C1A; --vine-2:#3A3A38; --brass:#A68852;
   --coal:#111112; --coal-2:#1A1A1B; --coal-line:#2D2D2C;
   --bone:#F8F8F6; --bone-dim:#C6C6C1;
   --maxw:1240px;
@@ -68,7 +68,7 @@ nav.hide{transform:translateY(-100%)}
 .nav-links a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Hanken Grotesk",sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 26px;border-radius:2px;border:1px solid transparent;cursor:pointer;transition:background .25s,border-color .25s,color .25s;will-change:transform}
 .btn.ink{background:var(--ink);color:var(--bone)}
-.btn.ink:hover{background:var(--vine)}
+.btn.ink:hover{background:#383835}
 .btn.bone{background:var(--bone);color:var(--ink)}
 .btn.bone:hover{background:#fff}
 .btn.ghostd{border-color:rgba(246,241,230,.45);color:var(--bone)}
@@ -290,7 +290,7 @@ html.static .oh-track{flex-wrap:wrap;width:auto;padding-bottom:60px}
 .proof .frame{min-height:440px;box-shadow:none}
 .assay{border:1px solid var(--coal-line);border-radius:3px;background:var(--coal-2);overflow:hidden}
 .assay .ahead{display:flex;align-items:center;gap:14px;padding:16px 22px;border-bottom:1px solid var(--coal-line)}
-.assay .dotr{width:8px;height:8px;border-radius:50%;background:#5FA57C;box-shadow:0 0 10px #5FA57C}
+.assay .dotr{width:8px;height:8px;border-radius:50%;background:#A82039;box-shadow:0 0 10px rgba(168,32,57,.6)}
 .assay .ahead span{font-family:"Fragment Mono",monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim)}
 .assay-wrap{overflow-x:auto}
 .assay table{width:100%;border-collapse:collapse;min-width:520px}
@@ -299,7 +299,7 @@ html.static .oh-track{flex-wrap:wrap;width:auto;padding-bottom:60px}
 .assay td{color:var(--bone-dim)}
 .assay td:first-child{color:var(--bone)}
 .assay tr:last-child td{border-bottom:none}
-.assay .pass{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#7FBF9A}
+.assay .pass{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone)}
 .assay .val{font-family:"Fragment Mono",monospace;font-variant-numeric:tabular-nums;color:var(--bone)}
 @media(max-width:920px){.proof-grid{grid-template-columns:1fr}.proof .frame{min-height:300px}}
 
@@ -362,7 +362,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:130;o
 html.static .omq .mq2{transform:none}
 
 /* v5: color-field product moments (Pinterest board: Seed/Timeline/Napits) */
-.fields{--field:#D3D6C1}
+.fields{--field:#E7E5DF}
 .reveal-stage{position:relative;background:var(--field);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
 .rs-in{max-width:var(--maxw);margin:0 auto;padding:clamp(90px,12vw,150px) clamp(20px,4vw,44px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:center}
 .rs-copy{display:flex;flex-direction:column;gap:18px}
@@ -390,7 +390,7 @@ html.static .omq .mq2{transform:none}
 @media(max-width:920px){.rs-in{grid-template-columns:1fr}.rs-stage{min-height:400px}}
 /* objects cards become color-field panels */
 .obj .view{background:var(--field)}
-.obj.f-sage{--field:#DFE5D3}
+.obj.f-sage{--field:#EAE8E2}
 .obj.f-amber{--field:#E7C49C}
 .obj.f-bone{--field:#EBE5D8}
 .obj .view{height:min(360px,40vh)}
@@ -444,7 +444,7 @@ html.static .hero{min-height:760px}
 .hero-sub{color:var(--ink2)}
 .hero-sub b{color:var(--ink)}
 .hero .btn.bone{background:var(--ink);color:var(--bone)}
-.hero .btn.bone:hover{background:var(--vine)}
+.hero .btn.bone:hover{background:#383835}
 .hero .btn.ghostd{border-color:var(--line);color:var(--ink)}
 .hero .btn.ghostd:hover{border-color:var(--ink)}
 .scroll-cue{color:var(--muted)}
@@ -515,7 +515,7 @@ html.static .band-fruit{min-height:640px}
 .cmp th{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:.92rem;color:var(--ink);border-top:none;padding-top:24px}
 .cmp td:first-child,.cmp th:first-child{text-align:left;max-width:260px}
 .cmp td:first-child{color:var(--ink);font-weight:400}
-.cmp .kcol{background:#F2F6F0}
+.cmp .kcol{background:#F3F3EF}
 .cmp .ok{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--vine);color:var(--bone);align-items:center;justify-content:center;font-size:.7rem}
 .cmp .no{color:var(--muted)}
 .cmp .pt{font-size:.78rem;color:var(--muted)}
@@ -548,11 +548,6 @@ html.static .band-fruit{min-height:640px}
 
 <header class="hero" id="top">
   <div class="hero-in">
-    <div class="defn">
-      <b>kal<span style="font-family:'Hanken Grotesk',sans-serif">·</span>pa</b> / Sanskrit, noun.<br>
-      The longest measure of time ever named.<br>
-      One kalpa: <b>4.32 billion years</b>.
-    </div>
     <h1 class="split" id="heroline">The real <span style="white-space:nowrap">Urolithin A.</span> Finally in India.</h1>
     <p class="hero-sub">Myvo One is <b>Mitopure&reg;</b> Urolithin A, the only form proven in human trials. It switches on <b>mitophagy</b>: your cells scrap worn mitochondria and rebuild the engine. Two softgels a morning. <b>500 mg, the exact trial dose.</b></p>
     <div class="hero-cta">
@@ -847,7 +842,7 @@ html.static .band-fruit{min-height:640px}
           <li><i></i>Public COA for every batch you receive</li>
           <li><i></i>Pause or cancel anytime, no theatre</li>
         </ul>
-        <a class="btn ink mag" href="mailto:founders@kalpa.life?subject=Founding%20Batch">Request an invitation</a>
+        <a class="btn ink mag" href="mailto:founders@myvo.life?subject=Founding%20Batch">Request an invitation</a>
       </div>
       <div class="plan">
         <span class="pk">Founding · Annual</span>
@@ -858,7 +853,7 @@ html.static .band-fruit{min-height:640px}
           <li><i></i>Quarterly deep-dive on your protocol data</li>
           <li><i></i>First access to every future Myvo molecule</li>
         </ul>
-        <a class="btn ghostl mag" href="mailto:founders@kalpa.life?subject=Founding%20Annual">Request an invitation</a>
+        <a class="btn ghostl mag" href="mailto:founders@myvo.life?subject=Founding%20Annual">Request an invitation</a>
       </div>
     </div>
   </div>
@@ -898,7 +893,7 @@ html.static .band-fruit{min-height:640px}
 <section class="outro clip">
   <div class="wrap">
     <p class="big split" data-splitscroll>Everyone trains. Almost no one rebuilds.</p>
-    <a class="btn bone mag" href="mailto:founders@kalpa.life?subject=Founding%20Batch">Request an invitation</a>
+    <a class="btn bone mag" href="mailto:founders@myvo.life?subject=Founding%20Batch">Request an invitation</a>
   </div>
 </section>
 
