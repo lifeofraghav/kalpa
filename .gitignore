@@ -1,0 +1,5 @@
+proposal*.html
+plan90*.html
+*.png
+!img/*.png
+overflow_test.html
