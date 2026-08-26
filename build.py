@@ -4,16 +4,16 @@ import base64, pathlib
 
 root = pathlib.Path(__file__).parent
 MAP = {
-    "__JAR__": "jar.jpg",
+    "__JAR__": "jar_blank.jpg",
     "__HERO__": "hero.jpg",
     "__SEEDS__": "seeds.jpg",
     "__ORCHARD__": "orchard.jpg",
     "__RUNNER__": "runner.jpg",
     "__LAB__": "lab.jpg",
-    "__JARMACRO__": "jarm_card.jpg",
-    "__POUCH__": "pouch_card.jpg",
-    "__CARTON__": "carton_card.jpg",
-    "__TRIO__": "trio_card.jpg",
+    "__JARMACRO__": "jarm_blank.jpg",
+    "__POUCH__": "pouch_blank.jpg",
+    "__CARTON__": "carton_blank.jpg",
+    "__TRIO__": "trio_blank.jpg",
 }
 html = (root / "kalpa_tpl3.html").read_text(encoding="utf-8")
 for token, fname in MAP.items():

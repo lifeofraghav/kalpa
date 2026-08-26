@@ -1,21 +1,14 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MYVO</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Fragment+Mono:ital@0;1&display=swap">
-
-<style>
-/* MYVO v3 · porcelain gallery, ink and vine, photography carries the red.
+<meta charset="utf-8"><style>
+/* KALPA v3 · porcelain gallery, ink and vine, photography carries the red.
    Scroll choreography: preloader, split-line type, parallax frames, pinned
    horizontal chapter, count-ups, chapter rail, magnetic buttons, cursor. */
 :root{
-  --paper:#FFFFFF; --panel:#F6F6F3; --card:#FFFFFF;
-  --ink:#161615; --ink2:#4A4A46; --muted:#8B8B85;
-  --line:#E7E7E2; --line-soft:#F0F0EC;
+  --paper:#FAF8F3; --panel:#F1EEE5; --card:#FFFFFF;
+  --ink:#191611; --ink2:#4C4639; --muted:#8A8272;
+  --line:#E4DFD2; --line-soft:#EDE9DE;
   --vine:#2E5238; --vine-2:#3F7050; --brass:#A68852;
-  --coal:#111112; --coal-2:#1A1A1B; --coal-line:#2D2D2C;
-  --bone:#F8F8F6; --bone-dim:#C6C6C1;
+  --coal:#14110D; --coal-2:#1C1813; --coal-line:#332D24;
+  --bone:#F6F1E6; --bone-dim:#C9C2B2;
   --maxw:1240px;
   --shadow:0 1px 2px rgba(25,22,17,.05),0 14px 40px -18px rgba(25,22,17,.14);
   --ease:cubic-bezier(.22,.68,.14,1);
@@ -38,8 +31,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 ::selection{background:var(--vine);color:var(--bone)}
 .eyebrow{font-family:"Fragment Mono",monospace;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--vine)}
 .eyebrow .idx{color:var(--muted)}
-.aril{display:inline-block;width:11px;height:11px;flex:none;border:1.4px solid currentColor;border-radius:50%;position:relative}
-.aril::after{content:"";position:absolute;inset:0;margin:auto;width:3px;height:3px;border-radius:50%;background:currentColor}
+.aril{display:inline-block;width:9px;height:13px;flex:none;background:linear-gradient(150deg,#C13049,#5E1120 78%);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
 
 /* ---------- preloader ---------- */
 #loader{position:fixed;inset:0;z-index:300;background:var(--coal);display:flex;align-items:center;justify-content:center;transition:transform 1s var(--ease);will-change:transform}
@@ -58,7 +50,7 @@ html.static #loader{display:none}
 #rail .rline{width:1px;height:64px;background:var(--line);position:relative;overflow:hidden}
 #rail .rline i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--vine)}
 @media(max-width:1100px){#rail{display:none}}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(228,228,222,.8);transition:transform .5s var(--ease)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,243,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(228,223,210,.7);transition:transform .5s var(--ease)}
 nav.hide{transform:translateY(-100%)}
 .nav-in{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,44px);height:64px;display:flex;align-items:center;gap:34px}
 .brand{display:flex;align-items:center;gap:12px}
@@ -127,13 +119,13 @@ html.static .hero{min-height:900px}
 .mq{display:flex;white-space:nowrap;animation:mq 36s linear infinite;width:max-content}
 @keyframes mq{to{transform:translateX(-50%)}}
 .mq span{font-family:"Fragment Mono",monospace;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);padding:0 16px;display:inline-flex;align-items:center;gap:32px}
-.mq i{width:3px;height:3px;background:var(--muted);border-radius:50%;display:inline-block}
+.mq i{width:6px;height:9px;background:#A82039;border-radius:50% 50% 50% 50%/62% 62% 40% 40%;display:inline-block;transform:rotate(10deg)}
 html.static .mq{animation:none}
 
 /* ---------- statement ---------- */
 .statement{padding:clamp(110px,15vw,190px) 0}
 .statement p{font-family:"Instrument Sans",sans-serif;font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.18;max-width:24ch;letter-spacing:-.01em}
-.statement .wd{color:#D2D2CC;transition:color .35s ease}
+.statement .wd{color:#C8C2B2;transition:color .35s ease}
 .statement .wd.lit{color:var(--ink)}
 .statement .wd.red.lit{color:#A82039}
 html.static .statement .wd{color:var(--ink)}
@@ -223,7 +215,7 @@ html.static .band{min-height:700px}
 .oh-head{max-width:var(--maxw);margin:0 auto;padding:84px clamp(20px,4vw,44px) 40px;width:100%}
 .oh-track{display:flex;gap:22px;padding:0 clamp(20px,4vw,44px);will-change:transform;width:max-content}
 .obj{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);width:min(430px,82vw);flex:none}
-.obj .view{height:min(340px,38vh);display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(180deg,#F4F4F1,#EBEBE7)}
+.obj .view{height:min(340px,38vh);display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(180deg,#EFECE3,#E5E1D4)}
 .obj .meta{padding:22px 24px 26px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:7px}
 .obj .meta .on{font-family:"Fragment Mono",monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--vine)}
 .obj .meta h3{font-family:"Hanken Grotesk",sans-serif;font-size:1.05rem;font-weight:500;margin:0;color:var(--ink)}
@@ -295,7 +287,7 @@ html.static .oh-track{flex-wrap:wrap;width:auto;padding-bottom:60px}
 .assay-wrap{overflow-x:auto}
 .assay table{width:100%;border-collapse:collapse;min-width:520px}
 .assay td,.assay th{padding:14px 22px;text-align:left;font-size:.86rem;border-bottom:1px solid var(--coal-line)}
-.assay th{font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#8F8F8A;font-weight:400}
+.assay th{font-family:"Fragment Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#8F887A;font-weight:400}
 .assay td{color:var(--bone-dim)}
 .assay td:first-child{color:var(--bone)}
 .assay tr:last-child td{border-bottom:none}
@@ -304,7 +296,7 @@ html.static .oh-track{flex-wrap:wrap;width:auto;padding-bottom:60px}
 @media(max-width:920px){.proof-grid{grid-template-columns:1fr}.proof .frame{min-height:300px}}
 
 /* founding */
-.founding .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.founding .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px}
 .plan{border:1px solid var(--line);border-radius:3px;background:var(--card);padding:36px 34px 38px;display:flex;flex-direction:column;gap:20px;box-shadow:var(--shadow)}
 .plan.hero-plan{border-color:var(--vine);box-shadow:0 0 0 1px var(--vine),var(--shadow)}
 .plan .pk{font-family:"Fragment Mono",monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vine)}
@@ -313,7 +305,7 @@ html.static .oh-track{flex-wrap:wrap;width:auto;padding-bottom:60px}
 .plan .price small{font-family:"Hanken Grotesk",sans-serif;font-size:.85rem;color:var(--muted);letter-spacing:.04em}
 .plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
 .plan li{display:flex;gap:12px;align-items:flex-start;font-size:.92rem;color:var(--ink2);line-height:1.6}
-.plan li i{width:4px;height:4px;flex:none;margin-top:10px;background:var(--muted);border-radius:50%}
+.plan li i{width:6px;height:9px;flex:none;margin-top:7px;background:#A82039;border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg)}
 .plan .btn{margin-top:6px}
 @media(max-width:760px){.founding .fgrid{grid-template-columns:1fr}}
 
@@ -337,12 +329,12 @@ footer{border-top:1px solid var(--coal-line);background:var(--coal);padding:70px
 .f-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
 footer .wordmark{color:var(--bone)}
 .f-links{display:flex;gap:28px;flex-wrap:wrap}
-.f-links a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#8F8F8A;transition:color .2s}
+.f-links a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#8F887A;transition:color .2s}
 .f-links a:hover{color:var(--bone)}
-.fine{font-size:.76rem;color:#8F8F8A;line-height:1.8;max-width:100ch;border-top:1px solid var(--coal-line);padding-top:26px}
+.fine{font-size:.76rem;color:#8F887A;line-height:1.8;max-width:100ch;border-top:1px solid var(--coal-line);padding-top:26px}
 
 /* v4 additions */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:130;opacity:.025;
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:130;opacity:.04;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
 .sec-head{position:relative;z-index:0}
 .sec-head::before{content:attr(data-num);position:absolute;right:0;top:-.32em;z-index:-1;
@@ -356,8 +348,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:130;o
 .omq span{font-family:"Instrument Sans",sans-serif;font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.2;
   color:transparent;-webkit-text-stroke:1px rgba(246,241,230,.34);letter-spacing:.06em;
   padding:0 .5em;display:inline-flex;align-items:center;gap:.55em}
-.omq i{width:.14em;height:.14em;background:rgba(248,248,246,.4);border-radius:50%;flex:none}
-.f-live{display:flex;gap:28px;flex-wrap:wrap;font-family:"Fragment Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8F8F8A}
+.omq i{width:.28em;height:.4em;background:linear-gradient(150deg,#C13049,#5E1120);border-radius:50% 50% 50% 50%/62% 62% 40% 40%;transform:rotate(10deg);flex:none}
+.f-live{display:flex;gap:28px;flex-wrap:wrap;font-family:"Fragment Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8F887A}
 .f-live b{color:var(--bone);font-weight:400}
 html.static .omq .mq2{transform:none}
 
@@ -464,7 +456,7 @@ html.static .band-fruit{min-height:640px}
 #loader .cnt{color:var(--muted)}
 .marquee{padding:13px 0}
 .mq span{font-size:.6rem;color:var(--muted)}
-.wordmark{font-weight:500;letter-spacing:.52em;padding-left:.52em;font-size:.78rem}
+.wordmark{font-weight:600;letter-spacing:.34em;padding-left:.34em;font-size:.95rem}
 .mb .mlw,.pouch .psw,.carton .cw{font-family:"Instrument Sans",sans-serif;font-weight:600}
 
 /* v8: real packshot with composited live-type label */
@@ -521,660 +513,38 @@ html.static .band-fruit{min-height:640px}
 .cmp .pt{font-size:.78rem;color:var(--muted)}
 .cmp-note{padding:16px 34px 26px;font-size:.82rem;color:var(--muted);line-height:1.7}
 </style>
-
-<div id="loader" aria-hidden="true">
-  <div class="lw"><span style="animation-delay:.05s">M</span><span style="animation-delay:.14s">Y</span><span style="animation-delay:.23s">V</span><span style="animation-delay:.32s">O</span></div>
-  <span class="seed aril"></span>
-  <div class="cnt"><span id="lc">0</span>%</div>
-</div>
-
-<div id="bar" aria-hidden="true"></div>
-<div id="rail" aria-hidden="true"><span class="rl" id="rl">01 / Molecule</span><span class="rline"><i id="rli"></i></span></div>
-<div id="cur" aria-hidden="true"></div><div id="curo" aria-hidden="true"></div>
-
-<nav aria-label="Main" id="nav">
-  <div class="nav-in">
-    <a class="brand" href="#top" aria-label="Myvo home"><span class="aril"></span><span class="wordmark">MYVO</span></a>
-    <div class="nav-links">
-      <a href="#molecule">The Molecule</a>
-      <a href="#science">Science</a>
-      <a href="#origin">Source</a>
-      <a href="#objects">Objects</a>
-      <a href="#proof">Proof</a>
-    </div>
-    <a class="btn ink sm mag" href="#founding">Founding Batch</a>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="hero-in">
-    <div class="defn">
-      <b>kal<span style="font-family:'Hanken Grotesk',sans-serif">·</span>pa</b> / Sanskrit, noun.<br>
-      The longest measure of time ever named.<br>
-      One kalpa: <b>4.32 billion years</b>.
-    </div>
-    <h1 class="split" id="heroline">The real <span style="white-space:nowrap">Urolithin A.</span> Finally in India.</h1>
-    <p class="hero-sub">Myvo One is <b>Mitopure&reg;</b> Urolithin A, the only form proven in human trials. It switches on <b>mitophagy</b>: your cells scrap worn mitochondria and rebuild the engine. Two softgels a morning. <b>500 mg, the exact trial dose.</b></p>
-    <div class="hero-cta">
-      <a class="btn bone mag" href="#founding">Join the founding batch</a>
-      <a class="btn ghostd mag" href="#science">Read the science</a>
-    </div>
-  </div>
-  <div class="scroll-cue"><span>Scroll</span><span class="sline"></span></div>
-  <div class="hero-stats">
-    <div class="hs-in">
-      <div class="hs"><span class="n"><span data-count="500">0</span> mg</span><span class="l">The exact clinically studied dose</span></div>
-      <div class="hs"><span class="n"><span data-count="99.2" data-dec="1">0</span>%</span><span class="l">HPLC purity, assayed every batch</span></div>
-      <div class="hs"><span class="n"><span data-count="20">0</span>+</span><span class="l">Years of research behind Mitopure&reg;</span></div>
-      <div class="hs"><span class="n">0</span><span class="l">Fillers, dyes, proprietary blends</span></div>
-    </div>
-  </div>
-</header>
-
-<div class="marquee" aria-hidden="true">
-  <div class="mq">
-    <span>Mitophagy, activated <i></i> Powered by Mitopure&reg;, Switzerland <i></i> 99.2% HPLC purity <i></i> Every assay public <i></i> 60 softgels, 30 mornings <i></i> Rebuilt, daily <i></i></span>
-    <span>Mitophagy, activated <i></i> Powered by Mitopure&reg;, Switzerland <i></i> 99.2% HPLC purity <i></i> Every assay public <i></i> 60 softgels, 30 mornings <i></i> Rebuilt, daily <i></i></span>
-  </div>
-</div>
-
-<section class="reveal-stage fields" id="one" aria-label="Myvo One product">
-  <div class="rs-in">
-    <div class="rs-copy reveal">
-      <span class="eyebrow"><span class="idx">00 /</span> The Object</span>
-      <span class="chip-pill"><i></i>MYV-01&trade; &middot; Powered by Mitopure&reg;</span>
-      <h2 class="split" data-splitscroll>Myvo One. The whole idea, in glass.</h2>
-      <p>Sixty softgels, one molecule, clinical dose. <b>No blends, no dyes, no decoys.</b> The jar refills for life; the refill composts.</p>
-      <div class="rs-specline"><span>Mitopure&reg; 500 mg</span><span>60 softgels</span><span>99%+ HPLC</span></div>
-    </div>
-    <div class="rs-stage reveal">
-      <figure class="jar-photo" id="jar" style="margin:0">
-        <img src="__JAR__" alt="Frosted green glass jar of Myvo One, amber softgels visible, two loose beside it">
-        <div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%">
-          <span class="jp-w">MYVO</span>
-          <span class="jp-rule"></span>
-          <span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span>
-          <span class="jp-batch">MYV-27-001 / Made with Mitopure&reg;</span>
-        </div>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="statement clip">
+<body style="margin:0">
+<section class="sci pad clip" id="science" style="padding:60px 0">
   <div class="wrap">
-    <p id="stmt">Two thirds of humanity has lost the ability to make the molecule inside this fruit. <span class="red">We deliver it anyway.</span></p>
-  </div>
-</section>
-
-<div class="band band-fruit" aria-label="Pomegranate">
-  <div class="bimg"><img class="bplx" src="__HERO__" alt="A pomegranate split open against a black background, arils glistening"></div>
-  <div class="band-in"><span class="tag">Punica granatum / where the molecule begins</span></div>
-</div>
-
-<section id="molecule" class="pad clip" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal" data-num="01">
+    <div class="sec-head reveal in" data-num="01">
       <span class="eyebrow"><span class="idx">01 /</span> The Molecule</span>
-      <h2 class="split" data-splitscroll>Your body was designed to make this. Most bodies no longer do.</h2>
-      <p class="lede">Gut microbes turn pomegranate ellagitannins into <b>Urolithin A</b>, the signal that makes cells recycle damaged mitochondria. Only one person in three still hosts those microbes.</p>
-    </div>
-    <div class="mol">
-      <figure class="frame reveal-clip reveal" style="margin:0">
-        <img class="plx" data-plx="30" src="__SEEDS__" alt="A broken pomegranate and scattered arils on dark charred wood">
-        <figcaption>Punica granatum / the fruit that started twenty years of science</figcaption>
-      </figure>
-      <div class="flow reveal">
-        <div class="step"><span class="no">i</span><div><h3>The fruit</h3><p>Cultivated for four thousand years. The active precursors live in the part everyone throws away: <b>the peel</b>.</p></div></div>
-        <div class="step"><span class="no">ii</span><div><h3>The lost conversion</h3><p>Ancient gut flora fermented ellagitannins into Urolithin A. Modern microbiomes mostly can't. Two thirds of us swallow the fruit and excrete the benefit.</p></div></div>
-        <div class="step"><span class="no">iii</span><div><h3>The shortcut</h3><p>Myvo delivers the finished molecule: Mitopure&reg;, purified past 99% by Amazentis in Switzerland. No lottery, no juice.</p></div></div>
-        <div class="step"><span class="no">iv</span><div><h3>The effect</h3><p><b>Mitophagy</b>: cells flag worn-out mitochondria, dismantle them, rebuild. Housekeeping, switched back on.</p></div></div>
-      </div>
-    </div>
-    <div class="bignums reveal">
-      <div class="bignum"><span class="n">1 in 3</span><span class="t">people carry the gut bacteria required to convert pomegranate into Urolithin A at all.</span></div>
-      <div class="bignum"><span class="n">~<span data-count="40">0</span></span><span class="t">the age around which mitophagy measurably slows and damaged mitochondria accumulate.</span></div>
-      <div class="bignum"><span class="n"><span data-count="6">0</span> L</span><span class="t">of pomegranate juice a day still would not reliably match one clinical dose, even in converters.</span></div>
+      <h2 class="split" id="h">Your body was designed to make this. Most bodies no longer do.</h2>
+      <p class="lede">Gut microbes turn pomegranate ellagitannins into <b>Urolithin A</b>, the signal that makes cells recycle damaged mitochondria.</p>
     </div>
   </div>
 </section>
-
-<section class="sci pad clip" id="science">
-  <div class="wrap">
-    <div class="sec-head reveal" data-num="02">
-      <span class="eyebrow"><span class="idx">02 /</span> The Science</span>
-      <h2 class="split" data-splitscroll>Published, peer-reviewed, and quoted exactly.</h2>
-      <p class="lede">Every number below is from a placebo-controlled human trial of Mitopure&reg;, the exact ingredient inside Myvo One. Nothing from mice. Nothing rounded up.</p>
-    </div>
-    <div class="journals reveal">
-      <span class="jl">Published in</span>
-      <span class="jname">Cell Reports Medicine</span>
-      <span class="jname">Nature Metabolism</span>
-      <span class="jname">JAMA Network Open</span>
-      <span class="jname">Nature Aging</span>
-    </div>
-    <div class="trial reveal" id="trial">
-      <div class="t-left">
-        <span class="chip-pill"><i></i>Mitopure&reg; / gold-standard trials</span>
-        <div class="ttabs" role="tablist" aria-label="Trial outcomes">
-          <button class="tt on" data-t="0">Renewal</button>
-          <button class="tt" data-t="1">Strength</button>
-          <button class="tt" data-t="2">Endurance</button>
-          <button class="tt" data-t="3">Immunity</button>
-        </div>
-        <p class="tclaim" id="tclaim">Mitochondrial renewal markers rise <b>+39%</b> after 16 weeks, against placebo.</p>
-        <span class="tsrc" id="tsrc">Randomized, double-blind, placebo-controlled<br>Published in Cell Reports Medicine, 2022</span>
-      </div>
-      <div class="t-chart" data-axis="Change vs baseline">
-        <div class="tcol"><div class="tbar tb-p" id="tbp" style="height:20%"></div><span class="tlab">Placebo</span></div>
-        <div class="tcol"><span class="tval" id="tval">+39%</span><div class="tbar tb-a" id="tba" style="height:90%"></div><span class="tlab">Myvo One</span></div>
-      </div>
-    </div>
-    <div class="cmp reveal">
-      <div class="cmp-head">
-        <h3>One job, done completely.</h3>
-        <p>How Mitopure&reg; Urolithin A compares with the rest of the longevity shelf.</p>
-      </div>
-      <div class="cmp-wrap">
-        <table>
-          <thead><tr><th></th><th class="kcol">Myvo One</th><th>Creatine</th><th>NAD+ boosters</th><th>CoQ10</th></tr></thead>
-          <tbody>
-            <tr><td>Directly activates mitophagy</td><td class="kcol"><span class="ok">&#10003;</span></td><td class="no">&ndash;</td><td class="no">&ndash;</td><td class="no">&ndash;</td></tr>
-            <tr><td>Placebo-controlled human trials at the exact dose sold</td><td class="kcol"><span class="ok">&#10003;</span></td><td><span class="ok">&#10003;</span></td><td class="pt">Limited</td><td class="pt">Partial</td></tr>
-            <tr><td>Measured gains without changing training</td><td class="kcol"><span class="ok">&#10003;</span></td><td class="no">&ndash;</td><td class="pt">Partial</td><td class="pt">Partial</td></tr>
-            <tr><td>Improves muscle endurance in RCTs</td><td class="kcol"><span class="ok">&#10003;</span></td><td class="pt">Partial</td><td class="no">&ndash;</td><td class="pt">Partial</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="cmp-note">Honesty clause: creatine is excellent, proven and cheap, and it earns its ticks. We compare mechanisms, not marketing. Most Myvo members take both.</p>
-    </div>
-    <div class="honesty reveal">
-      <span class="hk">What we won't say</span>
-      <p>That it extends human lifespan. No molecule has earned that claim in a controlled trial, and we won't fake it. Trials show <b>improved endurance, strength and cellular biomarkers</b>, with modest effect sizes. That is what we sell. If you want miracles, the internet is full of them.</p>
-    </div>
-  </div>
-</section>
-
-<div class="band" id="origin">
-  <div class="bimg"><img class="bplx" src="__ORCHARD__" alt="An avenue through a pomegranate orchard, ripe fruit hanging over the path"></div>
-  <div class="band-in">
-    <h2 class="serif split" data-splitscroll>Grown in myth. Perfected in Lausanne.</h2>
-    <span class="tag">Source / Amazentis SA, Lausanne, Switzerland / 46.5N 6.6E</span>
-  </div>
-</div>
-
-<section class="pad clip" style="padding-top:clamp(64px,8vw,100px)">
-  <div class="wrap">
-    <div class="origin-copy reveal">
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <span class="eyebrow"><span class="idx">03 /</span> The Source</span>
-        <h2 class="split" data-splitscroll>We didn't invent the molecule. We secured the one that works.</h2>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:22px">
-        <p>An independent lab tested ten Urolithin A products; <b>six failed to deliver the labeled dose</b>. <b>Mitopure&reg;</b> stands apart: two decades of work at Amazentis, Lausanne, and the form behind nearly every human trial.</p>
-        <p>Myvo imports it under license, seals it in India, and ships it with the batch assay. Same molecule, same dose as the trials.</p>
-        <div class="spec">
-          <div><span class="k">Ingredient</span><span class="v">Mitopure&reg; Urolithin A</span></div>
-          <div><span class="k">Source</span><span class="v">Amazentis SA, Lausanne, CH</span></div>
-          <div><span class="k">Purity</span><span class="v">99%+ by HPLC</span></div>
-          <div><span class="k">Validation</span><span class="v">Human RCTs, FDA GRAS</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="oh" id="objects">
-  <div class="oh-sticky">
-    <div class="oh-head">
-      <span class="eyebrow"><span class="idx">04 /</span> The Objects</span>
-      <h2 style="font-size:clamp(2rem,4.4vw,3.4rem);margin-top:14px">Packaging for a shelf you actually look at.</h2>
-    </div>
-    <div class="oh-track" id="ohtrack">
-      <div class="obj oq"><p>A supplement you take for decades should not look disposable. One vessel for life, a refill that composts, zero plastic.</p></div>
-      <div class="obj f-sage">
-        <div class="view vphoto">
-          <img src="__JARMACRO__" alt="The Myvo vessel: frosted green glass, brass seam under the black cap, amber softgels inside">
-          <div class="jp-label" aria-hidden="true" style="left:27%;right:27%;top:62%;height:30%">
-            <span class="jp-w" style="font-size:4.6cqw">MYVO</span>
-            <span class="jp-rule"></span>
-            <span class="jp-mono" style="font-size:1.5cqw">Urolithin A / 500 mg</span>
-          </div>
-        </div>
-        <div class="meta"><span class="on">The Vessel</span><h3>Smoked glass, kept for life</h3><p>UV-filtering smoked glass with a machined aluminium cap and a single brass seam. Bought once, refilled forever.</p></div>
-      </div>
-      <div class="obj f-amber">
-        <div class="view vphoto">
-          <img src="__POUCH__" alt="The Myvo refill: vine-green compostable pouch, one amber softgel beside it">
-          <div class="jp-label" aria-hidden="true" style="left:35%;right:37%;top:36%;height:30%">
-            <span class="jp-w" style="font-size:4cqw">MYVO</span>
-            <span class="jp-rule"></span>
-            <span class="jp-mono" style="font-size:1.4cqw">Refill / 60 softgels<br>Compostable foil</span>
-          </div>
-        </div>
-        <div class="meta"><span class="on">The Refill</span><h3>One pour, thirty mornings</h3><p>Sixty softgels in a nitrogen-flushed, home-compostable pouch in vine green. Arrives monthly, disappears entirely.</p></div>
-      </div>
-      <div class="obj f-bone">
-        <div class="view vphoto">
-          <img src="__CARTON__" alt="The Myvo carton: uncoated bone board with blind-embossed ring, brass foil edge">
-          <div class="jp-label" aria-hidden="true" style="left:30%;right:30%;top:42%;height:14%;transform:rotate(13deg);color:#A6A095">
-            <span class="jp-w" style="font-size:3.2cqw;color:#A6A095">MYVO</span>
-            <span class="jp-mono" style="font-size:1.1cqw;color:#B3ADA2">Rebuilt, daily</span>
-          </div>
-        </div>
-        <div class="meta"><span class="on">The Carton</span><h3>Bone board, vegetable ink</h3><p>Uncoated bone board, brass foil edge. The batch number and its public assay printed inside the lid.</p></div>
-      </div>
-      <div class="obj f-bone">
-        <div class="view vphoto">
-          <img src="__TRIO__" alt="The complete Myvo system: vessel, refill pouch, carton, and a halved pomegranate">
-        </div>
-        <div class="meta"><span class="on">The System</span><h3>One shelf, nothing disposable</h3><p>Vessel, refill, carton: the whole object family, designed to be kept, refilled, and composted in that order.</p></div>
-      </div>
-    </div>
-    <div class="oh-progress"><div class="track"><i id="ohbar"></i></div></div>
-  </div>
-</section>
-
-<section id="protocol" class="pad clip">
-  <div class="wrap">
-    <div class="sec-head reveal" data-num="05">
-      <span class="eyebrow"><span class="idx">05 /</span> The Protocol</span>
-      <h2 class="split" data-splitscroll>Proof, not vibes. We measure you at day zero.</h2>
-      <p class="lede">Urolithin A is not caffeine. You won't feel it; you'll measure it: <b>+12% strength at week 16, +41% endurance at month four</b> in the trials. If your numbers don't move by day 120, we'd rather you knew.</p>
-    </div>
-    <div class="proto-grid reveal">
-      <figure class="frame reveal-clip" style="margin:0">
-        <img class="plx" data-plx="26" src="__RUNNER__" alt="A lone runner on a tree-lined avenue in early morning light">
-        <figcaption>The ritual is the easy part. The habit is the product.</figcaption>
-      </figure>
-      <div class="proto">
-        <div class="ps"><span class="day">Day 0</span><span class="pt">Baseline</span><p>Grip strength, a max burpee test and a timed farmer's carry, logged in the Myvo app. Five minutes, no lab.</p></div>
-        <div class="ps"><span class="day">Day 1 to 120</span><span class="pt">The ritual</span><p>Two softgels with your first meal containing fat. Mornings, without exception. That's the entire ask.</p></div>
-        <div class="ps"><span class="day">Day 30 / 60 / 90</span><span class="pt">Check-ins</span><p>Repeat the three tests monthly. The app plots you against the published trial curves for your age band.</p></div>
-        <div class="ps"><span class="day">Day 120</span><span class="pt">The verdict</span><p>Your delta, side by side with the RCT averages. Keep going with data, or stop with a clear conscience.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="proof pad clip" id="proof">
-  <div class="wrap">
-    <div class="sec-head reveal" data-num="06">
-      <span class="eyebrow"><span class="idx">06 /</span> The Proof</span>
-      <h2 class="split" data-splitscroll>This category has a counterfeit problem. We built the antidote into the label.</h2>
-      <p class="lede">A <b>$5.3 million federal judgment</b> shut down thirty sellers shipping "Urolithin A" with none inside. Myvo assays every batch at a third-party lab and publishes the certificate before it ships. Scan the carton, see your batch.</p>
-    </div>
-    <div class="proof-grid reveal">
-      <figure class="frame reveal-clip" style="margin:0">
-        <img class="plx" data-plx="24" src="__LAB__" alt="A row of round-bottom flasks in a dim laboratory">
-        <figcaption>The same ingredient the trials used</figcaption>
-      </figure>
-      <div class="assay">
-        <div class="ahead"><span class="dotr"></span><span>Batch MYV-27-001 / third-party certificate of analysis</span></div>
-        <div class="assay-wrap">
-        <table>
-          <thead><tr><th>Assay</th><th>Method</th><th>Specification</th><th>Result</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Urolithin A content</td><td>HPLC-UV</td><td>99.0% min</td><td class="val">99.24%</td><td class="pass">Pass</td></tr>
-            <tr><td>Dose per softgel</td><td>HPLC-UV</td><td>250 mg +/- 5%</td><td class="val">251.6 mg</td><td class="pass">Pass</td></tr>
-            <tr><td>Heavy metals (Pb, As, Cd, Hg)</td><td>ICP-MS</td><td>&lt; USP limits</td><td class="val">Not detected</td><td class="pass">Pass</td></tr>
-            <tr><td>Microbial panel</td><td>USP &lt;2021&gt;</td><td>Within limits</td><td class="val">Conforms</td><td class="pass">Pass</td></tr>
-            <tr><td>Residual solvents</td><td>GC-FID</td><td>&lt; ICH Q3C</td><td class="val">Conforms</td><td class="pass">Pass</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="founding pad clip" id="founding">
-  <div class="wrap">
-    <div class="sec-head reveal" data-num="07">
-      <span class="eyebrow"><span class="idx">07 /</span> The Founding Batch</span>
-      <h2 class="split" data-splitscroll>One hundred members. Then the list closes until batch 002.</h2>
-      <p class="lede">Licensed, sourced, sealed: batch 001 lands in India this quarter. The first hundred members lock the founding price for life and get first allocation.</p>
-      <div class="note-box"><span class="ni"></span><p>Mitophagy runs on months, not mornings. Every trial dosed 8 to 17 weeks before measuring; hence the 120-day protocol.</p></div>
-    </div>
-    <div class="fgrid reveal">
-      <div class="plan hero-plan">
-        <span class="pk">Founding · Monthly</span>
-        <span class="price"><span class="rs">₹</span>8,999 <small>/ month, locked for life</small></span>
-        <ul>
-          <li><i></i>60 softgels of Mitopure&reg; Urolithin A, 500 mg daily dose</li>
-          <li><i></i>The smoked-glass vessel, included in month one</li>
-          <li><i></i>Baseline and day-120 strength protocol in the Myvo app</li>
-          <li><i></i>Public COA for every batch you receive</li>
-          <li><i></i>Pause or cancel anytime, no theatre</li>
-        </ul>
-        <a class="btn ink mag" href="mailto:founders@kalpa.life?subject=Founding%20Batch">Request an invitation</a>
-      </div>
-      <div class="plan">
-        <span class="pk">Founding · Annual</span>
-        <span class="price"><span class="strike">₹1,07,988</span><span class="rs">₹</span>89,990 <small>/ year, two months free</small></span>
-        <ul>
-          <li><i></i>Everything in monthly, billed once</li>
-          <li><i></i>Numbered ceramic edition of the vessel, 100 made</li>
-          <li><i></i>Quarterly deep-dive on your protocol data</li>
-          <li><i></i>First access to every future Myvo molecule</li>
-        </ul>
-        <a class="btn ghostl mag" href="mailto:founders@kalpa.life?subject=Founding%20Annual">Request an invitation</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="pad clip" style="padding-top:0">
-  <div class="wrap" style="max-width:840px">
-    <div class="sec-head reveal" data-num="08">
-      <span class="eyebrow"><span class="idx">08 /</span> Questions</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.8rem)">Asked, answered.</h2>
-    </div>
-    <div class="reveal">
-      <details>
-        <summary>Why not just eat pomegranates?</summary>
-        <p>Only one in three people host the gut bacteria that convert pomegranate into Urolithin A, and even converters can't eat their way to the 500 mg trial dose. Myvo delivers the finished molecule, so your microbiome stops being the bottleneck.</p>
-      </details>
-      <details>
-        <summary>Will I feel anything?</summary>
-        <p>Probably not. Urolithin A is not a stimulant; its effects showed up in trials as measured strength and endurance over months. That is why membership includes the day-0 to day-120 protocol: decide on your data, not on vibes.</p>
-      </details>
-      <details>
-        <summary>Is this actually licensed for sale in India?</summary>
-        <p>Yes. Myvo holds the Indian license to import and sell, and sources Mitopure&reg; directly from its maker. Every carton carries the importer details and batch assay Indian law requires, which grey-market bottles cannot show you.</p>
-      </details>
-      <details>
-        <summary>How is this different from cheap Urolithin A online?</summary>
-        <p>Independent testing and a US federal case found sellers shipping little or no Urolithin A. Myvo starts from Mitopure&reg;, the only form validated in human trials, and publishes a third-party certificate for every batch, tied to the number on your carton.</p>
-      </details>
-      <details>
-        <summary>What is Mitopure&reg;, and why does it matter if I compete?</summary>
-        <p>Mitopure&reg; is the highly pure Urolithin A from Amazentis, Lausanne: the exact material behind the trials above, with FDA GRAS status and NSF-tested pedigree. If you compete, anonymous powder is how banned-substance surprises happen. Myvo names its ingredient on the label.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="outro clip">
-  <div class="wrap">
-    <p class="big split" data-splitscroll>Everyone trains. Almost no one rebuilds.</p>
-    <a class="btn bone mag" href="mailto:founders@kalpa.life?subject=Founding%20Batch">Request an invitation</a>
-  </div>
-</section>
-
-<footer>
-  <div class="ghost" aria-hidden="true">MYVO</div>
-  <div class="wrap f-in">
-    <div class="f-top">
-      <a class="brand" href="#top"><span class="aril"></span><span class="wordmark">MYVO</span></a>
-      <div class="f-links">
-        <a href="#molecule">Molecule</a>
-        <a href="#science">Science</a>
-        <a href="#origin">Source</a>
-        <a href="#objects">Objects</a>
-        <a href="#founding">Founding</a>
-      </div>
-    </div>
-    <div class="f-live"><span>Mumbai, IN / <b id="clock">00:00:00</b> IST</span><span>Batch <b>001</b> / 100 allocations</span><span>Powered by <b>Mitopure&reg;</b></span></div>
-    <p class="fine">
-      Mitopure&reg; is a registered trademark of Amazentis SA, used under license. Clinical figures cited are from published randomized controlled trials of Mitopure&reg; Urolithin A (Nature Metabolism 2019; Cell Reports Medicine 2022; JAMA Network Open 2022; Nature Aging 2025) and describe the ingredient at studied doses. This page is a pre-launch preview; pricing is indicative until batch 001 opens. Nothing here is medical advice. Photography via Pexels, used under the Pexels licence. © 2026 Myvo. Rebuilt, daily.
-    </p>
-  </div>
-</footer>
-
+<div id="report" style="font:14px monospace;padding:20px;background:#fff;color:#000"></div>
 <script>
-(function(){
-  var doc=document, html=doc.documentElement;
-  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isStatic=/[?&]static/.test(location.search);
-  if(isStatic){html.classList.add('static');}
-  var still=reduced||isStatic;
-
-  /* ---------- preloader ---------- */
-  var loader=doc.getElementById('loader'), lc=doc.getElementById('lc');
-  function finishLoad(){
-    loader.classList.add('done');
-    doc.body.style.overflow='';
-    splitGo(doc.getElementById('heroline'));
-  }
-  if(still){
-    loader.style.display='none';
-    splitAll(); revealAll();
-  }else{
-    doc.body.style.overflow='hidden';
-    var t0=performance.now();
-    (function tick(now){
-      var p=Math.min(1,(now-t0)/1200);
-      lc.textContent=Math.round(p*100);
-      if(p<1){requestAnimationFrame(tick);}else{setTimeout(finishLoad,140);}
-    })(t0);
-  }
-
-  /* ---------- split text ---------- */
-  function splitEl(el){
-    if(el.dataset.splitDone)return;
-    el.dataset.splitDone='1';
-    var nodes=[].slice.call(el.childNodes), out=doc.createDocumentFragment(), idx=0;
-    function wrapWords(text,parent){
-      text.split(/(\s+)/).forEach(function(tk){
-        if(!tk)return;
-        if(/^\s+$/.test(tk)){parent.appendChild(doc.createTextNode(' '));return;}
-        var w=doc.createElement('span');w.className='sw';
-        var i=doc.createElement('span');i.className='swi';i.textContent=tk;
-        i.style.transitionDelay=(idx*45)+'ms';idx++;
-        w.appendChild(i);parent.appendChild(w);
-      });
-    }
-    nodes.forEach(function(n){
-      if(n.nodeType===3){wrapWords(n.textContent,out);}
-      else if(n.nodeType===1){
-        var c=n.cloneNode(false);wrapWords(n.textContent,c);out.appendChild(c);
-      }
-    });
-    el.textContent='';el.appendChild(out);
-  }
-  function splitGo(el){el&&el.classList.add('go');}
-  function splitAll(){
-    [].forEach.call(doc.querySelectorAll('.split'),function(el){splitEl(el);el.classList.add('go');});
-  }
-  if(!still){
-    [].forEach.call(doc.querySelectorAll('.split'),splitEl);
-    var sio=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){splitGo(e.target);sio.unobserve(e.target);}});
-    },{threshold:.35});
-    [].forEach.call(doc.querySelectorAll('[data-splitscroll]'),function(el){sio.observe(el);});
-  }
-
-  /* ---------- reveals ---------- */
-  function revealAll(){[].forEach.call(doc.querySelectorAll('.reveal'),function(el){el.classList.add('in');});}
-  if(still){revealAll();}
-  else{
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    [].forEach.call(doc.querySelectorAll('.reveal'),function(el){io.observe(el);});
-  }
-
-  /* ---------- statement word-lighting ---------- */
-  var stmt=doc.getElementById('stmt');
-  (function(){
-    var frag=doc.createDocumentFragment();
-    [].slice.call(stmt.childNodes).forEach(function(n){
-      var red=n.nodeType===1;
-      (n.textContent||'').split(/(\s+)/).forEach(function(tk){
-        if(!tk)return;
-        if(/^\s+$/.test(tk)){frag.appendChild(doc.createTextNode(' '));return;}
-        var s=doc.createElement('span');s.className='wd'+(red?' red':'');s.textContent=tk;frag.appendChild(s);
-      });
-    });
-    stmt.textContent='';stmt.appendChild(frag);
-  })();
-  var words=[].slice.call(stmt.querySelectorAll('.wd'));
-
-  /* ---------- count-up ---------- */
-  var counters=[].slice.call(doc.querySelectorAll('[data-count]')).map(function(el){
-    return {el:el,target:parseFloat(el.dataset.count),dec:parseInt(el.dataset.dec||'0',10),done:false};
+var el=document.getElementById('h');
+// replicate splitEl
+var nodes=[].slice.call(el.childNodes), out=document.createDocumentFragment(), idx=0;
+function wrapWords(text,parent){
+  text.split(/(\s+)/).forEach(function(tk){
+    if(!tk)return;
+    if(/^\s+$/.test(tk)){parent.appendChild(document.createTextNode(' '));return;}
+    var w=document.createElement('span');w.className='sw';
+    var i=document.createElement('span');i.className='swi';i.textContent=tk;
+    i.style.transitionDelay=(idx*45)+'ms';idx++;
+    w.appendChild(i);parent.appendChild(w);
   });
-  function runCount(c){
-    if(c.done)return;c.done=true;
-    if(still){c.el.textContent=c.target.toFixed(c.dec);return;}
-    var t0=performance.now();
-    (function step(now){
-      var p=Math.min(1,(now-t0)/1400);var e=1-Math.pow(1-p,3);
-      c.el.textContent=(c.target*e).toFixed(c.dec);
-      if(p<1)requestAnimationFrame(step);
-    })(t0);
-  }
-  if(still){counters.forEach(runCount);}
-  else{
-    var cio=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){
-        counters.forEach(function(c){if(c.el===e.target)runCount(c);});
-        cio.unobserve(e.target);
-      }});
-    },{threshold:.6});
-    counters.forEach(function(c){cio.observe(c.el);});
-  }
-
-  /* ---------- clock ---------- */
-  (function(){
-    var el=doc.getElementById('clock');
-    function tick(){
-      var t=new Date(Date.now()+(330+new Date().getTimezoneOffset())*60000);
-      el.textContent=('0'+t.getHours()).slice(-2)+':'+('0'+t.getMinutes()).slice(-2)+':'+('0'+t.getSeconds()).slice(-2);
-    }
-    tick();setInterval(tick,1000);
-  })();
-
-  /* ---------- jar softgels + scroll presence ---------- */
-  (function(){
-    var g=doc.getElementById('gels');if(!g)return;
-    var seeds=[[4,62],[16,74],[30,68],[46,76],[60,64],[74,72],[9,44],[26,50],[43,46],[58,52],[71,42],[18,26],[38,28],[55,30],[66,20],[33,8],[50,12]];
-    for(var i=0;i<seeds.length;i++){
-      var d=doc.createElement('i');d.className='gel';
-      d.style.left=seeds[i][0]+'%';d.style.bottom=seeds[i][1]*0.9+'%';
-      d.style.transform='rotate('+((i*37)%180)+'deg) scale('+(0.8+((i*13)%5)/10)+')';
-      g.appendChild(d);
-    }
-  })();
-
-  /* ---------- trial tabs ---------- */
-  (function(){
-    var T=[
-      {c:'Mitochondrial renewal markers rise <b>+39%</b> after 16 weeks, against placebo.',s:'Randomized, double-blind, placebo-controlled<br>Published in Cell Reports Medicine, 2022',v:'+39%',p:20,a:90},
-      {c:'Leg muscle strength improves <b>+12%</b> at 500 mg per day over 16 weeks.',s:'Randomized, double-blind, placebo-controlled<br>Published in Cell Reports Medicine, 2022',v:'+12%',p:32,a:76},
-      {c:'Muscle contractions to fatigue rise <b>+41%</b> at 1000 mg per day over 4 months.',s:'Randomized, double-blind, placebo-controlled<br>Published in JAMA Network Open, 2022',v:'+41%',p:26,a:88},
-      {c:'CD8+ fuel-burning capacity rises <b>+15pp</b> with more naive T cells in 28 days.',s:'Randomized, double-blind, placebo-controlled<br>Published in Nature Aging, 2025',v:'+15pp',p:24,a:70}
-    ];
-    var claim=doc.getElementById('tclaim'),src=doc.getElementById('tsrc'),val=doc.getElementById('tval'),bp=doc.getElementById('tbp'),ba=doc.getElementById('tba');
-    if(claim){
-      [].forEach.call(doc.querySelectorAll('.tt'),function(btn){
-        btn.addEventListener('click',function(){
-          [].forEach.call(doc.querySelectorAll('.tt'),function(b){b.classList.remove('on');});
-          btn.classList.add('on');
-          var d=T[parseInt(btn.dataset.t,10)];
-          claim.innerHTML=d.c;src.innerHTML=d.s;val.textContent=d.v;
-          bp.style.height=d.p+'%';ba.style.height=d.a+'%';
-        });
-      });
-    }
-  })();
-
-  /* ---------- scroll-linked rAF ---------- */
-  var bar=doc.getElementById('bar'), nav=doc.getElementById('nav');
-  var bands=[].slice.call(doc.querySelectorAll('.band')).map(function(b){return {el:b,img:b.querySelector('.bplx')};});
-  var plxs=[].slice.call(doc.querySelectorAll('.plx'));
-  var oh=doc.querySelector('.oh'), ohtrack=doc.getElementById('ohtrack'), ohbar=doc.getElementById('ohbar'), ohsticky=doc.querySelector('.oh-sticky');
-  var rail=doc.getElementById('rl'), raili=doc.getElementById('rli');
-  var chapters=[['molecule','01 / Molecule'],['science','02 / Science'],['origin','03 / Source'],['objects','04 / Objects'],['protocol','05 / Protocol'],['proof','06 / Proof'],['founding','07 / Founding']];
-  var mqEl=doc.querySelector('.mq'), mqPos=0, mqHalf=0;
-  var omqEl=doc.getElementById('omq2'), omqPos=0, omqHalf=0;
-  if(!still&&mqEl){mqEl.style.animation='none';}
-  function measureMq(){if(mqEl)mqHalf=mqEl.scrollWidth/2;if(omqEl)omqHalf=omqEl.scrollWidth/2;}
-  measureMq();addEventListener('resize',measureMq);
-  var lastY=0, vh=innerHeight, vel=0;
-  addEventListener('resize',function(){vh=innerHeight;});
-  function loop(){
-    var y=scrollY, dh=doc.body.scrollHeight-vh;
-    bar.style.transform='scaleX('+(dh>0?y/dh:0)+')';
-    raili.style.height=(dh>0?(y/dh*100):0)+'%';
-    if(y>vh*.8&&y>lastY+2){nav.classList.add('hide');}else if(y<lastY-2||y<vh*.8){nav.classList.remove('hide');}
-    vel+=((y-lastY)-vel)*.12;
-    lastY=y;
-    if(!still){
-      var boost=Math.min(Math.abs(vel)*.14,7);
-      if(mqEl&&mqHalf){mqPos-=(0.9+boost);if(mqPos<=-mqHalf)mqPos+=mqHalf;mqEl.style.transform='translateX('+mqPos+'px)';}
-      if(omqEl&&omqHalf){omqPos-=(0.7+boost*.8);if(omqPos<=-omqHalf)omqPos+=omqHalf;omqEl.style.transform='translateX('+omqPos+'px)';}
-    }
-    if(!still){
-      bands.forEach(function(b){
-        if(!b.img)return;
-        var br=b.el.getBoundingClientRect();
-        if(br.bottom>0&&br.top<vh){b.img.style.transform='translateY('+((br.top+br.height/2-vh/2)*-.12)+'px)';}
-      });
-      var jarEl=doc.getElementById('jar');
-      if(jarEl){
-        var jr=jarEl.getBoundingClientRect();
-        if(jr.bottom>0&&jr.top<vh){
-          var jp=1-Math.abs((jr.top+jr.height/2)-vh/2)/(vh*.9);
-          jarEl.style.transform='translateY('+((1-jp)*26)+'px) scale('+(0.94+jp*.08)+')';
-        }
-      }
-      plxs.forEach(function(im){
-        var r=im.parentElement.getBoundingClientRect();
-        if(r.bottom>0&&r.top<vh){
-          var k=parseFloat(im.dataset.plx||'26');
-          im.style.transform='translateY('+(((r.top+r.height/2-vh/2)/vh)*-k)+'px)';
-        }
-      });
-      if(oh&&innerWidth>900){
-        var or=oh.getBoundingClientRect();
-        var total=oh.offsetHeight-vh;
-        var p=Math.min(1,Math.max(0,-or.top/total));
-        var max=ohtrack.scrollWidth-innerWidth+innerWidth*.06;
-        ohtrack.style.transform='translateX('+(-p*max)+'px)';
-        if(ohbar)ohbar.style.width=(p*100)+'%';
-      }
-      if(words.length){
-        var sr=stmt.getBoundingClientRect();
-        var sp=Math.min(1,Math.max(0,(vh*.75-sr.top)/(sr.height+vh*.35)));
-        var lit=Math.floor(sp*words.length*1.15);
-        words.forEach(function(w,i){w.classList.toggle('lit',i<lit);});
-      }
-    }
-    var cur='01 / Molecule';
-    for(var i=0;i<chapters.length;i++){
-      var s=doc.getElementById(chapters[i][0]);
-      if(s&&s.getBoundingClientRect().top<vh*.5){cur=chapters[i][1];}
-    }
-    if(rail.textContent!==cur)rail.textContent=cur;
-    requestAnimationFrame(loop);
-  }
-  if(!isStatic){requestAnimationFrame(loop);}
-  else{revealAll();words.forEach(function(w){w.classList.add('lit');});}
-
-  /* ---------- cursor + magnetic ---------- */
-  if(!still&&matchMedia('(pointer:fine)').matches){
-    var cur=doc.getElementById('cur'),curo=doc.getElementById('curo');
-    var mx=-100,my=-100,ox=-100,oy=-100;
-    addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
-    (function cl(){
-      ox+=(mx-ox)*.16;oy+=(my-oy)*.16;
-      cur.style.transform='translate('+(mx-3.5)+'px,'+(my-3.5)+'px)';
-      curo.style.transform='translate('+(ox-17)+'px,'+(oy-17)+'px)';
-      requestAnimationFrame(cl);
-    })();
-    [].forEach.call(doc.querySelectorAll('a,button,summary'),function(el){
-      el.addEventListener('mouseenter',function(){curo.classList.add('big');});
-      el.addEventListener('mouseleave',function(){curo.classList.remove('big');});
-    });
-    [].forEach.call(doc.querySelectorAll('.mag'),function(b){
-      b.addEventListener('mousemove',function(e){
-        var r=b.getBoundingClientRect();
-        b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)';
-      });
-      b.addEventListener('mouseleave',function(){b.style.transform='';});
-    });
-  }
-})();
+}
+nodes.forEach(function(n){ if(n.nodeType===3){wrapWords(n.textContent,out);} });
+el.textContent='';el.appendChild(out);el.classList.add('go');
+requestAnimationFrame(function(){requestAnimationFrame(function(){
+  var r=el.getBoundingClientRect();
+  document.getElementById('report').textContent=
+    'h2 right edge: '+Math.round(r.right)+' / viewport: '+innerWidth+
+    ' / overflow: '+(document.documentElement.scrollWidth>innerWidth?'YES':'NO');
+});});
 </script>
+</body>
