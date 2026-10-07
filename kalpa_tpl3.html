@@ -15,6 +15,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
 h1,h2,h3,p{margin:0}
 h1,h2{font-weight:500;letter-spacing:-.025em;text-wrap:balance}
@@ -236,6 +237,96 @@ button{font:inherit;color:inherit}
 .sticky .btn{height:44px}
 @media(max-width:600px){.sticky .who span{display:none}}
 
+
+/* lenis */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+
+/* header over dark sections */
+.site{transition:background .35s,border-color .35s,color .35s}
+.site.dk{background:rgba(8,8,10,.62);border-bottom-color:rgba(255,255,255,.08);color:#fff}
+.site.dk .nav a{color:rgba(255,255,255,.72)}
+.site.dk .nav a:hover{color:#fff}
+
+/* 3D hero */
+.hero{position:relative;background:#EEEEF0;overflow:hidden}
+.hero-stage{position:absolute;inset:0}
+.hero-stage canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:pan-y;opacity:0;transition:opacity 1.2s var(--ease)}
+html.gel-ready .hero-stage canvas{opacity:1}
+.hero-fallback{display:none}
+html.no3d .hero-fallback{display:block;position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);width:44%;border-radius:var(--r)}
+.hero .wrap{position:relative;z-index:1;display:flex;align-items:center;min-height:min(calc(100svh - 99px),900px);padding-top:48px;padding-bottom:48px;pointer-events:none}
+.hero-copy{max-width:540px;pointer-events:auto}
+.hero .assure li::before{background-color:#fff}
+.hint{position:absolute;z-index:1;right:var(--gut);bottom:24px;font-size:.8rem;color:var(--muted);pointer-events:none}
+@media(max-width:900px){
+  .hero-stage{position:relative;height:min(92vw,500px)}
+  html.no3d .hero-fallback{position:static;transform:none;width:100%;border-radius:0}
+  .hero .wrap{min-height:0;padding-top:4px;padding-bottom:56px}
+  .hint{top:calc(min(92vw,500px) - 36px);bottom:auto}
+}
+
+/* inside a muscle cell: pinned WebGL story */
+.cell{position:relative;height:640vh;background:#060608;color:#fff}
+.cell-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.cell-pin canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+.cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(6,6,8,.9),rgba(6,6,8,0) 48%),linear-gradient(180deg,rgba(6,6,8,.7),rgba(6,6,8,0) 26%)}
+.cell-top{position:absolute;z-index:1;left:0;right:0;top:94px}
+.cell-top .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.cell-kick{font-size:.9rem;color:rgba(255,255,255,.6)}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:.8rem;color:rgba(255,255,255,.62)}
+.legend li{display:flex;align-items:center;gap:10px}
+.legend i{width:10px;height:10px;border-radius:50%;flex:none}
+.lg-on{background:#FF7A2E;box-shadow:0 0 12px rgba(255,122,46,.9)}
+.lg-off{background:#55565C}
+.lg-ua{background:#FFD08A;box-shadow:0 0 10px rgba(255,208,138,.9);transform:scale(.6)}
+.lg-wrap{border:1.5px solid rgba(200,210,235,.75)}
+.cell-caps{position:absolute;z-index:1;left:0;right:0;bottom:clamp(40px,9vh,100px)}
+.cell-caps .wrap{position:relative;height:clamp(230px,32vh,300px)}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:0;max-width:640px;opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.cap.on{opacity:1;transform:none}
+.cap h2{font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1.03}
+.cap p{margin-top:16px;color:rgba(255,255,255,.68);max-width:46ch;font-size:1.04rem}
+.cap .stat{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+.cap .stat div{font-size:.84rem;color:rgba(255,255,255,.55)}
+.cap .stat b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.cell-bar{position:absolute;z-index:1;left:var(--gut);right:var(--gut);bottom:22px;height:1px;background:rgba(255,255,255,.12)}
+.cell-bar i{display:block;height:100%;width:0;background:rgba(255,255,255,.7)}
+html.no3d .cell{height:auto}
+html.no3d .cell-pin{position:relative;height:auto;padding:140px 0 100px}
+html.no3d .cell-pin canvas,html.no3d .cell-bar,html.no3d .legend{display:none}
+html.no3d .cell-top{position:static}
+html.no3d .cell-caps{position:static;margin-top:40px}
+html.no3d .cell-caps .wrap{height:auto;display:grid;gap:64px}
+html.no3d .cap{position:static;opacity:1;transform:none}
+html.static .cell{height:100vh}
+html.static .cap,html.static .hero-stage canvas{transition:none}
+@media(max-width:700px){.legend{display:none}.cap p{font-size:.96rem}}
+
+/* where you notice it */
+.feel{position:relative;background:#060608;color:#fff;overflow:hidden;padding:clamp(110px,14vw,210px) 0 clamp(90px,11vw,160px)}
+.feel-bg{position:absolute;inset:-12% 0;opacity:.24;will-change:transform}
+.feel-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.feel::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#060608 0%,rgba(6,6,8,.55) 22%,rgba(6,6,8,.55) 78%,#060608 100%)}
+.feel .wrap{position:relative;z-index:2}
+.feel-kick{font-size:.9rem;color:rgba(255,255,255,.55)}
+.moments{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:clamp(64px,9vw,128px)}
+.moments li{width:100%;max-width:min(100%,900px)}
+.moments li:nth-child(even){justify-self:end}
+.m-line{display:block;max-width:13ch;font-size:clamp(2.3rem,5.8vw,5.2rem);line-height:1.03;font-weight:500;letter-spacing:-.035em}
+.m-line .w{opacity:.14;transition:opacity .3s}
+.m-line .w.lit{opacity:1}
+.m-note{display:block;margin-top:18px;font-size:.86rem;color:rgba(255,255,255,.5);max-width:34ch;letter-spacing:0}
+.feel-fine{margin-top:clamp(80px,10vw,140px);padding-top:24px;border-top:1px solid rgba(255,255,255,.12);max-width:60ch;font-size:.92rem;color:rgba(255,255,255,.52)}
+@media(max-width:700px){.moments li:nth-child(even){justify-self:start}}
+
+/* molecule */
+.mol{position:relative;margin:34px 0 0;border-radius:var(--r);background:var(--soft);aspect-ratio:5/4;overflow:hidden}
+.mol canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+.mol figcaption{position:absolute;left:22px;bottom:18px;font-size:.84rem;color:var(--muted)}
+.mol figcaption b{color:var(--ink);font-weight:500}
+html.no3d .mol{display:none}
+
 /* motion */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -262,15 +353,19 @@ html.static .rv{opacity:1;transform:none;transition:none}
 
 <main id="top">
 
-<section class="hero">
+<section class="hero" id="hero">
+  <div class="hero-stage" id="heroStage">
+    <canvas id="gel" aria-label="Two Myvo One softgels, rendered in 3D"></canvas>
+    <img class="hero-fallback" src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels">
+  </div>
   <div class="wrap">
-    <div class="rv">
+    <div class="hero-copy rv">
       <p class="kicker">Urolithin A, made with Mitopure&reg;</p>
       <h1>The real Urolithin&nbsp;A. Finally in&nbsp;India.</h1>
-      <p class="sub">Myvo One delivers 500 mg of Mitopure&reg;, the exact form and dose used in the human trials. Two softgels each morning.</p>
+      <p class="sub">500 mg of Mitopure&reg;, the exact form and dose from the human trials. For legs that still answer at the end of the race.</p>
       <div class="cta">
         <a class="btn dark" href="#shop">Shop Myvo One</a>
-        <a class="tlink" href="#science">See the trial results</a>
+        <a class="tlink" href="#inside">See what it does</a>
       </div>
       <ul class="assure">
         <li>Made with Mitopure&reg; from Amazentis, Switzerland</li>
@@ -278,16 +373,8 @@ html.static .rv{opacity:1;transform:none;transition:none}
         <li>Pause or cancel your membership anytime</li>
       </ul>
     </div>
-    <figure class="lbl hero-media rv">
-      <img src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels, two loose beside it">
-      <div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%">
-        <span class="jp-w">MYVO</span>
-        <span class="jp-rule"></span>
-        <span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span>
-        <span class="jp-batch">Batch MYV-27-001</span>
-      </div>
-    </figure>
   </div>
+  <p class="hint">Two softgels a day. Drag to turn.</p>
 </section>
 
 <section class="press" aria-label="Where the research is published">
@@ -297,6 +384,44 @@ html.static .rv{opacity:1;transform:none;transition:none}
     <span class="j">Nature Metabolism</span>
     <span class="j">JAMA Network Open</span>
     <span class="j">Nature Aging</span>
+  </div>
+</section>
+
+<section class="cell" id="inside" data-dark aria-label="What Urolithin A does inside a muscle cell">
+  <div class="cell-pin">
+    <canvas id="cellgl" aria-hidden="true"></canvas>
+    <div class="cell-top"><div class="wrap">
+      <p class="cell-kick">Inside one of your muscle cells</p>
+      <ul class="legend">
+        <li><i class="lg-on"></i>Working mitochondria</li>
+        <li><i class="lg-off"></i>Worn mitochondria</li>
+        <li><i class="lg-ua"></i>Urolithin A</li>
+        <li><i class="lg-wrap"></i>Recycling membrane</li>
+      </ul>
+    </div></div>
+    <div class="cell-caps"><div class="wrap">
+      <div class="cap on" data-c="0"><h2>This is where your energy comes from.</h2><p>Every muscle cell carries hundreds of mitochondria. They turn food and oxygen into the fuel behind every rep, every stride, every flight of stairs.</p></div>
+      <div class="cap" data-c="1"><h2>From your thirties, some of them wear out.</h2><p>Worn mitochondria make less energy and leak more waste, and the cell gets slower at clearing them out. You feel it as heavier legs and longer recoveries.</p></div>
+      <div class="cap" data-c="2"><h2>Urolithin A gives the clean-up signal.</h2><p>It switches mitophagy back on: the cell's own recycling system, which finds worn mitochondria and flags them for removal.</p></div>
+      <div class="cap" data-c="3"><h2>The worn ones are wrapped and broken down.</h2><p>The cell seals each damaged mitochondrion inside a membrane, digests it, and keeps the parts to build with.</p></div>
+      <div class="cap" data-c="4"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
+      <div class="cap" data-c="5"><h2>A cleaner engine in every muscle.</h2><p>Same training, same body, more of it working. Here is where you notice it.</p></div>
+    </div></div>
+    <div class="cell-bar"><i id="cbar"></i></div>
+  </div>
+</section>
+
+<section class="feel" id="feel" data-dark>
+  <div class="feel-bg" id="feelbg"><img src="__RUNNER__" alt=""></div>
+  <div class="wrap">
+    <p class="feel-kick">Where you notice it</p>
+    <ol class="moments">
+      <li><span class="m-line">Run seven of eight, and your legs still answer.</span><span class="m-note">Muscle endurance up 41% against placebo. JAMA Network Open, 2022.</span></li>
+      <li><span class="m-line">The fourth set moves like the second.</span><span class="m-note">Leg strength up 12% at 16 weeks. Cell Reports Medicine, 2022.</span></li>
+      <li><span class="m-line">Wall ball ninety feels like wall ball thirty.</span><span class="m-note">Fatigue arrives later when more of your mitochondria are working.</span></li>
+      <li><span class="m-line">Forty, and still adding numbers to the log.</span><span class="m-note">The 2022 strength trial studied adults aged 40 to 65.</span></li>
+    </ol>
+    <p class="feel-fine">Myvo One is not a stimulant, so you will not feel it in an hour. The trials measured these changes over 16 weeks, and this is where those numbers show up. Results vary from person to person.</p>
   </div>
 </section>
 
@@ -391,7 +516,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
     <div class="rv">
       <h2>Your body is meant to make it. Most bodies can't.</h2>
       <div class="pts">
-        <p><b>The signal.</b> Urolithin A tells cells to find worn-out mitochondria and recycle them. Biologists call this mitophagy, and it slows with age.</p>
+        <p><b>The decline.</b> The clean-up you just scrolled through slows with age, and worn mitochondria build up in muscle from around 40.</p>
         <p><b>The missing step.</b> Your gut should make Urolithin A from polyphenols in food. In two of every three people, the bacteria that do it are missing.</p>
         <p><b>The shortcut.</b> Myvo One skips the conversion and delivers the finished molecule, purified by Amazentis in Switzerland.</p>
       </div>
@@ -450,7 +575,10 @@ html.static .rv{opacity:1;transform:none;transition:none}
 
 <section class="sec src">
   <div class="wrap">
-    <h2 class="rv">Why we use Mitopure&reg;</h2>
+    <div class="rv">
+      <h2>Why we use Mitopure&reg;</h2>
+      <figure class="mol" id="mol"><canvas aria-label="The Urolithin A molecule in 3D"></canvas><figcaption><b>Urolithin A</b>, C<sub>13</sub>H<sub>8</sub>O<sub>4</sub>. Drag to turn.</figcaption></figure>
+    </div>
     <div class="rv">
       <p>When an independent lab tested ten Urolithin A supplements, six did not contain the dose on the label. Unbranded powder is the norm in this category.</p>
       <p>Mitopure&reg; is the material used in the published trials. Myvo imports it under license, packs it in India, and publishes the lab report for every batch.</p>
@@ -499,7 +627,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
     <h2 class="rv">Questions</h2>
     <div class="acc rv" style="margin-top:0">
       <details><summary>Why not just eat pomegranates?</summary><div class="body">Only one in three people have the gut bacteria that turn pomegranate into Urolithin A, and even they can't eat their way to the 500 mg trial dose. Myvo One delivers the finished molecule, so your gut stops being the bottleneck.</div></details>
-      <details><summary>Will I feel anything?</summary><div class="body">Probably not. Urolithin A is not a stimulant. In the trials its effects showed up as measured strength and endurance over months, which is why every membership includes the day 0 to day 120 protocol.</div></details>
+      <details><summary>Will I feel anything?</summary><div class="body">Not the way you feel caffeine. Urolithin A works at the level of your cells, over weeks. Members notice it in training: the trials measured it as strength at 16 weeks and endurance at four months, which is why every membership includes the day 0 to day 120 protocol.</div></details>
       <details><summary>Is this licensed for sale in India?</summary><div class="body">Yes. Myvo holds the Indian license to import and sell, and sources Mitopure&reg; directly from its maker. Every carton carries the importer details and batch report Indian law requires.</div></details>
       <details><summary>How is this different from cheaper Urolithin A online?</summary><div class="body">Independent testing and a US federal case found sellers shipping little or no Urolithin A. Myvo starts from Mitopure&reg;, the form used in the human trials, and publishes a third-party report for every batch.</div></details>
       <details><summary>I compete. Is it safe for tested sport?</summary><div class="body">Mitopure&reg; has FDA GRAS status and a documented supply chain. If you are tested, anonymous powder is where banned-substance surprises come from. Myvo names its ingredient and its maker on the label.</div></details>
@@ -532,6 +660,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
   var d=document, isStatic=/[?&]static/.test(location.search);
@@ -577,5 +706,359 @@ html.static .rv{opacity:1;transform:none;transition:none}
     var on=past&&!nearFoot; st.classList.toggle('on',on); st.setAttribute('aria-hidden',on?'false':'true');
   }
   if(!isStatic){addEventListener('scroll',tick,{passive:true});tick();}
+
+  /* header turns dark over the dark sections */
+  var site=d.querySelector('.site'), darks=d.querySelectorAll('[data-dark]');
+  function hdr(){var on=false;darks.forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=62&&r.bottom>62)on=true;});site.classList.toggle('dk',on);}
+
+  /* where you notice it: words light up as each line crosses the screen */
+  var lines=d.querySelectorAll('.m-line'), feelbg=d.getElementById('feelbg'), feel=d.getElementById('feel');
+  lines.forEach(function(l){l.innerHTML=l.textContent.trim().split(/\s+/).map(function(w){return '<span class="w">'+w+'</span>';}).join(' ');});
+  function feelTick(){
+    lines.forEach(function(l){
+      var r=l.getBoundingClientRect(), k=(innerHeight*.86-r.top)/(innerHeight*.42), ws=l.querySelectorAll('.w');
+      var n=isStatic?ws.length:Math.round(Math.max(0,Math.min(1,k))*ws.length);
+      ws.forEach(function(w,i){w.classList.toggle('lit',i<n);});
+    });
+    var fr=feel.getBoundingClientRect(), fk=(innerHeight-fr.top)/(innerHeight+fr.height);
+    feelbg.style.transform='translate3d(0,'+((fk-.5)*-90).toFixed(1)+'px,0) scale('+(1.04+fk*.1).toFixed(3)+')';
+  }
+  function all(){hdr();feelTick();}
+  addEventListener('scroll',all,{passive:true}); addEventListener('resize',all); all();
+
+  /* smooth scroll */
+  if(!isStatic && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var lenis=window.__lenis=new Lenis({lerp:.09,smoothWheel:true});
+    (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(performance.now());
+    d.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); if(id.length<2)return; var el=d.querySelector(id); if(!el)return;
+      e.preventDefault(); lenis.scrollTo(el,{offset:id==='#top'?0:-62,duration:1.4});
+    });});
+  }
 })();
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const D=document, H=D.documentElement, Q=new URLSearchParams(location.search);
+const STATIC=H.classList.contains('static');
+const MOB=matchMedia('(max-width:900px)').matches;
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const ss=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
+const lerp=(a,b,t)=>a+(b-a)*t;
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function hasGL(){try{return !!D.createElement('canvas').getContext('webgl2');}catch(e){return false;}}
+function onVisible(el,cb){new IntersectionObserver(es=>es.forEach(e=>cb(e.isIntersecting)),{rootMargin:'150px 0px'}).observe(el);}
+function loop(el,fn){ // runs fn(t,dt) only while el is on screen
+  let vis=false,run=false,last=0;
+  let sf=0;const f=now=>{const dt=Math.min(.05,(now-last)/1000);last=now;fn(now/1000,dt);if((vis&&!STATIC)||(STATIC&&++sf<6))requestAnimationFrame(f);else run=false;};
+  const go=()=>{if(!run){run=true;last=performance.now();requestAnimationFrame(f);}};
+  if(STATIC){requestAnimationFrame(f);return go;}
+  onVisible(el,v=>{vis=v;if(v)go();});
+  return go;
+}
+
+if(!hasGL()){H.classList.add('no3d');}
+else{
+  for(const f of [hero,cell,mol]){try{f();}catch(e){console.error(e);}}
+}
+
+/* ---------- hero: two amber softgels ---------- */
+function hero(){
+  const host=D.getElementById('heroStage'), cv=D.getElementById('gel'), sec=D.getElementById('hero');
+  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true});
+  R.setPixelRatio(Math.min(devicePixelRatio,1.75));
+  R.toneMapping=THREE.ACESFilmicToneMapping; R.toneMappingExposure=1.05;
+  const scene=new THREE.Scene(); scene.background=new THREE.Color(0xEEEEF0);
+  const pm=new THREE.PMREMGenerator(R);
+  scene.environment=pm.fromScene(new RoomEnvironment(),.03).texture;
+  const cam=new THREE.PerspectiveCamera(26,1,.1,60);
+  const key=new THREE.DirectionalLight(0xffffff,2.4); key.position.set(3,5,6); scene.add(key);
+  const rim=new THREE.DirectionalLight(0xffffff,1.2); rim.position.set(-4,1,-3); scene.add(rim);
+
+  const geo=new THREE.CapsuleGeometry(.42,1.0,32,96);
+  const mat=new THREE.MeshPhysicalMaterial({color:0xffffff,transmission:1,thickness:1.3,roughness:.025,ior:1.5,
+    attenuationColor:new THREE.Color(0xE28A26),attenuationDistance:1.0,clearcoat:1,clearcoatRoughness:.03,
+    specularIntensity:1,envMapIntensity:1.35,dispersion:.3});
+
+  const sc=D.createElement('canvas'); sc.width=sc.height=128;
+  const g2=sc.getContext('2d'), gr=g2.createRadialGradient(64,64,0,64,64,64);
+  gr.addColorStop(0,'rgba(24,24,30,.40)'); gr.addColorStop(.45,'rgba(24,24,30,.14)'); gr.addColorStop(1,'rgba(24,24,30,0)');
+  g2.fillStyle=gr; g2.fillRect(0,0,128,128);
+  const stex=new THREE.CanvasTexture(sc);
+
+  const root=new THREE.Group(); scene.add(root);
+  const gels=[{p:[-.55,.3,0],tilt:1.0,ph:0},{p:[1.2,-.45,-.9],tilt:-.5,ph:2.2}].map(c=>{
+    const m=new THREE.Mesh(geo,mat); m.rotation.z=c.tilt;
+    const spin=new THREE.Group(); spin.add(m);
+    const holder=new THREE.Group(); holder.position.set(...c.p); holder.add(spin); root.add(holder);
+    const sh=new THREE.Mesh(new THREE.PlaneGeometry(2.6,1.5),new THREE.MeshBasicMaterial({map:stex,transparent:true,depthWrite:false,toneMapped:false}));
+    sh.rotation.x=-Math.PI/2; sh.position.set(c.p[0],-1.35,c.p[2]); root.add(sh);
+    return {...c,holder,spin,sh};
+  });
+
+  let wide=true;
+  function size(){
+    const r=host.getBoundingClientRect(); if(!r.width)return;
+    R.setSize(r.width,r.height,false); cam.aspect=r.width/r.height;
+    wide=cam.aspect>1.15; cam.fov=wide?26:30; cam.updateProjectionMatrix();
+    const halfW=9*Math.tan(cam.fov*Math.PI/360)*cam.aspect;
+    root.position.x=wide?Math.min(halfW*.46,3.2):-.4;
+    root.scale.setScalar(wide?1.12:1.4);
+  }
+  new ResizeObserver(size).observe(host); size();
+
+  let tx=0,ty=0,px=0,py=0,spin=0,vel=.32,drag=null;
+  addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
+  cv.addEventListener('pointerdown',e=>{drag={x:e.clientX};cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing';});
+  cv.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x;drag.x=e.clientX;vel=clamp(dx*.14,-9,9);});
+  const up=()=>{drag=null;cv.style.cursor='';}; cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+
+  loop(sec,(t,dt)=>{
+    px+=(tx-px)*.06; py+=(ty-py)*.06;
+    if(!drag) vel+=(.32-vel)*Math.min(1,dt*1.4);
+    spin+=vel*dt;
+    const r=sec.getBoundingClientRect(), k=clamp(-r.top/Math.max(1,r.height),0,1);
+    gels.forEach((g,i)=>{
+      const bob=Math.sin(t*.9+g.ph)*.08;
+      g.holder.position.y=g.p[1]+bob+k*(1.2+i*.7);
+      g.spin.rotation.y=spin*(i?-.75:1)+g.ph+px*.5;
+      g.spin.rotation.x=py*.35+k*1.6;
+      g.sh.material.opacity=(1-k)*(1-bob*2);
+      g.sh.scale.setScalar(1-bob);
+    });
+    cam.position.set(px*.45,.8-py*.3,9-k*1.2); cam.lookAt(0,-.05,0);
+    R.render(scene,cam);
+  });
+  requestAnimationFrame(()=>H.classList.add('gel-ready'));
+}
+
+/* ---------- inside a muscle cell ---------- */
+function cell(){
+  const sec=D.getElementById('inside'), pin=sec.querySelector('.cell-pin'), cv=D.getElementById('cellgl');
+  const caps=[...sec.querySelectorAll('.cap')], bar=D.getElementById('cbar');
+  const R=new THREE.WebGLRenderer({canvas:cv,antialias:false,powerPreference:'high-performance'});
+  R.setPixelRatio(Math.min(devicePixelRatio,MOB?1.25:1.5)); R.setClearColor(0x060608,1);
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(45,1,.1,80);
+  const comp=new EffectComposer(R); comp.addPass(new RenderPass(scene,cam));
+  const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.5,.45,.1); comp.addPass(bloom);
+  comp.addPass(new OutputPass());
+
+  const U={uTime:{value:0},uGlow:{value:1},
+    uRim:{value:new THREE.Color(1.0,.24,.035)},uIn:{value:new THREE.Color(.5,.025,.04)},uCold:{value:new THREE.Color(.13,.135,.15)}};
+  const NOISE=`float h(vec3 p){p=fract(p*.3183099+.1);p*=17.;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}
+float n3(vec3 x){vec3 i=floor(x),f=fract(x);f=f*f*(3.-2.*f);
+return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),
+mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+vec3(1,1,1)),f.x),f.y),f.z);}`;
+  const mVS=`uniform float uTime,uSeed,uWorn;varying vec3 vN,vV,vP;varying float vD;
+void main(){vec3 p=position;
+float w=sin(p.y*3.2+uTime*1.1+uSeed*6.283)*.035+sin(p.x*6.+uTime*.8+uSeed*9.)*.025;
+w+=uWorn*(sin(p.y*11.+uSeed*30.)*.06+sin(p.z*9.+uSeed*12.)*.045);
+p+=normal*w;p.y*=1.-uWorn*.14;vP=position;
+vec4 mv=modelViewMatrix*vec4(p,1.);vV=-mv.xyz;vD=-mv.z;vN=normalize(normalMatrix*normal);
+gl_Position=projectionMatrix*mv;}`;
+  const mFS=`uniform float uTime,uSeed,uWorn,uDis,uGlow;uniform vec3 uRim,uIn,uCold;varying vec3 vN,vV,vP;varying float vD;
+${NOISE}
+void main(){
+float nz=n3(vP*3.5+uSeed*17.)*.65+n3(vP*9.+uSeed*5.)*.35;
+if(nz<uDis)discard;
+vec3 n=normalize(vN),v=normalize(vV);
+float fr=pow(1.-abs(dot(n,v)),2.4);
+float cr=sin(vP.y*20.+sin(vP.x*8.+uSeed*6.)*1.8+sin(vP.z*6.)*1.2);cr=smoothstep(.62,1.,cr);
+vec3 rim=mix(uRim,uCold,uWorn),inn=mix(uIn,uCold*.55,uWorn);
+float fl=1.-uWorn*.5*step(.55,n3(vP*2.+vec3(uTime*1.7)));
+vec3 c=(rim*fr*.95+inn*cr*.75+inn*.04)*fl*mix(uGlow,1.,uWorn);
+float e=uDis>.001?smoothstep(uDis+.07,uDis,nz):0.;
+c+=vec3(1.,.42,.1)*e*1.8;
+c*=smoothstep(30.,7.,vD);
+gl_FragColor=vec4(c,1.);}`;
+  const sVS=`uniform float uTime;varying vec3 vN,vV,vP;
+void main(){vec3 p=position;p+=normal*(sin(p.y*5.+uTime*1.3)*.03+sin(p.x*4.-uTime)*.03);vP=position;
+vec4 mv=modelViewMatrix*vec4(p,1.);vV=-mv.xyz;vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*mv;}`;
+  const sFS=`uniform float uA,uTime;varying vec3 vN,vV,vP;
+void main(){vec3 n=normalize(vN),v=normalize(vV);float fr=pow(1.-abs(dot(n,v)),2.6);
+float b=.5+.5*sin(vP.y*16.+uTime*2.2);
+gl_FragColor=vec4(vec3(.36,.43,.7)*(fr*.85+b*fr*.35+.01)*uA,1.);}`;
+
+  const add={transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide};
+  const rand=rng(11), N=MOB?28:48;
+  const mgeo=new THREE.CapsuleGeometry(.32,1.0,12,36), sgeo=new THREE.SphereGeometry(1,48,32);
+  const mitos=[];
+  for(let i=0;i<N;i++){
+    let p;
+    for(let k=0;k<80;k++){
+      p=new THREE.Vector3((rand()*2-1)*6.6,(rand()*2-1)*3.7,(rand()*2-1)*4.6);
+      if(p.x*p.x/44+p.y*p.y/14+p.z*p.z/21>1)continue;
+      if(mitos.every(m=>m.base.distanceTo(p)>1.2))break;
+    }
+    const mat=new THREE.ShaderMaterial({uniforms:{...U,uSeed:{value:rand()},uWorn:{value:0},uDis:{value:0}},vertexShader:mVS,fragmentShader:mFS,...add});
+    const m=new THREE.Mesh(mgeo,mat); const s=.58+rand()*.34;
+    m.scale.setScalar(s); m.position.copy(p); m.rotation.set(rand()*6,rand()*6,rand()*6); scene.add(m);
+    mitos.push({m,mat,base:p.clone(),s,ph:rand()*6.28,spin:new THREE.Vector3(rand()-.5,rand()-.5,rand()-.5).multiplyScalar(.3),worn:false,st:0,health:1,dis:0});
+  }
+  // about 40% wear out, nearest to the centre first so the story stays in frame
+  const byDist=[...mitos].sort((a,b)=>a.base.length()-b.base.length());
+  const worn=byDist.filter((o,i)=>i%5<2);
+  worn.forEach((o,i)=>{o.worn=true;o.st=(i*.618)%1;
+    o.sm=new THREE.ShaderMaterial({uniforms:{uTime:U.uTime,uA:{value:0}},vertexShader:sVS,fragmentShader:sFS,...add});
+    o.sph=new THREE.Mesh(sgeo,o.sm); o.sph.visible=false; scene.add(o.sph);
+  });
+
+  const PVS=`attribute float aA,aS;uniform float uPx;varying float vA;
+void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-mv.z);gl_Position=projectionMatrix*mv;vA=aA*smoothstep(32.,6.,-mv.z);}`;
+  const PFS=`uniform vec3 uC;varying float vA;void main(){float r=length(gl_PointCoord-.5);float a=smoothstep(.5,0.,r);a*=a;gl_FragColor=vec4(uC*a*vA,1.);}`;
+  function cloud(n,color,size){
+    const g=new THREE.BufferGeometry();
+    const pos=new Float32Array(n*3), aA=new Float32Array(n), aS=new Float32Array(n);
+    for(let i=0;i<n;i++){aS[i]=size*(.5+rand());}
+    g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    g.setAttribute('aA',new THREE.BufferAttribute(aA,1));
+    g.setAttribute('aS',new THREE.BufferAttribute(aS,1));
+    const mat=new THREE.ShaderMaterial({uniforms:{uC:{value:new THREE.Color(...color)},uPx:{value:R.getPixelRatio()}},vertexShader:PVS,fragmentShader:PFS,...add});
+    const pts=new THREE.Points(g,mat); pts.frustumCulled=false; scene.add(pts);
+    return {g,pos,aA};
+  }
+  // ambient dust
+  const DN=MOB?500:1100, dust=cloud(DN,[.10,.105,.12],1.2);
+  for(let i=0;i<DN;i++){dust.pos.set([(rand()*2-1)*16,(rand()*2-1)*10,(rand()*2-1)*12],i*3);dust.aA[i]=.4+rand()*.6;}
+  dust.g.attributes.position.needsUpdate=dust.g.attributes.aA.needsUpdate=true;
+  const dustPts=scene.children[scene.children.length-1];
+  // Urolithin A molecules
+  const UN=MOB?700:1500, ua=cloud(UN,[1.0,.66,.24],.7), uaD=[];
+  for(let i=0;i<UN;i++){
+    const dir=new THREE.Vector3(rand()-.5,rand()-.5,rand()-.5).normalize();
+    const u=new THREE.Vector3().randomDirection(), v=new THREE.Vector3().crossVectors(dir,u).normalize(); u.crossVectors(v,dir).normalize();
+    uaD.push({t:worn[i%worn.length],start:new THREE.Vector3((rand()*2-1)*18,(rand()*2-1)*10,4+rand()*10),
+      delay:rand(),u,v,or:.75+rand()*.55,sp:(.6+rand())*(rand()<.5?-1:1),ph:rand()*6.28});
+  }
+  // energy sparks off working mitochondria
+  const SN=MOB?500:1100, sp=cloud(SN,[1.0,.42,.1],.5), spD=[];
+  for(let i=0;i<SN;i++)spD.push({mi:mitos[i%N],dir:new THREE.Vector3().randomDirection(),off:rand(),spd:.18+rand()*.25});
+
+  const tmp=new THREE.Vector3();
+  function size(){const w=pin.clientWidth,h=pin.clientHeight;R.setSize(w,h,false);comp.setSize(w,h);cam.aspect=w/h;cam.fov=cam.aspect<1?64:45;cam.updateProjectionMatrix();}
+  addEventListener('resize',size); size();
+
+  let P=STATIC?(Q.has('cp')?+Q.get('cp'):.9):0, tx=0,ty=0,px=0,py=0, cap=-1;
+  addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
+  const CUTS=[0,.15,.32,.5,.7,.86];
+
+  loop(sec,(t,dt)=>{
+    if(!STATIC){const r=sec.getBoundingClientRect();const target=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1);P+=(target-P)*Math.min(1,dt*5);}
+    px+=(tx-px)*.04; py+=(ty-py)*.04;
+    U.uTime.value=t;
+    let c=0; CUTS.forEach((v,i)=>{if(P>=v)c=i;});
+    if(c!==cap){cap=c;caps.forEach((x,i)=>x.classList.toggle('on',i===c));}
+    bar.style.width=(P*100).toFixed(2)+'%';
+
+    // camera: drift in for the clean-up, pull back for the result
+    const dist=P<.3?lerp(12.5,9.4,ss(0,.3,P)):P<.72?lerp(9.4,7.8,ss(.3,.72,P)):lerp(7.8,13,ss(.72,1,P));
+    const ang=-.4+P*.95+px*.18;
+    cam.position.set(Math.sin(ang)*dist,.35+py*.7-P*.5,Math.cos(ang)*dist); cam.lookAt(0,0,0);
+    const energy=P<.15?1:P<.72?lerp(1,.55,ss(.15,.3,P)):lerp(.55,1.7,ss(.72,.95,P));
+    U.uGlow.value=lerp(.95,1.12,ss(.78,.98,P));
+    bloom.strength=lerp(.5,.7,ss(.78,.98,P));
+
+    for(const o of mitos){
+      o.m.rotation.x+=o.spin.x*dt; o.m.rotation.y+=o.spin.y*dt;
+      o.m.position.copy(o.base); o.m.position.y+=Math.sin(t*.45+o.ph)*.14;
+      let w=0,dis=0,k=1;
+      if(o.worn){
+        const s=o.st;
+        const wa=ss(.15+s*.08,.27+s*.08,P), g=ss(.50+s*.07,.57+s*.07,P), d=ss(.58+s*.07,.66+s*.07,P), rb=ss(.72+s*.06,.81+s*.06,P);
+        if(rb>0){w=0;dis=1-rb;k=.6+.4*rb;}else{w=wa;dis=d;}
+        if(w>0)o.m.position.x+=Math.sin(t*23+o.ph)*.02*w;
+        o.sph.visible=g>0&&d<1;
+        o.sph.position.copy(o.m.position); o.sph.scale.setScalar(o.s*1.0*g*(1-.6*d)+.001);
+        o.sm.uniforms.uA.value=g*(1-d);
+      }
+      o.health=1-w; o.dis=dis;
+      o.mat.uniforms.uWorn.value=w; o.mat.uniforms.uDis.value=dis*1.05;
+      o.m.scale.setScalar(o.s*k);
+    }
+    for(let i=0;i<UN;i++){
+      const d=uaD[i], k=clamp((P-(.31+d.delay*.12))/.1,0,1);
+      if(k<=0){ua.aA[i]=0;continue;}
+      const e=k*k*(3-2*k), tg=d.t.m.position, a=t*d.sp+d.ph, R2=d.or*d.t.s;
+      tmp.copy(tg).addScaledVector(d.u,Math.cos(a)*R2).addScaledVector(d.v,Math.sin(a)*R2);
+      ua.pos[i*3]=lerp(d.start.x,tmp.x,e); ua.pos[i*3+1]=lerp(d.start.y,tmp.y,e); ua.pos[i*3+2]=lerp(d.start.z,tmp.z,e);
+      ua.aA[i]=Math.min(1,k*3)*(1-d.t.dis)*(d.t.worn&&d.t.health>.5&&P>.7?0:1)*.95;
+    }
+    ua.g.attributes.position.needsUpdate=ua.g.attributes.aA.needsUpdate=true;
+    for(let i=0;i<SN;i++){
+      const d=spD[i], f=(t*d.spd+d.off)%1, m=d.mi;
+      tmp.copy(m.m.position).addScaledVector(d.dir,(.45+f*2.4)*m.s);
+      sp.pos[i*3]=tmp.x; sp.pos[i*3+1]=tmp.y; sp.pos[i*3+2]=tmp.z;
+      sp.aA[i]=f*(1-f)*4*m.health*(1-m.dis)*energy*.8;
+    }
+    sp.g.attributes.position.needsUpdate=sp.g.attributes.aA.needsUpdate=true;
+    dustPts.rotation.y=t*.01;
+    comp.render();
+  });
+}
+
+/* ---------- the molecule ---------- */
+function mol(){
+  const fig=D.getElementById('mol'), cv=fig.querySelector('canvas');
+  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  R.setPixelRatio(Math.min(devicePixelRatio,2)); R.toneMapping=THREE.ACESFilmicToneMapping;
+  const scene=new THREE.Scene(), pm=new THREE.PMREMGenerator(R);
+  scene.environment=pm.fromScene(new RoomEnvironment(),.04).texture;
+  const cam=new THREE.PerspectiveCamera(30,1.25,.1,50); cam.position.set(0,0,13.5);
+  const dl=new THREE.DirectionalLight(0xffffff,1.6); dl.position.set(2,3,5); scene.add(dl);
+
+  // three fused rings (dibenzo-pyranone), built on a hex grid
+  const r=1, s3=Math.sqrt(3), atoms=[], idx=new Map(), bonds=[], bset=new Set();
+  const at=(x,y,el)=>{const k=Math.round(x*100)+','+Math.round(y*100);if(idx.has(k)){atoms[idx.get(k)].rings++;return idx.get(k);}idx.set(k,atoms.length);atoms.push({x,y,el,rings:1,cen:null});return atoms.length-1;};
+  const bond=(a,b,o=1)=>{const k=Math.min(a,b)+'-'+Math.max(a,b);if(!bset.has(k)){bset.add(k);bonds.push([a,b,o]);}};
+  const C={A:[0,0],B:[s3*r,0],C:[1.5*s3*r,1.5*r]}, ring={};
+  for(const n in C){const [cx,cy]=C[n];ring[n]=[];for(let i=0;i<6;i++){const a=(30+60*i)*Math.PI/180;const id=at(cx+r*Math.cos(a),cy+r*Math.sin(a),'C');if(!atoms[id].cen)atoms[id].cen=C[n];ring[n].push(id);}}
+  for(const n in ring)for(let i=0;i<6;i++)bond(ring[n][i],ring[n][(i+1)%6],(n!=='B'&&i%2===0)?2:1);
+  atoms[ring.B[4]].el='O';
+  const out=(cen,id,len,el)=>{const a=atoms[id],dx=a.x-cen[0],dy=a.y-cen[1],L=Math.hypot(dx,dy);return at(a.x+dx/L*len,a.y+dy/L*len,el);};
+  const sub=new Set([ring.B[5],ring.A[2],ring.C[0],ring.B[4]]);
+  bond(ring.B[5],out(C.B,ring.B[5],.9,'O'),2);
+  const oh=(cen,id)=>{const o=out(cen,id,.95,'O');bond(id,o);const a=atoms[o],p=atoms[id],ang=Math.atan2(a.y-p.y,a.x-p.x)+.95;bond(o,at(a.x+Math.cos(ang)*.62,a.y+Math.sin(ang)*.62,'H'));};
+  oh(C.A,ring.A[2]); oh(C.C,ring.C[0]);
+  atoms.slice().forEach((a,i)=>{if(a.el==='C'&&a.rings===1&&!sub.has(i)&&a.cen)bond(i,out(a.cen,i,.72,'H'));});
+  let cx=0,cy=0; atoms.forEach(a=>{cx+=a.x;cy+=a.y;}); cx/=atoms.length; cy/=atoms.length;
+
+  const grp=new THREE.Group(); scene.add(grp);
+  const sg=new THREE.SphereGeometry(1,40,28), cg=new THREE.CylinderGeometry(1,1,1,20);
+  const M={C:new THREE.MeshPhysicalMaterial({color:0x1d1d22,roughness:.28,clearcoat:1,clearcoatRoughness:.08}),
+    O:new THREE.MeshPhysicalMaterial({color:0xA82039,roughness:.25,clearcoat:1,clearcoatRoughness:.08}),
+    H:new THREE.MeshPhysicalMaterial({color:0xf2f2f4,roughness:.3,clearcoat:1}),
+    b:new THREE.MeshPhysicalMaterial({color:0xb4b4ba,roughness:.35,metalness:.2})};
+  const RAD={C:.3,O:.32,H:.19};
+  atoms.forEach(a=>{const m=new THREE.Mesh(sg,M[a.el]);m.scale.setScalar(RAD[a.el]);m.position.set(a.x-cx,a.y-cy,0);grp.add(m);});
+  const Y=new THREE.Vector3(0,1,0);
+  bonds.forEach(([i,j,o])=>{
+    const a=new THREE.Vector3(atoms[i].x-cx,atoms[i].y-cy,0), b=new THREE.Vector3(atoms[j].x-cx,atoms[j].y-cy,0);
+    const dir=b.clone().sub(a), len=dir.length(); dir.normalize();
+    const perp=new THREE.Vector3(-dir.y,dir.x,0);
+    const offs=o===2?[-.09,.09]:[0];
+    offs.forEach(off=>{const m=new THREE.Mesh(cg,M.b);m.scale.set(o===2?.045:.06,len,o===2?.045:.06);
+      m.position.copy(a).add(b).multiplyScalar(.5).addScaledVector(perp,off);m.quaternion.setFromUnitVectors(Y,dir);grp.add(m);});
+  });
+
+  function size(){const w=fig.clientWidth,h=fig.clientHeight;if(!w)return;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  new ResizeObserver(size).observe(fig); size();
+  let spin=0,vel=.45,drag=null;
+  cv.addEventListener('pointerdown',e=>{drag={x:e.clientX};cv.setPointerCapture(e.pointerId);});
+  cv.addEventListener('pointermove',e=>{if(!drag)return;vel=clamp((e.clientX-drag.x)*.15,-8,8);drag.x=e.clientX;});
+  const up=()=>{drag=null;}; cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+  loop(fig,(t,dt)=>{
+    if(!drag)vel+=(.45-vel)*Math.min(1,dt*1.2);
+    spin+=vel*dt; grp.rotation.y=STATIC?.5:spin; grp.rotation.x=Math.sin(t*.35)*.28; grp.rotation.z=.12;
+    R.render(scene,cam);
+  });
+}
 </script>
