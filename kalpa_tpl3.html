@@ -240,68 +240,6 @@ html.lenis,html.lenis body{height:auto}
 .site.dk .nav a{color:rgba(255,255,255,.72)}
 .site.dk .nav a:hover{color:#fff}
 
-/* inside a muscle cell: pinned WebGL story */
-.cell{position:relative;height:240vh;background:#fff;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cell-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.cell-pin canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-.cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,0) 55%),linear-gradient(0deg,rgba(255,255,255,.95),rgba(255,255,255,0) 45%)}
-.cell-top{position:absolute;z-index:1;left:0;right:0;top:92px}
-.cell-top .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-.cell-kick{font-size:.9rem;color:var(--muted)}
-.legend{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:.8rem;color:var(--muted)}
-.legend li{display:flex;align-items:center;gap:10px}
-.legend i{width:10px;height:10px;border-radius:50%;flex:none}
-.lg-on{background:var(--accent)}
-.lg-off{background:#B9B9BF}
-.lg-ua{background:#E0902E;transform:scale(.6)}
-.lg-wrap{border:1.5px solid var(--ink)}
-.cell-caps{position:absolute;z-index:1;left:0;right:0;bottom:clamp(40px,9vh,100px)}
-.cell-caps .wrap{position:relative;height:clamp(230px,32vh,300px)}
-.cell-caps .cap.hero-cap{max-width:760px;bottom:104px}
-@media(max-width:700px){.cell-caps .cap.hero-cap{bottom:96px}}
-.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:0;max-width:640px;opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.cap.on{opacity:1;transform:none;pointer-events:auto}
-.cap{pointer-events:none}
-.hero-cap .hk{margin:0 0 16px;font-size:.9rem;color:rgba(255,255,255,.6)}
-.hero-cap h1{font-size:clamp(2.8rem,6.2vw,5.6rem);line-height:1;max-width:12ch}
-.hero-cap p{max-width:44ch}
-.hero-cap .cta{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:28px}
-.btn.light{background:#fff;color:var(--ink)}
-.btn.light:hover{background:#E6E6E9}
-.scrollcue{font-size:.88rem;color:rgba(255,255,255,.55)}
-.cell-pin canvas{transform:scale(calc(1 - var(--end,0)*.06));filter:brightness(calc(1 - var(--end,0)*.5));border-radius:calc(var(--end,0)*18px);transition:none}
-.shop-cap .hk{margin:0 0 14px;font-size:.9rem;color:rgba(255,255,255,.6)}
-.sc{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:16px 22px 16px 16px;border-radius:var(--r);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.sc img{width:96px;height:96px;object-fit:cover;border-radius:10px}
-.sc .sku{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
-.cap .sc h2{font-size:1.7rem;margin-top:8px;line-height:1.1}
-.cap .sc-t p{margin-top:4px}
-.sc-t p{margin-top:4px;font-size:.88rem;color:rgba(255,255,255,.6)}
-.sc-b{display:grid;justify-items:end;gap:4px;text-align:right}
-.sc-b b{font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
-.sc-b b small{font-size:.85rem;color:rgba(255,255,255,.6);font-weight:400}
-.sc-b span{font-size:.8rem;color:rgba(255,255,255,.55)}
-.sc-b .btn{margin-top:8px;height:44px}
-.cell-caps .cap.shop-cap{max-width:720px}
-@media(max-width:700px){.sc{grid-template-columns:auto 1fr;padding:14px}.sc img{width:72px;height:72px}.sc-b{grid-column:1/-1;justify-items:start;text-align:left}.sc-b .btn{width:100%}}
-.cap h2{font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1.03}
-.cap p{margin-top:16px;color:var(--ink2);max-width:46ch;font-size:1.04rem}
-.cap .stat{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
-.cap .stat div{font-size:.84rem;color:var(--muted)}
-.cap .stat b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
-.cell-bar{position:absolute;z-index:1;left:var(--gut);right:var(--gut);bottom:22px;height:1px;background:var(--line)}
-.cell-bar i{display:block;height:100%;width:0;background:var(--ink)}
-html.no3d .cell{height:auto}
-html.no3d .cell-pin{position:relative;height:auto;padding:140px 0 100px}
-html.no3d .cell-pin canvas,html.no3d .cell-bar,html.no3d .legend{display:none}
-html.no3d .cell-top{position:static}
-html.no3d .cell-caps{position:static;margin-top:40px}
-html.no3d .cell-caps .wrap{height:auto;display:grid;gap:64px}
-html.no3d .cap{position:static;opacity:1;transform:none}
-html.static .cell{height:100vh}
-html.static .cap,html.static .hero-stage canvas{transition:none}
-@media(max-width:700px){.legend{display:none}.cap p{font-size:.96rem}}
-
 /* where you notice it */
 .feel{position:relative;background:#060608;color:#fff;overflow:hidden;padding:clamp(80px,10vw,140px) 0}
 .feel-bg{position:absolute;inset:-12% 0;opacity:.24;will-change:transform}
@@ -362,7 +300,7 @@ html.no3d .mol{display:none}
 @media(max-width:820px){.mf-top{grid-template-columns:1fr 1fr}}
 
 /* sections */
-.z{padding:clamp(80px,10vw,140px) 0;position:relative}
+.z{padding:clamp(64px,8vw,110px) 0;position:relative}
 .light{background:#fff}
 #science.light{background:#F6F6F6}
 .zh{max-width:none;margin:0 0 clamp(32px,4vw,52px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
@@ -458,7 +396,7 @@ body{background:#fff}
 @media(max-width:600px){.ah{padding-top:100px}.ah-bar{flex-direction:column;gap:10px;padding:14px 18px;text-align:center}}
 
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.tile{position:relative;border-radius:28px;background:var(--apple);text-align:center;padding:56px 32px 0;min-height:min(78vh,720px);display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.tile{position:relative;border-radius:28px;background:var(--apple);text-align:center;padding:52px 32px 0;min-height:min(66vh,620px);display:flex;flex-direction:column;align-items:center;overflow:hidden}
 .tile.dark{background:#000;color:#fff}
 .tile h2{font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.05}
 .tile p{margin-top:8px;font-size:1.12rem;color:var(--ink2)}
@@ -473,7 +411,7 @@ body{background:#fff}
 .tr-f{font-size:.76rem;color:var(--muted);padding-top:12px}
 @media(max-width:820px){.tiles{grid-template-columns:1fr}.tile{min-height:0;padding-top:44px}}
 
-.anat{padding:clamp(72px,9vw,120px) 0 0}
+.anat{padding:clamp(56px,7vw,96px) 0 0}
 .an-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:24px;background:var(--apple);border-radius:28px;padding:clamp(28px,4vw,64px);overflow:hidden}
 .an-eye{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .an-copy h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin-top:14px}
@@ -493,6 +431,7 @@ body{background:#fff}
 #science.light{background:#fff}
 #science .card{background:var(--apple);border:0;border-radius:24px}
 #science .cbars i{background:#D2D2D7}
+#science .cbars i.m{background:var(--accent)}
 .zh h2{font-weight:600;letter-spacing:-.04em;font-size:clamp(2.2rem,4vw,3.4rem)}
 .shop-card{background:var(--apple);border-radius:28px;padding:clamp(20px,3vw,40px)}
 .shop-card .gal-main,.shop-card .thumb{background:#fff}
@@ -518,7 +457,6 @@ body{background:#fff}
 .sb-who img{width:42px;height:42px;border-radius:10px;object-fit:cover}
 .sb-who b{color:var(--ink);font-weight:600;margin-right:6px}
 @media(max-width:520px){.sb-who span{display:none}}
-.cell-top{top:84px}
 
 /* motion */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -531,7 +469,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
   <nav class="sh-l" aria-label="Primary">
     <a class="logo" href="#top" aria-label="Myvo home"><span class="mark"></span><span class="word">MYVO</span></a>
     <a href="#shop">Shop</a>
-    <a class="hide-s" href="#inside">Science</a>
+    <a class="hide-s" href="#science">Science</a>
     <a class="hide-m" href="#lab">Lab reports</a>
   </nav>
   <div class="sh-r"><a class="hide-m" href="#faq">FAQ</a><a class="sh-cta" href="#shop">Reserve</a></div>
@@ -551,16 +489,16 @@ html.static .rv{opacity:1;transform:none;transition:none}
   <article class="tile rv">
     <h2>Myvo One</h2>
     <p>500 mg of Urolithin A. Every morning.</p>
-    <div class="t-cta"><a class="btn dark sm" href="#shop">Reserve</a><a class="btn ghost sm" href="#inside">How it works</a></div>
+    <div class="t-cta"><a class="btn dark sm" href="#shop">Reserve</a><a class="btn ghost sm" href="#formula">What's inside</a></div>
     <figure class="lbl t-img">
       <img src="__JARMACRO__" alt="Myvo One jar, close up">
       <div class="jp-label" aria-hidden="true" style="left:27%;right:27%;top:62%;height:30%"><span class="jp-w" style="font-size:4.6cqw">MYVO</span><span class="jp-rule"></span><span class="jp-mono" style="font-size:1.5cqw">Urolithin A / 500 mg</span></div>
     </figure>
   </article>
-  <article class="tile dark rv">
+  <article class="tile dark rv" id="lab">
     <h2>Every batch, tested.</h2>
     <p>Purity, dose, metals and microbes, before it ships.</p>
-    <div class="t-cta"><a class="btn light sm" href="#lab">See the report</a><a class="btn ghost-l sm" href="#shop">Reserve</a></div>
+    <div class="t-cta"><a class="btn light sm" href="#faq">How testing works</a><a class="btn ghost-l sm" href="#shop">Reserve</a></div>
     <div class="t-rep" aria-hidden="true">
       <div class="tr-h"><span>Batch MYV-27-001</span><i>Sample</i></div>
       <div class="tr-row"><span>Urolithin A</span><b>99.24%</b></div>
@@ -622,27 +560,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
       </article>
     </div>
     <p class="zfine rv">Not a stimulant, so you won't feel it in an hour. The trials measured these changes over weeks to months. Results vary.</p>
-  </div>
-</section>
-
-<section class="cell" id="inside" aria-label="What Urolithin A does inside a muscle cell">
-  <div class="cell-pin">
-    <canvas id="cellgl" aria-hidden="true"></canvas>
-    <div class="cell-top"><div class="wrap">
-      <p class="cell-kick">Inside one of your muscle cells</p>
-      <ul class="legend">
-        <li><i class="lg-on"></i>Working mitochondria</li>
-        <li><i class="lg-off"></i>Worn mitochondria</li>
-        <li><i class="lg-ua"></i>Urolithin A</li>
-        <li><i class="lg-wrap"></i>Recycling membrane</li>
-      </ul>
-    </div></div>
-    <div class="cell-caps"><div class="wrap">
-      <div class="cap on" data-c="0"><h2>From your thirties, your mitochondria start to wear out.</h2><p>They're the engines in every muscle cell. Worn ones make less energy and leak more waste, and the cell gets slower at clearing them. You feel it as heavier legs and longer recoveries.</p></div>
-      <div class="cap" data-c="1"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
-      <div class="cap" data-c="2"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
-    </div></div>
-    <div class="cell-bar"><i id="cbar"></i></div>
   </div>
 </section>
 
@@ -708,42 +625,10 @@ html.static .rv{opacity:1;transform:none;transition:none}
         <details><summary>What it does</summary><div class="body"><ul><li>Tells cells to clear out worn mitochondria (mitophagy)</li><li>+12% leg strength at 16 weeks in a placebo-controlled trial</li><li>+41% muscle endurance at four months in older adults</li></ul></div></details>
         <details><summary>What's inside</summary><div class="body">Urolithin A, 500 mg per daily serving of two softgels. Purity above 99% by HPLC. No proprietary blends, no added colours.</div></details>
         <details><summary>How to take it</summary><div class="body">Two softgels with your first meal, every morning. It is not a stimulant, so you will not feel it the way you feel caffeine. The trials measured changes from week four onward.</div></details>
-        <details><summary>Lab report</summary><div class="body">Each batch is tested by an independent lab before it ships. The QR code on your carton opens the report for your batch. <a class="tlink" href="#lab">See a sample report</a></div></details>
+        <details><summary>Lab report</summary><div class="body">Each batch is tested by an independent NABL-accredited lab before it ships. The QR code on your carton opens the report for your batch. <a class="tlink" href="#lab">See a sample report</a></div></details>
       </div>
     </div>
 
-    </div>
-  </div>
-</section>
-
-<section class="z light" id="lab">
-  <div class="wrap">
-    <header class="zh rv">
-      <h2>Every batch, tested.</h2>
-      <p>An independent NABL-accredited lab checks purity, dose, metals and microbes before anything ships. If a batch fails, it doesn't ship.</p>
-    </header>
-    <div class="paper-wrap rv">
-      <div class="paper">
-            
-      <div class="rep-h">
-        <div>Product<b>Myvo One, 500 mg</b></div>
-        <div>Batch<b>MYV-27-001</b></div>
-        <div>Tested by<b>NABL-accredited laboratory</b></div>
-        <div>Report<b>Sample format</b></div>
-      </div>
-      <div class="rep-wrap">
-        <table class="rep">
-          <thead><tr><th>Test</th><th>Method</th><th>Specification</th><th>Result</th><th></th></tr></thead>
-          <tbody>
-            <tr><td>Urolithin A content</td><td>HPLC-UV</td><td>99.0% minimum</td><td class="v">99.24%</td><td><span class="pass">Pass</span></td></tr>
-            <tr><td>Dose per softgel</td><td>HPLC-UV</td><td>250 mg, within 5%</td><td class="v">251.6 mg</td><td><span class="pass">Pass</span></td></tr>
-            <tr><td>Heavy metals (Pb, As, Cd, Hg)</td><td>ICP-MS</td><td>Below USP limits</td><td class="v">Not detected</td><td><span class="pass">Pass</span></td></tr>
-            <tr><td>Microbial panel</td><td>USP 2021</td><td>Within limits</td><td class="v">Conforms</td><td><span class="pass">Pass</span></td></tr>
-            <tr><td>Residual solvents</td><td>GC-FID</td><td>Below ICH Q3C</td><td class="v">Conforms</td><td><span class="pass">Pass</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     </div>
   </div>
 </section>
@@ -755,6 +640,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
       <details><summary>Will I feel anything?</summary><div class="body">Not the way you feel caffeine. Urolithin A works at the level of your cells, over weeks. The trials measured it as strength at 16 weeks and endurance at four months, so give it a full cycle before you judge it.</div></details>
       <details><summary>Why not just eat pomegranates?</summary><div class="body">Only about one in three people have the gut bacteria that turn pomegranate into Urolithin A, and even they can't eat their way to 500 mg. Myvo One delivers the finished molecule, so your gut stops being the bottleneck.</div></details>
       <details><summary>How is this different from cheaper Urolithin A online?</summary><div class="body">Independent testing found most Urolithin A sold online doesn't contain the dose on its label. Myvo publishes a third-party report for every batch, showing purity and dose per softgel, before anything ships.</div></details>
+      <details><summary>How is every batch tested?</summary><div class="body">Before a batch ships, an independent NABL-accredited lab in India measures Urolithin A purity (HPLC), dose per softgel, heavy metals (ICP-MS), microbes and residual solvents. If a batch fails, it doesn't ship. The QR on your carton opens that batch's report.</div></details>
       <details><summary>When does it ship?</summary><div class="body">Batch 001 ships once it has cleared independent testing. Founding members hear first, with the batch report, before anything is charged.</div></details>
     </div>
   </div>
@@ -771,7 +657,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
     </div>
     <div class="sf-cols">
       <div><h4>Shop</h4><a href="#shop">Myvo One</a><a href="#shop">Founding membership</a></div>
-      <div><h4>Science</h4><a href="#inside">How it works</a><a href="#science">Trial results</a><a href="#lab">Lab reports</a></div>
+      <div><h4>Science</h4><a href="#formula">What's inside</a><a href="#science">Trial results</a><a href="#lab">Lab reports</a></div>
       <div><h4>Help</h4><a href="#faq">FAQ</a><a href="mailto:founders@myvo.life">Contact</a></div>
     </div>
   </div>
@@ -828,194 +714,4 @@ html.static .rv{opacity:1;transform:none;transition:none}
 })();
 </script>
 
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
-<script type="module">
-import * as THREE from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
-const D=document, H=D.documentElement, Q=new URLSearchParams(location.search);
-const STATIC=H.classList.contains('static');
-const MOB=matchMedia('(max-width:900px)').matches;
-const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
-const ss=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
-const lerp=(a,b,t)=>a+(b-a)*t;
-function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-function hasGL(){try{return !!D.createElement('canvas').getContext('webgl2');}catch(e){return false;}}
-function onVisible(el,cb){new IntersectionObserver(es=>es.forEach(e=>cb(e.isIntersecting)),{rootMargin:'150px 0px'}).observe(el);}
-function loop(el,fn){ // runs fn(t,dt) only while el is on screen
-  let vis=false,run=false,last=0;
-  let sf=0;const f=now=>{const dt=Math.min(.05,(now-last)/1000);last=now;fn(now/1000,dt);if((vis&&!STATIC)||(STATIC&&++sf<6))requestAnimationFrame(f);else run=false;};
-  const go=()=>{if(!run){run=true;last=performance.now();requestAnimationFrame(f);}};
-  if(STATIC){requestAnimationFrame(f);return go;}
-  onVisible(el,v=>{vis=v;if(v)go();});
-  return go;
-}
-
-if(!hasGL()){H.classList.add('no3d');}
-else{
-  for(const f of [cell]){try{f();}catch(e){console.error(e);}}
-}
-
-/* ---------- inside a muscle cell ---------- */
-function cell(){
-  const sec=D.getElementById('inside'), pin=sec.querySelector('.cell-pin'), cv=D.getElementById('cellgl');
-  const caps=[...sec.querySelectorAll('.cap')], bar=D.getElementById('cbar');
-  const R=new THREE.WebGLRenderer({canvas:cv,antialias:false,powerPreference:'high-performance'});
-  R.setPixelRatio(Math.min(devicePixelRatio,MOB?1.25:1.5)); R.setClearColor(0xffffff,1);
-  const scene=new THREE.Scene();
-  const cam=new THREE.PerspectiveCamera(45,1,.1,80);
-
-  const U={uTime:{value:0},uGlow:{value:1},
-    uRim:{value:new THREE.Color(.66,.13,.22)},uIn:{value:new THREE.Color(.86,.5,.55)},uCold:{value:new THREE.Color(.72,.72,.75)}};
-  const NOISE=`float h(vec3 p){p=fract(p*.3183099+.1);p*=17.;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}
-float n3(vec3 x){vec3 i=floor(x),f=fract(x);f=f*f*(3.-2.*f);
-return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),
-mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+vec3(1,1,1)),f.x),f.y),f.z);}`;
-  const mVS=`uniform float uTime,uSeed,uWorn;varying vec3 vN,vV,vP;varying float vD;
-void main(){vec3 p=position;
-float w=sin(p.y*3.2+uTime*1.1+uSeed*6.283)*.035+sin(p.x*6.+uTime*.8+uSeed*9.)*.025;
-w+=uWorn*(sin(p.y*11.+uSeed*30.)*.06+sin(p.z*9.+uSeed*12.)*.045);
-p+=normal*w;p.y*=1.-uWorn*.14;vP=position;
-vec4 mv=modelViewMatrix*vec4(p,1.);vV=-mv.xyz;vD=-mv.z;vN=normalize(normalMatrix*normal);
-gl_Position=projectionMatrix*mv;}`;
-  const mFS=`uniform float uTime,uSeed,uWorn,uDis,uGlow;uniform vec3 uRim,uIn,uCold;varying vec3 vN,vV,vP;varying float vD;
-${NOISE}
-void main(){
-float nz=n3(vP*3.5+uSeed*17.)*.65+n3(vP*9.+uSeed*5.)*.35;
-if(nz<uDis)discard;
-vec3 n=normalize(vN),v=normalize(vV);
-float fr=pow(1.-abs(dot(n,v)),2.4);
-float cr=sin(vP.y*20.+sin(vP.x*8.+uSeed*6.)*1.8+sin(vP.z*6.)*1.2);cr=smoothstep(.62,1.,cr);
-vec3 rim=mix(uRim,uCold,uWorn),inn=mix(uIn,uCold,uWorn);
-float fl=1.-uWorn*.35*step(.55,n3(vP*2.+vec3(uTime*1.7)));
-float a=clamp(fr*1.25+cr*.5+.05,0.,1.)*fl;
-vec3 c=mix(inn,rim,clamp(fr*1.5,0.,1.));
-float e=uDis>.001?smoothstep(uDis+.07,uDis,nz):0.;
-c=mix(c,vec3(.88,.56,.18),e);a=max(a,e);
-a*=smoothstep(30.,8.,vD);
-gl_FragColor=vec4(c,a);}`;
-  const sVS=`uniform float uTime;varying vec3 vN,vV,vP;
-void main(){vec3 p=position;p+=normal*(sin(p.y*5.+uTime*1.3)*.03+sin(p.x*4.-uTime)*.03);vP=position;
-vec4 mv=modelViewMatrix*vec4(p,1.);vV=-mv.xyz;vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*mv;}`;
-  const sFS=`uniform float uA,uTime;varying vec3 vN,vV,vP;
-void main(){vec3 n=normalize(vN),v=normalize(vV);float fr=pow(1.-abs(dot(n,v)),2.6);
-float b=.5+.5*sin(vP.y*16.+uTime*2.2);
-gl_FragColor=vec4(vec3(.07,.07,.08),(fr*.32+b*fr*.08)*uA);}`;
-
-  const add={transparent:true,depthWrite:false,blending:THREE.NormalBlending,side:THREE.DoubleSide};
-  const rand=rng(11), N=MOB?28:48;
-  const mgeo=new THREE.CapsuleGeometry(.32,1.0,12,36), sgeo=new THREE.SphereGeometry(1,48,32);
-  const mitos=[];
-  for(let i=0;i<N;i++){
-    let p;
-    for(let k=0;k<80;k++){
-      p=new THREE.Vector3((rand()*2-1)*6.6,(rand()*2-1)*3.7,(rand()*2-1)*4.6);
-      if(p.x*p.x/44+p.y*p.y/14+p.z*p.z/21>1)continue;
-      if(mitos.every(m=>m.base.distanceTo(p)>1.2))break;
-    }
-    const mat=new THREE.ShaderMaterial({uniforms:{...U,uSeed:{value:rand()},uWorn:{value:0},uDis:{value:0}},vertexShader:mVS,fragmentShader:mFS,...add});
-    const m=new THREE.Mesh(mgeo,mat); const s=.58+rand()*.34;
-    m.scale.setScalar(s); m.position.copy(p); m.rotation.set(rand()*6,rand()*6,rand()*6); scene.add(m);
-    mitos.push({m,mat,base:p.clone(),s,ph:rand()*6.28,spin:new THREE.Vector3(rand()-.5,rand()-.5,rand()-.5).multiplyScalar(.3),worn:false,st:0,health:1,dis:0});
-  }
-  // about 40% wear out, nearest to the centre first so the story stays in frame
-  const byDist=[...mitos].sort((a,b)=>a.base.length()-b.base.length());
-  const worn=byDist.filter((o,i)=>i%5<2);
-  worn.forEach((o,i)=>{o.worn=true;o.st=(i*.618)%1;
-    o.sm=new THREE.ShaderMaterial({uniforms:{uTime:U.uTime,uA:{value:0}},vertexShader:sVS,fragmentShader:sFS,...add});
-    o.sph=new THREE.Mesh(sgeo,o.sm); o.sph.visible=false; scene.add(o.sph);
-  });
-
-  const PVS=`attribute float aA,aS;uniform float uPx;varying float vA;
-void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-mv.z);gl_Position=projectionMatrix*mv;vA=aA*smoothstep(32.,6.,-mv.z);}`;
-  const PFS=`uniform vec3 uC;varying float vA;void main(){float r=length(gl_PointCoord-.5);float a=smoothstep(.5,0.,r);a*=a;gl_FragColor=vec4(uC,a*vA);}`;
-  function cloud(n,color,size){
-    const g=new THREE.BufferGeometry();
-    const pos=new Float32Array(n*3), aA=new Float32Array(n), aS=new Float32Array(n);
-    for(let i=0;i<n;i++){aS[i]=size*(.5+rand());}
-    g.setAttribute('position',new THREE.BufferAttribute(pos,3));
-    g.setAttribute('aA',new THREE.BufferAttribute(aA,1));
-    g.setAttribute('aS',new THREE.BufferAttribute(aS,1));
-    const mat=new THREE.ShaderMaterial({uniforms:{uC:{value:new THREE.Color(...color)},uPx:{value:R.getPixelRatio()}},vertexShader:PVS,fragmentShader:PFS,...add});
-    const pts=new THREE.Points(g,mat); pts.frustumCulled=false; scene.add(pts);
-    return {g,pos,aA};
-  }
-  // ambient dust
-  const DN=MOB?500:1100, dust=cloud(DN,[.8,.8,.83],1.0);
-  for(let i=0;i<DN;i++){dust.pos.set([(rand()*2-1)*16,(rand()*2-1)*10,(rand()*2-1)*12],i*3);dust.aA[i]=.4+rand()*.6;}
-  dust.g.attributes.position.needsUpdate=dust.g.attributes.aA.needsUpdate=true;
-  const dustPts=scene.children[scene.children.length-1];
-  // Urolithin A molecules
-  const UN=MOB?700:1500, ua=cloud(UN,[.88,.56,.18],.6), uaD=[];
-  for(let i=0;i<UN;i++){
-    const dir=new THREE.Vector3(rand()-.5,rand()-.5,rand()-.5).normalize();
-    const u=new THREE.Vector3().randomDirection(), v=new THREE.Vector3().crossVectors(dir,u).normalize(); u.crossVectors(v,dir).normalize();
-    uaD.push({t:worn[i%worn.length],start:new THREE.Vector3((rand()*2-1)*18,(rand()*2-1)*10,4+rand()*10),
-      delay:rand(),u,v,or:.75+rand()*.55,sp:(.6+rand())*(rand()<.5?-1:1),ph:rand()*6.28});
-  }
-  // energy sparks off working mitochondria
-  const SN=MOB?500:1100, sp=cloud(SN,[.66,.13,.22],.4), spD=[];
-  for(let i=0;i<SN;i++)spD.push({mi:mitos[i%N],dir:new THREE.Vector3().randomDirection(),off:rand(),spd:.18+rand()*.25});
-
-  const tmp=new THREE.Vector3();
-  function size(){const w=pin.clientWidth,h=pin.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.fov=cam.aspect<1?64:45;cam.updateProjectionMatrix();}
-  addEventListener('resize',size); size();
-
-  let P=STATIC?(Q.has('cp')?+Q.get('cp'):0):0, tx=0,ty=0,px=0,py=0, cap=-1;
-  addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
-  const CUTS=[0,.34,.67];
-
-  loop(sec,(t,dt)=>{
-    if(!STATIC){const r=sec.getBoundingClientRect();const target=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1);P+=(target-P)*Math.min(1,dt*5);}
-    px+=(tx-px)*.04; py+=(ty-py)*.04;
-    U.uTime.value=t;
-    let c=0; CUTS.forEach((v,i)=>{if(P>=v)c=i;});
-    if(c!==cap){cap=c;caps.forEach((x,i)=>x.classList.toggle('on',i===c));}
-    bar.style.width=(P*100).toFixed(2)+'%';
-
-    // camera: drift in for the clean-up, pull back for the result
-    const dist=P<.3?lerp(11,9,ss(0,.3,P)):P<.6?lerp(9,7.8,ss(.3,.6,P)):lerp(7.8,12,ss(.6,1,P));
-    const ang=-.4+P*.95+px*.18;
-    cam.position.set(Math.sin(ang)*dist,.35+py*.7-P*.5,Math.cos(ang)*dist); cam.lookAt(0,0,0);
-    const energy=P<.6?lerp(1,.55,ss(0,.14,P)):lerp(.55,1.7,ss(.6,.85,P));
-    U.uGlow.value=lerp(.95,1.12,ss(.62,.85,P));
-
-    for(const o of mitos){
-      o.m.rotation.x+=o.spin.x*dt; o.m.rotation.y+=o.spin.y*dt;
-      o.m.position.copy(o.base); o.m.position.y+=Math.sin(t*.45+o.ph)*.14;
-      let w=0,dis=0,k=1;
-      if(o.worn){
-        const s=o.st;
-        const wa=ss(.01+s*.08,.15+s*.08,P), g=ss(.38+s*.06,.45+s*.06,P), d=ss(.45+s*.06,.53+s*.06,P), rb=ss(.6+s*.05,.7+s*.05,P);
-        if(rb>0){w=0;dis=1-rb;k=.6+.4*rb;}else{w=wa;dis=d;}
-        if(w>0)o.m.position.x+=Math.sin(t*23+o.ph)*.02*w;
-        o.sph.visible=g>0&&d<1;
-        o.sph.position.copy(o.m.position); o.sph.scale.setScalar(o.s*1.0*g*(1-.6*d)+.001);
-        o.sm.uniforms.uA.value=g*(1-d);
-      }
-      o.health=1-w; o.dis=dis;
-      o.mat.uniforms.uWorn.value=w; o.mat.uniforms.uDis.value=dis*1.05;
-      o.m.scale.setScalar(o.s*k);
-    }
-    for(let i=0;i<UN;i++){
-      const d=uaD[i], k=clamp((P-(.3+d.delay*.07))/.07,0,1);
-      if(k<=0){ua.aA[i]=0;continue;}
-      const e=k*k*(3-2*k), tg=d.t.m.position, a=t*d.sp+d.ph, R2=d.or*d.t.s;
-      tmp.copy(tg).addScaledVector(d.u,Math.cos(a)*R2).addScaledVector(d.v,Math.sin(a)*R2);
-      ua.pos[i*3]=lerp(d.start.x,tmp.x,e); ua.pos[i*3+1]=lerp(d.start.y,tmp.y,e); ua.pos[i*3+2]=lerp(d.start.z,tmp.z,e);
-      ua.aA[i]=Math.min(1,k*3)*(1-d.t.dis)*(d.t.worn&&d.t.health>.5&&P>.6?0:1)*.95;
-    }
-    ua.g.attributes.position.needsUpdate=ua.g.attributes.aA.needsUpdate=true;
-    for(let i=0;i<SN;i++){
-      const d=spD[i], f=(t*d.spd+d.off)%1, m=d.mi;
-      tmp.copy(m.m.position).addScaledVector(d.dir,(.45+f*2.4)*m.s);
-      sp.pos[i*3]=tmp.x; sp.pos[i*3+1]=tmp.y; sp.pos[i*3+2]=tmp.z;
-      sp.aA[i]=f*(1-f)*4*m.health*(1-m.dis)*energy*.8;
-    }
-    sp.g.attributes.position.needsUpdate=sp.g.attributes.aA.needsUpdate=true;
-    dustPts.rotation.y=t*.01;
-    R.render(scene,cam);
-  });
-}
-
-</script>
