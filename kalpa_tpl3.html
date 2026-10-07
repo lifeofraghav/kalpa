@@ -3,7 +3,7 @@
 <title>MYVO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fragment+Mono&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fragment+Mono&family=Nanum+Pen+Script&display=swap">
 <style>
 :root{
   --bg:#FFFFFF; --soft:#F4F4F5; --soft2:#ECECEE;
@@ -92,7 +92,7 @@ button{font:inherit;color:inherit}
 .thumb{border:1px solid transparent;border-radius:10px;overflow:hidden;padding:0;background:var(--soft);cursor:pointer;aspect-ratio:5/4}
 .thumb img{width:100%;height:100%;object-fit:cover}
 .thumb.on{border-color:var(--ink)}
-.buy{position:sticky;top:90px}
+.buy{position:sticky;top:28px}
 .sku{display:inline-block;font-family:"Fragment Mono",monospace;font-size:.72rem;letter-spacing:.06em;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--ink2)}
 .buy h2{font-size:clamp(2rem,3vw,2.6rem);margin-top:14px}
 .buy .meta{color:var(--muted);font-size:.92rem;margin-top:6px}
@@ -227,15 +227,7 @@ button{font:inherit;color:inherit}
 .foot .base p{border-top:1px solid rgba(255,255,255,.14);padding-top:22px}
 @media(max-width:820px){.foot .top{grid-template-columns:1fr 1fr}}
 
-/* sticky reserve bar */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);transform:translateY(105%);transition:transform .35s var(--ease)}
-.sticky.on{transform:none}
-.sticky .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.sticky .who{display:flex;align-items:center;gap:12px;font-size:.92rem}
-.sticky .who img{width:42px;height:42px;border-radius:8px;object-fit:cover}
-.sticky .who span{color:var(--muted)}
-.sticky .btn{height:44px}
-@media(max-width:600px){.sticky .who span{display:none}}
+
 
 
 /* lenis */
@@ -253,7 +245,7 @@ html.lenis,html.lenis body{height:auto}
 .cell-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .cell-pin canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
 .cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(6,6,8,.6),rgba(6,6,8,0) 55%),linear-gradient(0deg,rgba(6,6,8,.9),rgba(6,6,8,0) 48%),linear-gradient(180deg,rgba(6,6,8,.7),rgba(6,6,8,0) 26%)}
-.cell-top{position:absolute;z-index:1;left:0;right:0;top:94px}
+.cell-top{position:absolute;z-index:1;left:0;right:0;top:36px}
 .cell-top .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
 .cell-kick{font-size:.9rem;color:rgba(255,255,255,.6)}
 .legend{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:.8rem;color:rgba(255,255,255,.62)}
@@ -334,6 +326,133 @@ html.static .cap,html.static .hero-stage canvas{transition:none}
 .mol figcaption b{color:var(--ink);font-weight:500}
 html.no3d .mol{display:none}
 
+
+/* floating pill nav (replaces the header) */
+.pill{position:fixed;z-index:80;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:rgba(28,28,32,.55);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.pill-home,.pill-menu{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#F2F2F3;color:var(--ink);border:0;cursor:pointer;text-decoration:none}
+.pill-home .mark{width:14px;height:14px}
+.pill-menu{gap:4px;align-content:center}
+.pill-menu i{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .25s}
+.pill-menu[aria-expanded=true] i:first-child{transform:translateY(2.75px) rotate(45deg)}
+.pill-menu[aria-expanded=true] i:last-child{transform:translateY(-2.75px) rotate(-45deg)}
+.pill-cta{height:44px;padding:0 28px;border-radius:999px;display:inline-flex;align-items:center;background:var(--ink);color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;white-space:nowrap}
+.menu{position:fixed;z-index:79;left:50%;bottom:84px;transform:translateX(-50%);width:min(320px,calc(100vw - 32px));background:#fff;border-radius:18px;padding:10px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.menu[hidden]{display:none}
+.menu a{display:flex;justify-content:space-between;padding:12px 14px;border-radius:10px;text-decoration:none;font-size:1.05rem}
+.menu a:hover{background:var(--soft)}
+.menu a span{color:var(--muted);font-size:.85rem}
+
+/* handwriting */
+.hw{font-family:"Nanum Pen Script",cursive;font-weight:400;letter-spacing:0}
+.amb{color:#F2A24E}
+
+/* the floor: Zero-style tactile story */
+.floor{position:relative;height:560vh;background:#0B0B0D;color:#fff}
+.fl-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.fl-bg,.fl-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fl-bg img{transform:scale(calc(1.08 - var(--z,0)*.08))}
+.fl-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.6),rgba(8,8,10,0) 60%),linear-gradient(0deg,rgba(8,8,10,.35),rgba(8,8,10,0) 40%)}
+.floor [data-in]{opacity:calc(var(--i,0) - var(--o,0))}
+.ob{position:absolute;box-shadow:0 24px 50px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.3);color:var(--ink)}
+
+.bib{right:9%;top:11%;width:clamp(200px,19vw,280px);aspect-ratio:4/3;background:#F1F1EE;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;
+  transform:translate(calc((1 - var(--i,0))*40vw + var(--o,0)*45vw),calc((1 - var(--i,0))*-40vh)) rotate(calc(18deg - var(--i,0)*26deg + var(--o,0)*30deg))}
+.bib-top{background:var(--accent);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:3px;align-self:flex-start}
+.bib-no{font-size:clamp(3rem,5.6vw,4.8rem);font-weight:600;letter-spacing:-.04em;line-height:.9}
+.bib-bot{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#6A6A70}
+.bib .pin{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#9A9AA0 60%,#5A5A60)}
+.bib .p1{left:8px;top:8px}.bib .p2{right:8px;top:8px}.bib .p3{left:8px;bottom:8px}.bib .p4{right:8px;bottom:8px}
+
+.log{right:25%;top:36%;width:clamp(220px,20vw,290px);padding:16px 22px 18px 40px;border-radius:3px;
+  background:linear-gradient(90deg,transparent 28px,rgba(168,32,57,.45) 28px 29px,transparent 29px),repeating-linear-gradient(#FBFBF7 0 31px,#D9E0EA 31px 32px);
+  transform:translate(calc((1 - var(--i,0))*-20vw - var(--o,0)*50vw),calc((1 - var(--i,0))*60vh + var(--o,0)*20vh)) rotate(calc(-12deg + var(--i,0)*17deg - var(--o,0)*25deg))}
+.log .lt{font-size:1.7rem;color:#2B3354;line-height:1.1;margin:0 0 4px}
+.log ol{list-style:none;margin:0;padding:0}
+.log li{display:flex;justify-content:space-between;position:relative;font-family:"Nanum Pen Script",cursive;font-size:1.6rem;line-height:32px;color:#2B3354}
+.log li.r7{color:var(--accent)}
+.log .ring{position:absolute;left:-14px;right:-14px;top:-4px;bottom:-4px;width:calc(100% + 28px);height:calc(100% + 8px);overflow:visible}
+.log .ring ellipse{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--i,0))}
+.note{position:absolute;margin:0;white-space:nowrap}
+.wall{right:calc(25% + clamp(220px,20vw,290px) - 30px);top:60%;font-size:clamp(1.8rem,2.6vw,2.6rem);display:flex;align-items:center;gap:6px;transform:rotate(-6deg)}
+.wall svg{width:56px;height:30px}
+.wall path{fill:none;stroke:#F2A24E;stroke-width:2.4;stroke-linecap:round}
+
+.fl-lines{position:absolute;left:6%;top:22%;max-width:min(48vw,660px)}
+.ln{font-size:clamp(2rem,4.3vw,4.1rem);font-weight:500;letter-spacing:-.03em;line-height:1.04;margin:0 0 .12em;transform:translateY(calc((1 - var(--i,0))*28px))}
+.ln .hw{font-size:1.28em;line-height:.8}
+
+.report{left:64%;top:50%;width:clamp(280px,28vw,390px);background:#fff;border-radius:4px;padding:22px 24px 18px;
+  transform:translate(-50%,-50%) translate(calc((1 - var(--i,0))*40vw - var(--o,0)*20vw),calc((1 - var(--i,0))*75vh - var(--o,0)*115vh)) rotate(calc((1 - var(--i,0))*22deg - var(--o,0)*28deg)) scale(calc(.8 + var(--i,0)*.25))}
+.rp-k{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+.report h3{font-size:1.02rem;font-weight:600;line-height:1.3;margin:8px 0 14px}
+.rp-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rp-rows li{display:flex;justify-content:space-between;font-size:.82rem;padding:6px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+.rp-rows b{font-weight:600;color:var(--ink)}
+.rp-rows .f b{color:var(--accent)}
+.rp-src{font-size:.7rem;color:var(--muted);margin:10px 0 0}
+.stamp{position:absolute;left:50%;top:46%;padding:8px 16px;border:4px solid var(--accent);border-radius:8px;color:var(--accent);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:rgba(255,255,255,.55);
+  transform:translate(-50%,-50%) rotate(-14deg) scale(calc(2.4 - var(--i,0)*1.4))}
+.fl-cap{position:absolute;left:6%;top:30%;max-width:min(40vw,520px);font-size:clamp(1.8rem,3.4vw,3.2rem);font-weight:500;letter-spacing:-.03em;line-height:1.06;transform:translateY(calc((1 - var(--i,0))*24px))}
+
+.fl-sol{position:absolute;left:6%;top:18%;max-width:min(46vw,620px);transform:translateY(calc((1 - var(--i,0))*30px + var(--o,0)*-30px))}
+.fl-sol .hk{font-size:.95rem;color:rgba(255,255,255,.7);margin:0 0 18px}
+.fl-sol h1{font-size:clamp(3rem,6.6vw,6.4rem);line-height:.96;letter-spacing:-.04em}
+.fl-sol p.sub{margin-top:22px;font-size:1.05rem;color:rgba(255,255,255,.75);max-width:40ch}
+.pola{right:12%;top:15%;width:clamp(230px,23vw,330px);background:#F5F5F2;padding:12px 12px 0;border-radius:3px;margin:0;
+  transform:translateY(calc((1 - var(--i,0))*-60px)) rotate(calc(-16deg + var(--i,0)*10deg)) scale(calc(1.45 - var(--i,0)*.45 - var(--o,0)*.08))}
+.pola figcaption{font-size:1.8rem;color:#2B3354;text-align:center;padding:6px 0 10px;line-height:1.2}
+.stk{position:absolute;padding:9px 16px;border-radius:999px;border:3px solid #fff;font-size:.84rem;font-weight:600;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.35);
+  transform:translate(-50%,-50%) rotate(var(--r,0deg)) scale(calc(var(--i,0) - var(--o,0)*.2))}
+.floor .stk{opacity:calc(min(1,var(--i,0)*4) - var(--o,0))}
+.stk.ink{background:#141416;color:#fff}.stk.amber{background:#F2A24E;color:#141416}.stk.white{background:#F4F4F5;color:#141416}.stk.gar{background:var(--accent);color:#fff}
+.s1{left:57%;top:17%;--r:-8deg}.s2{left:91%;top:13%;--r:7deg}.s3{left:59%;top:58%;--r:5deg}.s4{left:92%;top:63%;--r:-6deg}.s5{left:76%;top:79%;--r:3deg}.s6{left:56%;top:38%;--r:-4deg}
+.n-soft{position:absolute;left:46%;top:66%;font-size:clamp(1.8rem,2.6vw,2.6rem);display:flex;align-items:flex-end;gap:4px;transform:rotate(-5deg)}
+.n-soft svg{width:70px;height:46px}
+.n-soft path{fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+
+.fl-dark{position:absolute;inset:0;background:#0A0A0C}
+.floor .fl-dark{opacity:calc(var(--i,0)*.88)}
+.fl-punch{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:0 var(--gut)}
+.fl-punch .pk{font-size:clamp(2rem,3.4vw,3rem);margin:0}
+.fl-punch .big{font-size:clamp(4.2rem,13vw,12rem);font-weight:600;letter-spacing:-.05em;line-height:.95;margin:6px 0 0;transform:scale(calc(.9 + var(--i,0)*.1))}
+.fl-punch .big span{color:#F2A24E}
+.fl-punch .pn{font-size:clamp(1.8rem,3vw,2.6rem);margin:8px 0 0;transform:rotate(-3deg)}
+.fl-punch .fine{font-size:.92rem;color:rgba(255,255,255,.6);margin-top:18px}
+
+.fl-intro{position:absolute;inset:0;background:#0B0B0D;display:grid;place-items:center;
+  -webkit-mask:radial-gradient(circle at 50% 50%,transparent calc(var(--R,14)*1px),#000 calc(var(--R,14)*1px + 1px));mask:radial-gradient(circle at 50% 50%,transparent calc(var(--R,14)*1px),#000 calc(var(--R,14)*1px + 1px))}
+.fl-ring{position:absolute;left:50%;top:50%;width:calc(var(--R,14)*2px);height:calc(var(--R,14)*2px);border:2px solid #fff;border-radius:50%;transform:translate(-50%,-50%)}
+.fl-word{position:absolute;left:50%;top:calc(50% + 64px);transform:translateX(-50%);text-align:center;opacity:calc(1 - var(--t,0))}
+.fl-word b{display:block;font-weight:500;font-size:clamp(2.6rem,7vw,6rem);letter-spacing:.42em;padding-left:.42em;line-height:1}
+.fl-word span{display:block;margin-top:18px;font-size:.92rem;color:rgba(255,255,255,.6)}
+.fl-cue{position:absolute;left:50%;bottom:92px;transform:translateX(-50%);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);opacity:calc(1 - var(--t,0))}
+html.static .floor{height:100vh}
+
+@media(max-width:700px){
+  .fl-shade{background:linear-gradient(180deg,rgba(8,8,10,.7),rgba(8,8,10,.1) 55%,rgba(8,8,10,.5))}
+  .fl-lines{left:6%;right:6%;top:9%;max-width:none}
+  .ln{font-size:2.1rem}
+  .bib{right:6%;top:35%;width:44vw}
+  .bib-no{font-size:2.6rem}
+  .log{right:auto;left:5%;top:auto;bottom:13%;width:50vw;padding:12px 14px 12px 34px}
+  .log li{font-size:1.35rem;line-height:28px}
+  .log{background:linear-gradient(90deg,transparent 24px,rgba(168,32,57,.45) 24px 25px,transparent 25px),repeating-linear-gradient(#FBFBF7 0 27px,#D9E0EA 27px 28px)}
+  .wall{right:auto;left:58%;top:auto;bottom:16%;font-size:1.7rem}
+  .wall svg{display:none}
+  .report{left:50%;top:56%;width:80vw;padding:16px 18px 12px}
+  .rp-rows li{padding:4px 0;font-size:.78rem}
+  .report h3{font-size:.95rem;margin:6px 0 10px}
+  .fl-cap{left:6%;right:6%;top:9%;max-width:none;font-size:1.9rem}
+  .fl-sol{left:6%;right:6%;top:7%;max-width:none}
+  .fl-sol h1{font-size:3.1rem}
+  .fl-sol p.sub{font-size:.95rem;margin-top:14px}
+  .pola{right:auto;left:22%;top:auto;bottom:16%;width:52vw}
+  .s1{left:72%;top:47%}.s2{left:82%;top:63%}.s4{left:80%;top:83%}.s3,.s5,.s6{display:none}
+  .n-soft{left:6%;right:auto;top:47%;bottom:auto;font-size:1.6rem}
+  .n-soft svg{display:none}
+  .fl-cue{bottom:88px}
+}
+
 /* motion */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -341,59 +460,99 @@ html.static .rv{opacity:1;transform:none;transition:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 
-<div class="announce">Founding batch 001: 100 memberships at a price locked for life. <a href="#shop">Reserve yours</a></div>
+<nav class="pill" aria-label="Site">
+  <a class="pill-home" href="#top" aria-label="Myvo home"><span class="mark"></span></a>
+  <a class="pill-cta" href="#shop">Reserve batch 001</a>
+  <button class="pill-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+</nav>
+<div class="menu" id="menu" hidden>
+  <a href="#shop">Shop <span>Myvo One</span></a>
+  <a href="#inside">How it works <span>Inside a cell</span></a>
+  <a href="#science">Science <span>Trial results</span></a>
+  <a href="#lab">Lab reports <span>Every batch</span></a>
+  <a href="#faq">FAQ</a>
+</div>
 
-<header class="site">
-  <div class="wrap">
-    <nav class="nav left" aria-label="Primary">
-      <a href="#shop">Shop</a>
-      <a href="#science">Science</a>
-      <a class="hide-m" href="#lab">Lab reports</a>
-    </nav>
-    <a class="logo" href="#top" aria-label="Myvo home"><span class="mark"></span><span class="word">MYVO</span></a>
-    <nav class="nav right" aria-label="Account">
-      <a class="hide-m" href="#faq">FAQ</a>
-      <a href="#shop">Cart (0)</a>
-    </nav>
-  </div>
-</header>
+<main>
 
-<main id="top">
+<section class="floor" id="top" aria-label="Myvo One">
+  <div class="fl-pin" id="flPin">
+    <picture class="fl-bg"><source media="(max-width:700px)" srcset="__FLOORP__"><img src="__FLOORL__" alt="A gym floor from above: bumper plates, a battle rope, barbell collars"></picture>
+    <div class="fl-shade"></div>
 
-<section class="cell" id="inside" data-dark aria-label="What Urolithin A does inside a muscle cell">
-  <div class="cell-pin">
-    <canvas id="cellgl" aria-hidden="true"></canvas>
-    <div class="cell-top"><div class="wrap">
-      <p class="cell-kick">Inside one of your muscle cells</p>
-      <ul class="legend">
-        <li><i class="lg-on"></i>Working mitochondria</li>
-        <li><i class="lg-off"></i>Worn mitochondria</li>
-        <li><i class="lg-ua"></i>Urolithin A</li>
-        <li><i class="lg-wrap"></i>Recycling membrane</li>
+    <div class="fl-lines">
+      <p class="ln" data-in=".1,.14" data-out=".37,.41">Six days a week.</p>
+      <p class="ln" data-in=".15,.19" data-out=".37,.41">Clean eating. Eight hours of sleep.</p>
+      <p class="ln" data-in=".2,.25" data-out=".37,.41">And still hitting <span class="hw amb">the wall</span> at run seven.</p>
+    </div>
+    <div class="ob bib" data-in=".1,.18" data-out=".42,.5" aria-hidden="true">
+      <i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i><i class="pin p4"></i>
+      <span class="bib-top">Hybrid race, Bangalore</span>
+      <b class="bib-no">0412</b>
+      <span class="bib-bot">8 &times; 1 km, 8 stations</span>
+    </div>
+    <div class="ob log" data-in=".14,.22" data-out=".42,.5" aria-hidden="true">
+      <p class="lt hw">race splits</p>
+      <ol>
+        <li><span>Run 1</span><span>4:41</span></li>
+        <li><span>Run 3</span><span>4:52</span></li>
+        <li><span>Run 5</span><span>5:19</span></li>
+        <li class="r7"><span>Run 7</span><span>6:18</span><svg class="ring" data-in=".27,.34" viewBox="0 0 100 40" preserveAspectRatio="none"><ellipse cx="50" cy="20" rx="48" ry="17" pathLength="1"/></svg></li>
+        <li><span>Run 8</span><span>6:02</span></li>
+      </ol>
+    </div>
+    <p class="note wall hw amb" data-in=".3,.35" data-out=".37,.41" aria-hidden="true">+1:37 slower <svg viewBox="0 0 56 30"><path d="M2 8c14-6 32-4 46 10M48 18l-9-1M48 18l-2-9"/></svg></p>
+
+    <p class="fl-cap" data-in=".44,.48" data-out=".56,.6">So you try Urolithin A. Most of what's sold online fails its own label.</p>
+    <div class="ob report" data-in=".4,.48" data-out=".56,.62" aria-hidden="true">
+      <p class="rp-k">Independent lab test</p>
+      <h3>10 Urolithin A supplements bought online, tested against their labels</h3>
+      <ul class="rp-rows">
+        <li class="f"><span>Sample 01</span><b>Fail</b></li><li><span>Sample 02</span><b>Pass</b></li>
+        <li class="f"><span>Sample 03</span><b>Fail</b></li><li class="f"><span>Sample 04</span><b>Fail</b></li>
+        <li><span>Sample 05</span><b>Pass</b></li><li class="f"><span>Sample 06</span><b>Fail</b></li>
+        <li><span>Sample 07</span><b>Pass</b></li><li class="f"><span>Sample 08</span><b>Fail</b></li>
+        <li class="f"><span>Sample 09</span><b>Fail</b></li><li><span>Sample 10</span><b>Pass</b></li>
       </ul>
-    </div></div>
-    <div class="cell-caps"><div class="wrap">
-      <div class="cap hero-cap on" data-c="0">
-        <p class="hk">Urolithin A, 500 mg a day</p>
-        <h1>The real Urolithin&nbsp;A. Finally in&nbsp;India.</h1>
-        <p>500 mg of Urolithin A, above 99% pure, at the dose studied in human trials. For legs that still answer at the end of the race.</p>
-        <div class="cta"><a class="btn light" href="#shop">Shop Myvo One</a><span class="scrollcue">Scroll to see what it does</span></div>
+      <p class="rp-src">Fail: measured content below the dose on the label.</p>
+      <span class="stamp" data-in=".49,.52">6 of 10 failed</span>
+    </div>
+
+    <div class="fl-sol" data-in=".61,.66" data-out=".82,.86">
+      <p class="hk">The real Urolithin A, finally in India.</p>
+      <h1>Clear out.<br>Renew.<br>Go again.</h1>
+      <p class="sub">Myvo One: 500 mg of Urolithin A, above 99% pure, at the dose studied in human trials. Tested by an independent lab before every batch ships.</p>
+    </div>
+    <figure class="ob pola" data-in=".6,.66" data-out=".82,.86">
+      <div class="lbl"><img src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels">
+        <div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%"><span class="jp-w">MYVO</span><span class="jp-rule"></span><span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span><span class="jp-batch">Batch MYV-27-001</span></div>
       </div>
-      <div class="cap" data-c="1"><h2>From your thirties, some of them wear out.</h2><p>Worn mitochondria make less energy and leak more waste, and the cell gets slower at clearing them out. You feel it as heavier legs and longer recoveries.</p></div>
-      <div class="cap" data-c="2"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
-      <div class="cap" data-c="3"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
-      <div class="cap shop-cap" data-c="4">
-        <p class="hk">Batch 001, 100 founding memberships</p>
-        <div class="sc">
-          <img src="__JARMACRO__" alt="Myvo One jar">
-          <div class="sc-t"><span class="sku">MYV-01</span><h2>Myvo One</h2><p>Urolithin A 500 mg, 60 softgels, 30 days</p></div>
-          <div class="sc-b"><b>&#8377;8,999<small> /mo</small></b><span>Founding price, locked for life</span><a class="btn light" href="#shop">Choose your plan</a></div>
-        </div>
-      </div>
-    </div></div>
-    <div class="cell-bar"><i id="cbar"></i></div>
+      <figcaption class="hw">batch 001</figcaption>
+    </figure>
+    <span class="stk ink s1" data-in=".66,.69" data-out=".82,.86" data-ease="back">Cell Reports Medicine</span>
+    <span class="stk amber s2" data-in=".68,.71" data-out=".82,.86" data-ease="back">500 mg a day</span>
+    <span class="stk white s3" data-in=".7,.73" data-out=".82,.86" data-ease="back">JAMA Network Open</span>
+    <span class="stk gar s4" data-in=".72,.75" data-out=".82,.86" data-ease="back">99% pure</span>
+    <span class="stk white s5" data-in=".74,.77" data-out=".82,.86" data-ease="back">NABL lab tested</span>
+    <span class="stk ink s6" data-in=".76,.79" data-out=".82,.86" data-ease="back">Nature Aging</span>
+    <p class="note n-soft hw" data-in=".72,.76" data-out=".82,.86" aria-hidden="true">two softgels a day <svg viewBox="0 0 70 46"><path d="M2 40c18 2 40-6 58-30M60 10l-10 2M60 10l1 10"/></svg></p>
+
+    <div class="fl-dark" data-in=".8,.88"></div>
+    <div class="fl-punch" data-in=".86,.89">
+      <p class="pk hw">and it costs...</p>
+      <p class="big" data-in=".88,.92"><span>&#8377;300</span> a day</p>
+      <p class="pn hw amb" data-in=".92,.95">about one cold brew</p>
+      <p class="fine" data-in=".92,.95">&#8377;8,999 a month, founding price locked for life</p>
+    </div>
+
+    <div class="fl-intro" id="flIntro">
+      <span class="fl-ring"></span>
+      <div class="fl-word"><b>MYVO</b><span>Urolithin A, 500 mg a day</span></div>
+    </div>
+    <p class="fl-cue" id="flCue">Scroll</p>
   </div>
 </section>
+
 
 <section class="press" aria-label="Where the research is published">
   <div class="wrap">
@@ -463,6 +622,36 @@ html.static .rv{opacity:1;transform:none;transition:none}
         <details><summary>Lab report</summary><div class="body">Each batch is tested by an independent lab before it ships. The QR code on your carton opens the report for your batch. <a class="tlink" href="#lab">See a sample report</a></div></details>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="cell" id="inside" data-dark aria-label="What Urolithin A does inside a muscle cell">
+  <div class="cell-pin">
+    <canvas id="cellgl" aria-hidden="true"></canvas>
+    <div class="cell-top"><div class="wrap">
+      <p class="cell-kick">Inside one of your muscle cells</p>
+      <ul class="legend">
+        <li><i class="lg-on"></i>Working mitochondria</li>
+        <li><i class="lg-off"></i>Worn mitochondria</li>
+        <li><i class="lg-ua"></i>Urolithin A</li>
+        <li><i class="lg-wrap"></i>Recycling membrane</li>
+      </ul>
+    </div></div>
+    <div class="cell-caps"><div class="wrap">
+      <div class="cap on" data-c="0"><h2>This is where your energy comes from.</h2><p>Every muscle cell carries hundreds of mitochondria. They turn food and oxygen into the fuel behind every rep, every stride, every flight of stairs.</p></div>
+      <div class="cap" data-c="1"><h2>From your thirties, some of them wear out.</h2><p>Worn mitochondria make less energy and leak more waste, and the cell gets slower at clearing them out. You feel it as heavier legs and longer recoveries.</p></div>
+      <div class="cap" data-c="2"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
+      <div class="cap" data-c="3"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
+      <div class="cap shop-cap" data-c="4">
+        <p class="hk">Batch 001, 100 founding memberships</p>
+        <div class="sc">
+          <img src="__JARMACRO__" alt="Myvo One jar">
+          <div class="sc-t"><span class="sku">MYV-01</span><h2>Myvo One</h2><p>Urolithin A 500 mg, 60 softgels, 30 days</p></div>
+          <div class="sc-b"><b>&#8377;8,999<small> /mo</small></b><span>Founding price, locked for life</span><a class="btn light" href="#shop">Choose your plan</a></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="cell-bar"><i id="cbar"></i></div>
   </div>
 </section>
 
@@ -648,13 +837,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
   </p></div>
 </footer>
 
-<div class="sticky" id="sticky" aria-hidden="true">
-  <div class="wrap">
-    <div class="who"><img src="__JARMACRO__" alt=""><div><b style="font-weight:500">Myvo One</b> <span>&middot; &#8377;8,999 per month, founding price</span></div></div>
-    <a class="btn dark" href="#shop" tabindex="-1">Reserve a spot</a>
-  </div>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
@@ -694,17 +876,31 @@ html.static .rv{opacity:1;transform:none;transition:none}
     b.addEventListener('click',go); b.addEventListener('mouseenter',go); b.addEventListener('focus',go);
   });
 
-  /* sticky reserve bar: shows after the product module, hides near the footer */
-  var st=d.getElementById('sticky'), shop=d.getElementById('shop'), foot=d.querySelector('.foot');
-  function tick(){
-    var past=shop.getBoundingClientRect().bottom<0, nearFoot=foot.getBoundingClientRect().top<innerHeight;
-    var on=past&&!nearFoot; st.classList.toggle('on',on); st.setAttribute('aria-hidden',on?'false':'true');
-  }
-  if(!isStatic){addEventListener('scroll',tick,{passive:true});tick();}
+  /* floating pill menu */
+  var mb=d.querySelector('.pill-menu'), menu=d.getElementById('menu');
+  function closeMenu(){menu.hidden=true;mb.setAttribute('aria-expanded','false');}
+  mb.addEventListener('click',function(){var open=menu.hidden;menu.hidden=!open;mb.setAttribute('aria-expanded',open?'true':'false');});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 
-  /* header turns dark over the dark sections */
-  var site=d.querySelector('.site'), darks=d.querySelectorAll('[data-dark]');
-  function hdr(){var on=false,hb=site.getBoundingClientRect().bottom;darks.forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=hb+1&&r.bottom>hb)on=true;});site.classList.toggle('dk',on);}
+  /* the floor: every [data-in] element gets --i (in) and --o (out) from scroll progress */
+  var fl=d.getElementById('top'), flEls=fl.querySelectorAll('[data-in]'), intro=d.getElementById('flIntro'), cue=d.getElementById('flCue'), flPin=d.getElementById('flPin');
+  var FP=isStatic?(parseFloat(new URLSearchParams(location.search).get('fp'))||0):0;
+  function sm(a,b,x){var t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);}
+  function back(t){var c=1.70158;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2);}
+  function floorTick(){
+    var r=fl.getBoundingClientRect(), P=isStatic?FP:Math.max(0,Math.min(1,-r.top/Math.max(1,r.height-innerHeight)));
+    if(!isStatic&&(r.bottom<0||r.top>innerHeight))return;
+    flEls.forEach(function(el){
+      var a=el.dataset.in.split(','), i;
+      if(el.dataset.ease==='back'){var t=Math.max(0,Math.min(1,(P-a[0])/(a[1]-a[0])));i=t<=0?0:back(t);}else i=sm(+a[0],+a[1],P);
+      el.style.setProperty('--i',i.toFixed(3));
+      if(el.dataset.out){var b=el.dataset.out.split(',');el.style.setProperty('--o',sm(+b[0],+b[1],P).toFixed(3));}
+    });
+    var R=14+(Math.hypot(innerWidth,innerHeight)/2+20)*sm(.015,.11,P), t=sm(0,.05,P);
+    intro.style.setProperty('--R',R.toFixed(1)); intro.style.setProperty('--t',t.toFixed(3)); intro.style.visibility=P>.112?'hidden':'visible';
+    cue.style.setProperty('--t',t.toFixed(3)); flPin.style.setProperty('--z',sm(0,.12,P).toFixed(3));
+  }
 
   /* where you notice it: words light up as each line crosses the screen */
   var lines=d.querySelectorAll('.m-line'), feelbg=d.getElementById('feelbg'), feel=d.getElementById('feel');
@@ -718,7 +914,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
     var fr=feel.getBoundingClientRect(), fk=(innerHeight-fr.top)/(innerHeight+fr.height);
     feelbg.style.transform='translate3d(0,'+((fk-.5)*-90).toFixed(1)+'px,0) scale('+(1.04+fk*.1).toFixed(3)+')';
   }
-  function all(){hdr();feelTick();}
+  function all(){floorTick();feelTick();}
   addEventListener('scroll',all,{passive:true}); addEventListener('resize',all); all();
 
   /* smooth scroll */
@@ -727,7 +923,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
     (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(performance.now());
     d.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
       var id=a.getAttribute('href'); if(id.length<2)return; var el=d.querySelector(id); if(!el)return;
-      e.preventDefault(); lenis.scrollTo(el,{offset:id==='#top'?0:-62,duration:1.4});
+      e.preventDefault(); lenis.scrollTo(el,{offset:0,duration:1.4});
     });});
   }
 })();

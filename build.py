@@ -13,6 +13,8 @@ MAP = {
     "__POUCH__": "c_pouch.jpg",
     "__CARTON__": "c_carton.jpg",
     "__TRIO__": "c_trio.jpg",
+    "__FLOORL__": "c_floor_land.jpg",
+    "__FLOORP__": "c_floor_port.jpg",
 }
 html = (root / "kalpa_tpl3.html").read_text(encoding="utf-8")
 for token, fname in MAP.items():
