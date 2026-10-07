@@ -241,7 +241,7 @@ html.lenis,html.lenis body{height:auto}
 .site.dk .nav a:hover{color:#fff}
 
 /* inside a muscle cell: pinned WebGL story */
-.cell{position:relative;height:360vh;background:#060608;color:#fff}
+.cell{position:relative;height:240vh;background:#060608;color:#fff}
 .cell-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .cell-pin canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
 .cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(6,6,8,.6),rgba(6,6,8,0) 55%),linear-gradient(0deg,rgba(6,6,8,.9),rgba(6,6,8,0) 48%),linear-gradient(180deg,rgba(6,6,8,.7),rgba(6,6,8,0) 26%)}
@@ -707,18 +707,9 @@ html.static .rv{opacity:1;transform:none;transition:none}
       </ul>
     </div></div>
     <div class="cell-caps"><div class="wrap">
-      <div class="cap on" data-c="0"><h2>This is where your energy comes from.</h2><p>Every muscle cell carries hundreds of mitochondria. They turn food and oxygen into the fuel behind every rep, every stride, every flight of stairs.</p></div>
-      <div class="cap" data-c="1"><h2>From your thirties, some of them wear out.</h2><p>Worn mitochondria make less energy and leak more waste, and the cell gets slower at clearing them out. You feel it as heavier legs and longer recoveries.</p></div>
-      <div class="cap" data-c="2"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
-      <div class="cap" data-c="3"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
-      <div class="cap shop-cap" data-c="4">
-        <p class="hk">Batch 001, 100 founding memberships</p>
-        <div class="sc">
-          <img src="__JARMACRO__" alt="Myvo One jar">
-          <div class="sc-t"><span class="sku">MYV-01</span><h2>Myvo One</h2><p>Urolithin A 500 mg, 60 softgels, 30 days</p></div>
-          <div class="sc-b"><b>&#8377;8,999<small> /mo</small></b><span>Founding price, locked for life</span><a class="btn light" href="#shop">Choose your plan</a></div>
-        </div>
-      </div>
+      <div class="cap on" data-c="0"><h2>From your thirties, your mitochondria start to wear out.</h2><p>They're the engines in every muscle cell. Worn ones make less energy and leak more waste, and the cell gets slower at clearing them. You feel it as heavier legs and longer recoveries.</p></div>
+      <div class="cap" data-c="1"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
+      <div class="cap" data-c="2"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
     </div></div>
     <div class="cell-bar"><i id="cbar"></i></div>
   </div>
@@ -1025,7 +1016,7 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
 
   let P=STATIC?(Q.has('cp')?+Q.get('cp'):0):0, tx=0,ty=0,px=0,py=0, cap=-1;
   addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
-  const CUTS=[0,.16,.36,.62,.82];
+  const CUTS=[0,.34,.67];
 
   loop(sec,(t,dt)=>{
     if(!STATIC){const r=sec.getBoundingClientRect();const target=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1);P+=(target-P)*Math.min(1,dt*5);}
@@ -1036,13 +1027,12 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
     bar.style.width=(P*100).toFixed(2)+'%';
 
     // camera: drift in for the clean-up, pull back for the result
-    const dist=P<.34?lerp(12.5,9.4,ss(0,.34,P)):P<.62?lerp(9.4,7.8,ss(.34,.62,P)):lerp(7.8,13,ss(.62,1,P));
+    const dist=P<.3?lerp(11,9,ss(0,.3,P)):P<.6?lerp(9,7.8,ss(.3,.6,P)):lerp(7.8,12,ss(.6,1,P));
     const ang=-.4+P*.95+px*.18;
     cam.position.set(Math.sin(ang)*dist,.35+py*.7-P*.5,Math.cos(ang)*dist); cam.lookAt(0,0,0);
-    const energy=P<.16?1:P<.62?lerp(1,.55,ss(.16,.28,P)):lerp(.55,1.7,ss(.62,.85,P));
-    U.uGlow.value=lerp(.95,1.12,ss(.66,.85,P));
-    bloom.strength=lerp(.5,.7,ss(.66,.85,P));
-    pin.style.setProperty('--end',ss(.82,.95,P).toFixed(3));
+    const energy=P<.6?lerp(1,.55,ss(0,.14,P)):lerp(.55,1.7,ss(.6,.85,P));
+    U.uGlow.value=lerp(.95,1.12,ss(.62,.85,P));
+    bloom.strength=lerp(.5,.7,ss(.62,.85,P));
 
     for(const o of mitos){
       o.m.rotation.x+=o.spin.x*dt; o.m.rotation.y+=o.spin.y*dt;
@@ -1050,7 +1040,7 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
       let w=0,dis=0,k=1;
       if(o.worn){
         const s=o.st;
-        const wa=ss(.16+s*.07,.27+s*.07,P), g=ss(.42+s*.06,.48+s*.06,P), d=ss(.49+s*.06,.56+s*.06,P), rb=ss(.62+s*.05,.72+s*.05,P);
+        const wa=ss(.01+s*.08,.15+s*.08,P), g=ss(.38+s*.06,.45+s*.06,P), d=ss(.45+s*.06,.53+s*.06,P), rb=ss(.6+s*.05,.7+s*.05,P);
         if(rb>0){w=0;dis=1-rb;k=.6+.4*rb;}else{w=wa;dis=d;}
         if(w>0)o.m.position.x+=Math.sin(t*23+o.ph)*.02*w;
         o.sph.visible=g>0&&d<1;
@@ -1062,12 +1052,12 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
       o.m.scale.setScalar(o.s*k);
     }
     for(let i=0;i<UN;i++){
-      const d=uaD[i], k=clamp((P-(.34+d.delay*.07))/.07,0,1);
+      const d=uaD[i], k=clamp((P-(.3+d.delay*.07))/.07,0,1);
       if(k<=0){ua.aA[i]=0;continue;}
       const e=k*k*(3-2*k), tg=d.t.m.position, a=t*d.sp+d.ph, R2=d.or*d.t.s;
       tmp.copy(tg).addScaledVector(d.u,Math.cos(a)*R2).addScaledVector(d.v,Math.sin(a)*R2);
       ua.pos[i*3]=lerp(d.start.x,tmp.x,e); ua.pos[i*3+1]=lerp(d.start.y,tmp.y,e); ua.pos[i*3+2]=lerp(d.start.z,tmp.z,e);
-      ua.aA[i]=Math.min(1,k*3)*(1-d.t.dis)*(d.t.worn&&d.t.health>.5&&P>.62?0:1)*.95;
+      ua.aA[i]=Math.min(1,k*3)*(1-d.t.dis)*(d.t.worn&&d.t.health>.5&&P>.6?0:1)*.95;
     }
     ua.g.attributes.position.needsUpdate=ua.g.attributes.aA.needsUpdate=true;
     for(let i=0;i<SN;i++){
