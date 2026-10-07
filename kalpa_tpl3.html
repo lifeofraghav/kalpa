@@ -3,7 +3,7 @@
 <title>MYVO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fragment+Mono&family=Nanum+Pen+Script&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fragment+Mono&display=swap">
 <style>
 :root{
   --bg:#FFFFFF; --soft:#F4F4F5; --soft2:#ECECEE;
@@ -241,20 +241,20 @@ html.lenis,html.lenis body{height:auto}
 .site.dk .nav a:hover{color:#fff}
 
 /* inside a muscle cell: pinned WebGL story */
-.cell{position:relative;height:240vh;background:#060608;color:#fff}
+.cell{position:relative;height:240vh;background:#fff;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .cell-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .cell-pin canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-.cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(6,6,8,.6),rgba(6,6,8,0) 55%),linear-gradient(0deg,rgba(6,6,8,.9),rgba(6,6,8,0) 48%),linear-gradient(180deg,rgba(6,6,8,.7),rgba(6,6,8,0) 26%)}
-.cell-top{position:absolute;z-index:1;left:0;right:0;top:36px}
+.cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,0) 55%),linear-gradient(0deg,rgba(255,255,255,.95),rgba(255,255,255,0) 45%)}
+.cell-top{position:absolute;z-index:1;left:0;right:0;top:92px}
 .cell-top .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-.cell-kick{font-size:.9rem;color:rgba(255,255,255,.6)}
-.legend{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:.8rem;color:rgba(255,255,255,.62)}
+.cell-kick{font-size:.9rem;color:var(--muted)}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:.8rem;color:var(--muted)}
 .legend li{display:flex;align-items:center;gap:10px}
 .legend i{width:10px;height:10px;border-radius:50%;flex:none}
-.lg-on{background:#FF7A2E;box-shadow:0 0 12px rgba(255,122,46,.9)}
-.lg-off{background:#55565C}
-.lg-ua{background:#FFD08A;box-shadow:0 0 10px rgba(255,208,138,.9);transform:scale(.6)}
-.lg-wrap{border:1.5px solid rgba(200,210,235,.75)}
+.lg-on{background:var(--accent)}
+.lg-off{background:#B9B9BF}
+.lg-ua{background:#E0902E;transform:scale(.6)}
+.lg-wrap{border:1.5px solid var(--ink)}
 .cell-caps{position:absolute;z-index:1;left:0;right:0;bottom:clamp(40px,9vh,100px)}
 .cell-caps .wrap{position:relative;height:clamp(230px,32vh,300px)}
 .cell-caps .cap.hero-cap{max-width:760px;bottom:104px}
@@ -285,12 +285,12 @@ html.lenis,html.lenis body{height:auto}
 .cell-caps .cap.shop-cap{max-width:720px}
 @media(max-width:700px){.sc{grid-template-columns:auto 1fr;padding:14px}.sc img{width:72px;height:72px}.sc-b{grid-column:1/-1;justify-items:start;text-align:left}.sc-b .btn{width:100%}}
 .cap h2{font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1.03}
-.cap p{margin-top:16px;color:rgba(255,255,255,.68);max-width:46ch;font-size:1.04rem}
+.cap p{margin-top:16px;color:var(--ink2);max-width:46ch;font-size:1.04rem}
 .cap .stat{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
-.cap .stat div{font-size:.84rem;color:rgba(255,255,255,.55)}
-.cap .stat b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:#fff;line-height:1.1}
-.cell-bar{position:absolute;z-index:1;left:var(--gut);right:var(--gut);bottom:22px;height:1px;background:rgba(255,255,255,.12)}
-.cell-bar i{display:block;height:100%;width:0;background:rgba(255,255,255,.7)}
+.cap .stat div{font-size:.84rem;color:var(--muted)}
+.cap .stat b{display:block;font-size:1.9rem;font-weight:500;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
+.cell-bar{position:absolute;z-index:1;left:var(--gut);right:var(--gut);bottom:22px;height:1px;background:var(--line)}
+.cell-bar i{display:block;height:100%;width:0;background:var(--ink)}
 html.no3d .cell{height:auto}
 html.no3d .cell-pin{position:relative;height:auto;padding:140px 0 100px}
 html.no3d .cell-pin canvas,html.no3d .cell-bar,html.no3d .legend{display:none}
@@ -327,161 +327,67 @@ html.static .cap,html.static .hero-stage canvas{transition:none}
 html.no3d .mol{display:none}
 
 
-/* floating pill nav (replaces the header) */
-.pill{position:fixed;z-index:80;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:rgba(28,28,32,.55);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.pill-home,.pill-menu{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#F2F2F3;color:var(--ink);border:0;cursor:pointer;text-decoration:none}
-.pill-home .mark{width:14px;height:14px}
-.pill-menu{gap:4px;align-content:center}
-.pill-menu i{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .25s}
-.pill-menu[aria-expanded=true] i:first-child{transform:translateY(2.75px) rotate(45deg)}
-.pill-menu[aria-expanded=true] i:last-child{transform:translateY(-2.75px) rotate(-45deg)}
-.pill-cta{height:44px;padding:0 28px;border-radius:999px;display:inline-flex;align-items:center;background:var(--ink);color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;white-space:nowrap}
-.menu{position:fixed;z-index:79;left:50%;bottom:84px;transform:translateX(-50%);width:min(320px,calc(100vw - 32px));background:#fff;border-radius:18px;padding:10px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
-.menu[hidden]{display:none}
-.menu a{display:flex;justify-content:space-between;padding:12px 14px;border-radius:10px;text-decoration:none;font-size:1.05rem}
-.menu a:hover{background:var(--soft)}
-.menu a span{color:var(--muted);font-size:.85rem}
 
-/* handwriting */
-.hw{font-family:"Nanum Pen Script",cursive;font-weight:400;letter-spacing:0}
-.amb{color:#F2A24E}
+/* minimal (Minimalist-style) */
+.site .wrap{grid-template-columns:auto 1fr auto;gap:28px}
+.site .nav{justify-content:center}
+.btn.sm{height:38px;padding:0 18px;font-size:.85rem}
+.site .nav a{white-space:nowrap}
+@media(max-width:820px){.site .nav{gap:18px}}
+@media(max-width:420px){.site .nav .hide-s{display:none}}
+.mh{background:#fff;border-bottom:1px solid var(--line)}
+.mh-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4vw,64px);min-height:min(calc(100svh - 100px),720px);padding-top:40px;padding-bottom:40px}
+.mh h1{font-size:clamp(2.8rem,5.6vw,5.2rem);font-weight:500;letter-spacing:-.035em;line-height:1}
+.mh-type{margin-top:14px;font-size:clamp(1rem,1.4vw,1.25rem);letter-spacing:.18em;text-transform:uppercase;color:var(--ink2)}
+.mh-rule{display:block;width:56px;height:2px;background:var(--accent);margin:22px 0}
+.mh-sub{font-size:1.08rem;color:var(--ink2);max-width:40ch}
+.mh-cta{display:flex;align-items:center;gap:20px;margin-top:32px;flex-wrap:wrap}
+.mh-cta span{color:var(--muted);font-size:.95rem}
+.mh-img{background:var(--soft);border-radius:var(--r);max-width:520px;justify-self:end;width:100%}
+@media(max-width:900px){.mh-in{grid-template-columns:1fr;min-height:0}.mh-img{order:-1;justify-self:center;max-width:380px}}
+.facts-strip{border-bottom:1px solid var(--line)}
+.facts-strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.facts-strip div{padding:26px 20px;border-left:1px solid var(--line)}
+.facts-strip div:first-child{border-left:0;padding-left:0}
+.facts-strip b{display:block;font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
+.facts-strip span{font-size:.86rem;color:var(--muted)}
+@media(max-width:700px){.facts-strip .wrap{grid-template-columns:1fr 1fr}.facts-strip div{border-left:0;padding-left:0;border-top:1px solid var(--line)}.facts-strip div:nth-child(-n+2){border-top:0}}
+.mf{background:#F6F6F6;border-top:1px solid var(--line);margin-top:0}
+.mf-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;padding-top:56px;padding-bottom:40px}
+.mf-top p{color:var(--muted);font-size:.92rem;margin-top:12px;max-width:30ch}
+.mf h4{margin:0 0 12px;font-size:.84rem;font-weight:500;color:var(--muted)}
+.mf-top a:not(.logo){display:block;text-decoration:none;color:var(--ink2);font-size:.92rem;margin-bottom:8px}
+.mf-top a:hover{color:var(--ink)}
+.mf-base{border-top:1px solid var(--line);padding-top:20px;padding-bottom:28px;font-size:.76rem;color:var(--muted);line-height:1.7}
+@media(max-width:820px){.mf-top{grid-template-columns:1fr 1fr}}
 
-/* the floor: Zero-style tactile story */
-.floor{position:relative;height:560vh;background:#0B0B0D;color:#fff}
-.fl-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.fl-bg,.fl-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.fl-bg img{transform:scale(calc(1.08 - var(--z,0)*.08))}
-.fl-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.6),rgba(8,8,10,0) 60%),linear-gradient(0deg,rgba(8,8,10,.35),rgba(8,8,10,0) 40%)}
-.floor [data-in]{opacity:calc(var(--i,0) - var(--o,0))}
-.ob{position:absolute;box-shadow:0 24px 50px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.3);color:var(--ink)}
-
-.bib{right:9%;top:11%;width:clamp(200px,19vw,280px);aspect-ratio:4/3;background:#F1F1EE;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;
-  transform:translate(calc((1 - var(--i,0))*40vw + var(--o,0)*45vw),calc((1 - var(--i,0))*-40vh)) rotate(calc(18deg - var(--i,0)*26deg + var(--o,0)*30deg))}
-.bib-top{background:var(--accent);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:3px;align-self:flex-start}
-.bib-no{font-size:clamp(3rem,5.6vw,4.8rem);font-weight:600;letter-spacing:-.04em;line-height:.9}
-.bib-bot{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#6A6A70}
-.bib .pin{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#9A9AA0 60%,#5A5A60)}
-.bib .p1{left:8px;top:8px}.bib .p2{right:8px;top:8px}.bib .p3{left:8px;bottom:8px}.bib .p4{right:8px;bottom:8px}
-
-.log{right:25%;top:36%;width:clamp(220px,20vw,290px);padding:16px 22px 18px 40px;border-radius:3px;
-  background:linear-gradient(90deg,transparent 28px,rgba(168,32,57,.45) 28px 29px,transparent 29px),repeating-linear-gradient(#FBFBF7 0 31px,#D9E0EA 31px 32px);
-  transform:translate(calc((1 - var(--i,0))*-20vw - var(--o,0)*50vw),calc((1 - var(--i,0))*60vh + var(--o,0)*20vh)) rotate(calc(-12deg + var(--i,0)*17deg - var(--o,0)*25deg))}
-.log .lt{font-size:1.7rem;color:#2B3354;line-height:1.1;margin:0 0 4px}
-.log ol{list-style:none;margin:0;padding:0}
-.log li{display:flex;justify-content:space-between;position:relative;font-family:"Nanum Pen Script",cursive;font-size:1.6rem;line-height:32px;color:#2B3354}
-.log li.r7{color:var(--accent)}
-.log .ring{position:absolute;left:-14px;right:-14px;top:-4px;bottom:-4px;width:calc(100% + 28px);height:calc(100% + 8px);overflow:visible}
-.log .ring ellipse{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--i,0))}
-.note{position:absolute;margin:0;white-space:nowrap}
-.wall{right:calc(25% + clamp(220px,20vw,290px) - 30px);top:60%;font-size:clamp(1.8rem,2.6vw,2.6rem);display:flex;align-items:center;gap:6px;transform:rotate(-6deg)}
-.wall svg{width:56px;height:30px}
-.wall path{fill:none;stroke:#F2A24E;stroke-width:2.4;stroke-linecap:round}
-
-.fl-lines{position:absolute;left:6%;top:22%;max-width:min(48vw,660px)}
-.ln{font-size:clamp(2rem,4.3vw,4.1rem);font-weight:500;letter-spacing:-.03em;line-height:1.04;margin:0 0 .12em;transform:translateY(calc((1 - var(--i,0))*28px))}
-.ln .hw{font-size:1.28em;line-height:.8}
-
-.report{left:64%;top:50%;width:clamp(280px,28vw,390px);background:#fff;border-radius:4px;padding:22px 24px 18px;
-  transform:translate(-50%,-50%) translate(calc((1 - var(--i,0))*40vw - var(--o,0)*20vw),calc((1 - var(--i,0))*75vh - var(--o,0)*115vh)) rotate(calc((1 - var(--i,0))*22deg - var(--o,0)*28deg)) scale(calc(.8 + var(--i,0)*.25))}
-.rp-k{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
-.report h3{font-size:1.02rem;font-weight:600;line-height:1.3;margin:8px 0 14px}
-.rp-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.rp-rows li{display:flex;justify-content:space-between;font-size:.82rem;padding:6px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
-.rp-rows b{font-weight:600;color:var(--ink)}
-.rp-rows .f b{color:var(--accent)}
-.rp-src{font-size:.7rem;color:var(--muted);margin:10px 0 0}
-.stamp{position:absolute;left:50%;top:46%;padding:8px 16px;border:4px solid var(--accent);border-radius:8px;color:var(--accent);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:rgba(255,255,255,.55);
-  transform:translate(-50%,-50%) rotate(-14deg) scale(calc(2.4 - var(--i,0)*1.4))}
-.fl-cap{position:absolute;left:6%;top:30%;max-width:min(40vw,520px);font-size:clamp(1.8rem,3.4vw,3.2rem);font-weight:500;letter-spacing:-.03em;line-height:1.06;transform:translateY(calc((1 - var(--i,0))*24px))}
-
-.fl-sol{position:absolute;left:6%;top:18%;max-width:min(46vw,620px);transform:translateY(calc((1 - var(--i,0))*30px + var(--o,0)*-30px))}
-.fl-sol .hk{font-size:.95rem;color:rgba(255,255,255,.7);margin:0 0 18px}
-.fl-sol h1{font-size:clamp(3rem,6.6vw,6.4rem);line-height:.96;letter-spacing:-.04em}
-.fl-sol p.sub{margin-top:22px;font-size:1.05rem;color:rgba(255,255,255,.75);max-width:40ch}
-.pola{right:12%;top:15%;width:clamp(230px,23vw,330px);background:#F5F5F2;padding:12px 12px 0;border-radius:3px;margin:0;
-  transform:translateY(calc((1 - var(--i,0))*-60px)) rotate(calc(-16deg + var(--i,0)*10deg)) scale(calc(1.45 - var(--i,0)*.45 - var(--o,0)*.08))}
-.pola figcaption{font-size:1.8rem;color:#2B3354;text-align:center;padding:6px 0 10px;line-height:1.2}
-.stk{position:absolute;padding:9px 16px;border-radius:999px;border:3px solid #fff;font-size:.84rem;font-weight:600;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.35);
-  transform:translate(-50%,-50%) rotate(var(--r,0deg)) scale(calc(var(--i,0) - var(--o,0)*.2))}
-.floor .stk{opacity:calc(min(1,var(--i,0)*4) - var(--o,0))}
-.stk.ink{background:#141416;color:#fff}.stk.amber{background:#F2A24E;color:#141416}.stk.white{background:#F4F4F5;color:#141416}.stk.gar{background:var(--accent);color:#fff}
-.s1{left:57%;top:17%;--r:-8deg}.s2{left:91%;top:13%;--r:7deg}.s3{left:59%;top:58%;--r:5deg}.s4{left:92%;top:63%;--r:-6deg}.s5{left:76%;top:79%;--r:3deg}.s6{left:56%;top:38%;--r:-4deg}
-.n-soft{position:absolute;left:46%;top:66%;font-size:clamp(1.8rem,2.6vw,2.6rem);display:flex;align-items:flex-end;gap:4px;transform:rotate(-5deg)}
-.n-soft svg{width:70px;height:46px}
-.n-soft path{fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
-
-.fl-dark{position:absolute;inset:0;background:#0A0A0C}
-.floor .fl-dark{opacity:calc(var(--i,0)*.88)}
-.fl-punch{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:0 var(--gut)}
-.fl-punch .pk{font-size:clamp(2rem,3.4vw,3rem);margin:0}
-.fl-punch .big{font-size:clamp(4.2rem,13vw,12rem);font-weight:600;letter-spacing:-.05em;line-height:.95;margin:6px 0 0;transform:scale(calc(.9 + var(--i,0)*.1))}
-.fl-punch .big span{color:#F2A24E}
-.fl-punch .pn{font-size:clamp(1.8rem,3vw,2.6rem);margin:8px 0 0;transform:rotate(-3deg)}
-.fl-punch .fine{font-size:.92rem;color:rgba(255,255,255,.6);margin-top:18px}
-
-.fl-intro{position:absolute;inset:0;background:#0B0B0D;display:grid;place-items:center;
-  -webkit-mask:radial-gradient(circle at 50% 50%,transparent calc(var(--R,14)*1px),#000 calc(var(--R,14)*1px + 1px));mask:radial-gradient(circle at 50% 50%,transparent calc(var(--R,14)*1px),#000 calc(var(--R,14)*1px + 1px))}
-.fl-ring{position:absolute;left:50%;top:50%;width:calc(var(--R,14)*2px);height:calc(var(--R,14)*2px);border:2px solid #fff;border-radius:50%;transform:translate(-50%,-50%)}
-.fl-word{position:absolute;left:50%;top:calc(50% + 64px);transform:translateX(-50%);text-align:center;opacity:calc(1 - var(--t,0))}
-.fl-word b{display:block;font-weight:500;font-size:clamp(2.6rem,7vw,6rem);letter-spacing:.42em;padding-left:.42em;line-height:1}
-.fl-word span{display:block;margin-top:18px;font-size:.92rem;color:rgba(255,255,255,.6)}
-.fl-cue{position:absolute;left:50%;bottom:92px;transform:translateX(-50%);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);opacity:calc(1 - var(--t,0))}
-html.static .floor{height:100vh}
-
-@media(max-width:700px){
-  .fl-shade{background:linear-gradient(180deg,rgba(8,8,10,.7),rgba(8,8,10,.1) 55%,rgba(8,8,10,.5))}
-  .fl-lines{left:6%;right:6%;top:9%;max-width:none}
-  .ln{font-size:2.1rem}
-  .bib{right:6%;top:35%;width:44vw}
-  .bib-no{font-size:2.6rem}
-  .log{right:auto;left:5%;top:auto;bottom:13%;width:50vw;padding:12px 14px 12px 34px}
-  .log li{font-size:1.35rem;line-height:28px}
-  .log{background:linear-gradient(90deg,transparent 24px,rgba(168,32,57,.45) 24px 25px,transparent 25px),repeating-linear-gradient(#FBFBF7 0 27px,#D9E0EA 27px 28px)}
-  .wall{right:auto;left:58%;top:auto;bottom:16%;font-size:1.7rem}
-  .wall svg{display:none}
-  .report{left:50%;top:56%;width:80vw;padding:16px 18px 12px}
-  .rp-rows li{padding:4px 0;font-size:.78rem}
-  .report h3{font-size:.95rem;margin:6px 0 10px}
-  .fl-cap{left:6%;right:6%;top:9%;max-width:none;font-size:1.9rem}
-  .fl-sol{left:6%;right:6%;top:7%;max-width:none}
-  .fl-sol h1{font-size:3.1rem}
-  .fl-sol p.sub{font-size:.95rem;margin-top:14px}
-  .pola{right:auto;left:22%;top:auto;bottom:16%;width:52vw}
-  .s1{left:72%;top:47%}.s2{left:82%;top:63%}.s4{left:80%;top:83%}.s3,.s5,.s6{display:none}
-  .n-soft{left:6%;right:auto;top:47%;bottom:auto;font-size:1.6rem}
-  .n-soft svg{display:none}
-  .fl-cue{bottom:88px}
-}
-
-
-/* Zero-style light sections */
+/* sections */
 .z{padding:clamp(80px,10vw,140px) 0;position:relative}
-.light{background:#F6F6F4}
-.zh{text-align:center;max-width:780px;margin:0 auto clamp(40px,5vw,72px)}
-.zh h2{font-size:clamp(2.4rem,5.2vw,4.6rem);line-height:1.02;letter-spacing:-.035em}
+.light{background:#fff}
+#science.light{background:#F6F6F6}
+.zh{max-width:none;margin:0 0 clamp(32px,4vw,52px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.zh h2{font-size:clamp(1.9rem,3.2vw,2.8rem);line-height:1.08;letter-spacing:-.025em}
 .zh .ac{color:var(--accent);font-size:1.32em;line-height:.7;display:inline-block;transform:rotate(-2deg)}
-.zh p{margin:18px auto 0;color:var(--ink2);max-width:52ch;font-size:1.05rem;text-wrap:balance}
+.zh p{margin:0;color:var(--ink2);max-width:46ch;font-size:1rem}
 .zn{position:absolute;margin:0;color:var(--accent);font-size:clamp(1.5rem,2vw,1.9rem);line-height:1.1;white-space:nowrap;display:flex;align-items:center;gap:6px}
 .zn svg{width:46px;height:34px;flex:none}
 .zn path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
 .zfine{text-align:center;color:var(--muted);font-size:.9rem;max-width:60ch;margin:40px auto 0}
 
 .pdp-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,80px);align-items:start}
-.pola-main{position:relative;background:#fff;padding:14px 14px 0;border-radius:4px;box-shadow:0 30px 60px rgba(17,17,19,.14),0 4px 12px rgba(17,17,19,.08);transform:rotate(-1.4deg)}
+.pola-main{position:relative}
 .pola-main .gal-main{border-radius:2px}
 .pm-cap{text-align:center;font-size:1.8rem;color:#2B3354;padding:8px 0 12px;margin:0;line-height:1.2}
 .pola-main .stk{position:absolute;transform:translate(-50%,-50%) rotate(var(--r,0deg));padding:9px 16px;border-radius:999px;border:3px solid #fff;font-size:.84rem;font-weight:600;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.18)}
 .z1{left:6%;top:8%;--r:-8deg}.z2{left:96%;top:72%;--r:6deg}
 .gal-col .thumbs{margin-top:22px}
-.buy{position:relative;background:#fff;border-radius:18px;padding:clamp(22px,2.6vw,34px);box-shadow:0 1px 0 rgba(17,17,19,.04),0 20px 50px rgba(17,17,19,.07);top:auto}
+.buy{position:sticky;top:90px}
 .zn-buy{position:static;margin:10px 0 0 8px;font-size:1.45rem}
 .zn-buy svg{width:38px;height:28px;transform:scaleY(-1)}
-@media(max-width:900px){.pdp-grid{grid-template-columns:1fr}.pola-main{transform:rotate(-1deg)}.z1{left:18%;top:6%}.z2{left:84%}}
+@media(max-width:900px){.pdp-grid{grid-template-columns:1fr}.buy{position:static}}
 
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
-.card{background:#fff;border-radius:18px;padding:26px 26px 22px;box-shadow:0 20px 50px rgba(17,17,19,.08);transform:rotate(var(--r,0deg));display:flex;flex-direction:column}
-.card.rv{transform:translateY(22px) rotate(var(--r,0deg))}.card.rv.in{transform:rotate(var(--r,0deg))}
-html.static .card.rv{transform:rotate(var(--r,0deg))}
+.card{background:#fff;border-radius:var(--r);padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column}
 .ck{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0}
 .card h3{font-size:clamp(1.4rem,1.9vw,1.75rem);font-weight:500;letter-spacing:-.025em;line-height:1.15;margin:12px 0 0}
 .cstat{display:flex;align-items:baseline;gap:10px;margin-top:auto;padding-top:28px}
@@ -496,8 +402,8 @@ html.static .card.rv{transform:rotate(var(--r,0deg))}
 .zn-cards svg{transform:scaleY(-1)}
 @media(max-width:900px){.cards{grid-template-columns:1fr}.card{max-width:520px;margin:0 auto;width:100%}}
 
-.paper-wrap{position:relative;max-width:900px;margin:0 auto}
-.paper{position:relative;overflow:visible;background:#fff;border:0;border-radius:4px;box-shadow:0 30px 70px rgba(17,17,19,.12),0 3px 10px rgba(17,17,19,.06);transform:rotate(-.8deg)}
+.paper-wrap{position:relative}
+.paper{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:var(--r)}
 .paper .rep-h{background:#fff;border-radius:4px 4px 0 0}
 .paper .rep-wrap{border-radius:0 0 4px 4px}
 .clip{position:absolute;left:50%;top:-14px;width:120px;height:28px;transform:translateX(-50%);border-radius:6px;background:linear-gradient(#3A3A40,#1C1C20);box-shadow:0 4px 10px rgba(0,0,0,.25);z-index:2}
@@ -508,6 +414,8 @@ html.static .card.rv{transform:rotate(var(--r,0deg))}
 .faq-z .acc{max-width:760px;margin:0 auto;border-top:1px solid #DCDCE0}
 .faq-z .acc details{border-bottom:1px solid #DCDCE0}
 .faq-z{padding-top:0}
+.faq-z .acc{max-width:none}
+.faq-z .zh{margin-bottom:24px}
 
 .zf{margin:0;text-align:center;padding:clamp(90px,11vw,150px) 0 110px}
 .zf .fk{font-size:clamp(1.8rem,3vw,2.6rem);color:rgba(255,255,255,.7);margin:0}
@@ -526,96 +434,45 @@ html.static .rv{opacity:1;transform:none;transition:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 
-<nav class="pill" aria-label="Site">
-  <a class="pill-home" href="#top" aria-label="Myvo home"><span class="mark"></span></a>
-  <a class="pill-cta" href="#shop">Reserve batch 001</a>
-  <button class="pill-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
-</nav>
-<div class="menu" id="menu" hidden>
-  <a href="#shop">Shop <span>Myvo One</span></a>
-  <a href="#inside">How it works <span>Inside a cell</span></a>
-  <a href="#science">Science <span>Trial results</span></a>
-  <a href="#lab">Lab reports <span>Every batch</span></a>
-  <a href="#faq">FAQ</a>
-</div>
+<div class="announce">Founding batch 001: 100 memberships, price locked for life. <a href="#shop">Reserve yours</a></div>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Myvo home"><span class="mark"></span><span class="word">MYVO</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#shop">Shop</a>
+      <a class="hide-s" href="#inside">How it works</a>
+      <a class="hide-m" href="#science">Science</a>
+      <a class="hide-m" href="#lab">Lab reports</a>
+      <a class="hide-m" href="#faq">FAQ</a>
+    </nav>
+    <a class="btn dark sm" href="#shop">Reserve</a>
+  </div>
+</header>
 
 <main>
 
-<section class="floor" id="top" aria-label="Myvo One">
-  <div class="fl-pin" id="flPin">
-    <picture class="fl-bg"><source media="(max-width:700px)" srcset="__FLOORP__"><img src="__FLOORL__" alt="A gym floor from above: bumper plates, a battle rope, barbell collars"></picture>
-    <div class="fl-shade"></div>
-
-    <div class="fl-lines">
-      <p class="ln" data-in=".1,.14" data-out=".37,.41">Six days a week.</p>
-      <p class="ln" data-in=".15,.19" data-out=".37,.41">Clean eating. Eight hours of sleep.</p>
-      <p class="ln" data-in=".2,.25" data-out=".37,.41">And still hitting <span class="hw amb">the wall</span> at run seven.</p>
+<section class="mh" id="top">
+  <div class="wrap mh-in">
+    <div class="mh-copy rv">
+      <h1>Urolithin&nbsp;A<br>500&nbsp;mg</h1>
+      <p class="mh-type">Daily softgels</p>
+      <span class="mh-rule" aria-hidden="true"></span>
+      <p class="mh-sub">Clears out worn mitochondria so your muscles can renew them. Above 99% pure, at the dose studied in human trials.</p>
+      <div class="mh-cta"><a class="btn dark" href="#shop">Reserve batch 001</a><span>&#8377;8,999 a month</span></div>
     </div>
-    <div class="ob bib" data-in=".1,.18" data-out=".42,.5" aria-hidden="true">
-      <i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i><i class="pin p4"></i>
-      <span class="bib-top">Hybrid race, Bangalore</span>
-      <b class="bib-no">0412</b>
-      <span class="bib-bot">8 &times; 1 km, 8 stations</span>
-    </div>
-    <div class="ob log" data-in=".14,.22" data-out=".42,.5" aria-hidden="true">
-      <p class="lt hw">race splits</p>
-      <ol>
-        <li><span>Run 1</span><span>4:41</span></li>
-        <li><span>Run 3</span><span>4:52</span></li>
-        <li><span>Run 5</span><span>5:19</span></li>
-        <li class="r7"><span>Run 7</span><span>6:18</span><svg class="ring" data-in=".27,.34" viewBox="0 0 100 40" preserveAspectRatio="none"><ellipse cx="50" cy="20" rx="48" ry="17" pathLength="1"/></svg></li>
-        <li><span>Run 8</span><span>6:02</span></li>
-      </ol>
-    </div>
-    <p class="note wall hw amb" data-in=".3,.35" data-out=".37,.41" aria-hidden="true">+1:37 slower <svg viewBox="0 0 56 30"><path d="M2 8c14-6 32-4 46 10M48 18l-9-1M48 18l-2-9"/></svg></p>
-
-    <p class="fl-cap" data-in=".44,.48" data-out=".56,.6">So you try Urolithin A. Most of what's sold online fails its own label.</p>
-    <div class="ob report" data-in=".4,.48" data-out=".56,.62" aria-hidden="true">
-      <p class="rp-k">Independent lab test</p>
-      <h3>10 Urolithin A supplements bought online, tested against their labels</h3>
-      <ul class="rp-rows">
-        <li class="f"><span>Sample 01</span><b>Fail</b></li><li><span>Sample 02</span><b>Pass</b></li>
-        <li class="f"><span>Sample 03</span><b>Fail</b></li><li class="f"><span>Sample 04</span><b>Fail</b></li>
-        <li><span>Sample 05</span><b>Pass</b></li><li class="f"><span>Sample 06</span><b>Fail</b></li>
-        <li><span>Sample 07</span><b>Pass</b></li><li class="f"><span>Sample 08</span><b>Fail</b></li>
-        <li class="f"><span>Sample 09</span><b>Fail</b></li><li><span>Sample 10</span><b>Pass</b></li>
-      </ul>
-      <p class="rp-src">Fail: measured content below the dose on the label.</p>
-      <span class="stamp" data-in=".49,.52">6 of 10 failed</span>
-    </div>
-
-    <div class="fl-sol" data-in=".61,.66" data-out=".82,.86">
-      <p class="hk">The real Urolithin A, finally in India.</p>
-      <h1>Clear out.<br>Renew.<br>Go again.</h1>
-      <p class="sub">Myvo One: 500 mg of Urolithin A, above 99% pure, at the dose studied in human trials. Tested by an independent lab before every batch ships.</p>
-    </div>
-    <figure class="ob pola" data-in=".6,.66" data-out=".82,.86">
-      <div class="lbl"><img src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels">
-        <div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%"><span class="jp-w">MYVO</span><span class="jp-rule"></span><span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span><span class="jp-batch">Batch MYV-27-001</span></div>
-      </div>
-      <figcaption class="hw">batch 001</figcaption>
+    <figure class="lbl mh-img rv">
+      <img src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels">
+      <div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%"><span class="jp-w">MYVO</span><span class="jp-rule"></span><span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span><span class="jp-batch">Batch MYV-27-001</span></div>
     </figure>
-    <span class="stk ink s1" data-in=".66,.69" data-out=".82,.86" data-ease="back">Cell Reports Medicine</span>
-    <span class="stk amber s2" data-in=".68,.71" data-out=".82,.86" data-ease="back">500 mg a day</span>
-    <span class="stk white s3" data-in=".7,.73" data-out=".82,.86" data-ease="back">JAMA Network Open</span>
-    <span class="stk gar s4" data-in=".72,.75" data-out=".82,.86" data-ease="back">99% pure</span>
-    <span class="stk white s5" data-in=".74,.77" data-out=".82,.86" data-ease="back">NABL lab tested</span>
-    <span class="stk ink s6" data-in=".76,.79" data-out=".82,.86" data-ease="back">Nature Aging</span>
-    <p class="note n-soft hw" data-in=".72,.76" data-out=".82,.86" aria-hidden="true">two softgels a day <svg viewBox="0 0 70 46"><path d="M2 40c18 2 40-6 58-30M60 10l-10 2M60 10l1 10"/></svg></p>
+  </div>
+</section>
 
-    <div class="fl-dark" data-in=".8,.88"></div>
-    <div class="fl-punch" data-in=".86,.89">
-      <p class="pk hw">and it costs...</p>
-      <p class="big" data-in=".88,.92"><span>&#8377;300</span> a day</p>
-      <p class="pn hw amb" data-in=".92,.95">about one cold brew</p>
-      <p class="fine" data-in=".92,.95">&#8377;8,999 a month, founding price locked for life</p>
-    </div>
-
-    <div class="fl-intro" id="flIntro">
-      <span class="fl-ring"></span>
-      <div class="fl-word"><b>MYVO</b><span>Urolithin A, 500 mg a day</span></div>
-    </div>
-    <p class="fl-cue" id="flCue">Scroll</p>
+<section class="facts-strip" aria-label="Formula">
+  <div class="wrap">
+    <div><b>500 mg</b><span>Urolithin A per day</span></div>
+    <div><b>&gt;99%</b><span>Purity, verified by HPLC</span></div>
+    <div><b>1</b><span>Ingredient. No blends.</span></div>
+    <div><b>Every batch</b><span>Tested by an NABL lab</span></div>
   </div>
 </section>
 
@@ -623,7 +480,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
 <section class="z light" id="shop">
   <div class="wrap">
     <header class="zh rv">
-      <h2>Start with <span class="hw ac">batch 001</span></h2>
+      <h2>Choose your plan</h2>
       <p>100 founding memberships. The price you lock in today stays for life.</p>
     </header>
     <div class="pdp-grid">
@@ -657,10 +514,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
           <img src="__TRIO__" alt="The Myvo system: jar, refill pouch and carton">
         </figure>
       </div>
-      <p class="hw pm-cap">Myvo One, batch 001</p>
-          <span class="stk ink z1">500 mg a day</span>
-          <span class="stk gar z2">99% pure</span>
-        </div>
+      </div>
         <div class="thumbs" role="tablist" aria-label="Product photos">
         <button class="thumb on" data-i="0" aria-label="Jar"><img src="__JARMACRO__" alt=""></button>
         <button class="thumb" data-i="1" aria-label="Refill pouch"><img src="__POUCH__" alt=""></button>
@@ -679,7 +533,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
         <label class="opt"><input type="radio" name="plan" value="monthly" checked><span><b>Monthly</b><small>Founding price, locked for life</small></span><span class="price">&#8377;8,999<small> /mo</small></span></label>
         <label class="opt"><input type="radio" name="plan" value="annual"><span><b>Annual</b><small>Two months free</small></span><span class="price"><s>&#8377;1,07,988</s>&#8377;89,990</span></label>
       </fieldset>
-      <p class="zn zn-buy hw"><svg viewBox="0 0 46 34" aria-hidden="true"><path d="M44 30C30 30 14 22 6 6M6 6l1 10M6 6l9 3"/></svg>locked for life, even when the price goes up</p>
       <a class="btn dark full" id="reserve" href="mailto:founders@myvo.life?subject=Founding%20membership%20(monthly)">Reserve a founding spot</a>
       <p class="fine">100 founding spots. We email you before batch 001 ships.</p>
       <div class="acc">
@@ -694,7 +547,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
   </div>
 </section>
 
-<section class="cell" id="inside" data-dark aria-label="What Urolithin A does inside a muscle cell">
+<section class="cell" id="inside" aria-label="What Urolithin A does inside a muscle cell">
   <div class="cell-pin">
     <canvas id="cellgl" aria-hidden="true"></canvas>
     <div class="cell-top"><div class="wrap">
@@ -718,25 +571,25 @@ html.static .rv{opacity:1;transform:none;transition:none}
 <section class="z light" id="science">
   <div class="wrap">
     <header class="zh rv">
-      <h2>Where you'll <span class="hw ac">feel it</span></h2>
+      <h2>What the trials measured</h2>
       <p>Three results from randomized, placebo-controlled human trials of Urolithin A.</p>
     </header>
     <div class="cards">
-      <article class="card rv" style="--r:-1.6deg">
+      <article class="card rv">
         <p class="ck">Endurance</p>
         <h3>Run seven of eight, and your legs still answer.</h3>
         <div class="cstat"><b>+41%</b><span>muscle endurance against placebo</span></div>
         <div class="cbars" aria-hidden="true"><i style="--h:30%"></i><i class="m" style="--h:92%"></i></div>
         <p class="csrc">JAMA Network Open, 2022. 1,000 mg a day for four months, adults 65 to 90.</p>
       </article>
-      <article class="card rv" style="--r:1.2deg">
+      <article class="card rv">
         <p class="ck">Strength</p>
         <h3>The fourth set moves like the second.</h3>
         <div class="cstat"><b>+12%</b><span>leg strength against placebo</span></div>
         <div class="cbars" aria-hidden="true"><i style="--h:40%"></i><i class="m" style="--h:76%"></i></div>
         <p class="csrc">Cell Reports Medicine, 2022. 500 mg a day for 16 weeks, adults 40 to 65.</p>
       </article>
-      <article class="card rv" style="--r:-.8deg">
+      <article class="card rv">
         <p class="ck">Renewal</p>
         <h3>Forty, and still adding numbers to the log.</h3>
         <div class="cstat"><b>+39%</b><span>mitochondrial renewal markers</span></div>
@@ -744,7 +597,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
         <p class="csrc">Cell Reports Medicine, 2022. 500 mg a day for 16 weeks.</p>
       </article>
     </div>
-    <p class="zn zn-cards hw" aria-hidden="true">grey is placebo, red is Urolithin A<svg viewBox="0 0 46 34"><path d="M2 30c14 0 30-8 38-24M40 6l-9 3M40 6l-1 10"/></svg></p>
     <p class="zfine rv">Not a stimulant, so you won't feel it in an hour. The trials measured these changes over weeks to months. Results vary.</p>
   </div>
 </section>
@@ -752,13 +604,12 @@ html.static .rv{opacity:1;transform:none;transition:none}
 <section class="z light" id="lab">
   <div class="wrap">
     <header class="zh rv">
-      <h2>Every batch, <span class="hw ac">tested</span></h2>
+      <h2>Every batch, tested</h2>
       <p>An independent NABL-accredited lab checks purity, dose, metals and microbes before anything ships. If a batch fails, it doesn't ship.</p>
     </header>
     <div class="paper-wrap rv">
       <div class="paper">
-      <span class="clip" aria-hidden="true"></span>
-      <span class="stamp2" aria-hidden="true">Sample report</span>
+            
       <div class="rep-h">
         <div>Product<b>Myvo One, 500 mg</b></div>
         <div>Batch<b>MYV-27-001</b></div>
@@ -778,7 +629,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
         </table>
       </div>
     </div>
-    <p class="zn zn-qr hw" aria-hidden="true"><svg viewBox="0 0 46 34"><path d="M44 4C30 4 12 12 6 28M6 28l-1-10M6 28l9-4"/></svg>the QR on your carton opens your batch's report</p>
     </div>
   </div>
 </section>
@@ -797,15 +647,14 @@ html.static .rv{opacity:1;transform:none;transition:none}
 
 </main>
 
-<footer class="foot zf">
-  <div class="wrap">
-    <p class="hw fk">we want you to</p>
-    <h2>go again.</h2>
-    <a class="btn light" href="#shop">Reserve batch 001</a>
-    <p class="fmail"><a href="mailto:founders@myvo.life">founders@myvo.life</a></p>
-    <nav class="flinks" aria-label="Footer"><a href="#shop">Shop</a><a href="#inside">How it works</a><a href="#science">Science</a><a href="#lab">Lab reports</a><a href="#faq">FAQ</a></nav>
-    <p class="base">Clinical figures are from published randomized controlled trials of Urolithin A at the doses studied. These statements are not intended to diagnose, treat, cure or prevent any disease. &copy; 2026 Myvo.</p>
+<footer class="mf">
+  <div class="wrap mf-top">
+    <div><a class="logo" href="#top"><span class="mark"></span><span class="word">MYVO</span></a><p>Urolithin A, made simple and tested every batch.</p></div>
+    <div><h4>Shop</h4><a href="#shop">Myvo One</a><a href="#shop">Founding membership</a></div>
+    <div><h4>Learn</h4><a href="#inside">How it works</a><a href="#science">Trial results</a><a href="#lab">Lab reports</a></div>
+    <div><h4>Help</h4><a href="#faq">FAQ</a><a href="mailto:founders@myvo.life">founders@myvo.life</a></div>
   </div>
+  <div class="wrap mf-base">Clinical figures are from published randomized controlled trials of Urolithin A at the doses studied. These statements are not intended to diagnose, treat, cure or prevent any disease. &copy; 2026 Myvo.</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -834,34 +683,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
     reserve.href='mailto:founders@myvo.life?subject=Founding%20membership%20('+r.value+')';
   });});
 
-  /* floating pill menu */
-  var mb=d.querySelector('.pill-menu'), menu=d.getElementById('menu');
-  function closeMenu(){menu.hidden=true;mb.setAttribute('aria-expanded','false');}
-  mb.addEventListener('click',function(){var open=menu.hidden;menu.hidden=!open;mb.setAttribute('aria-expanded',open?'true':'false');});
-  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
-  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 
-  /* the floor: every [data-in] element gets --i (in) and --o (out) from scroll progress */
-  var fl=d.getElementById('top'), flEls=fl.querySelectorAll('[data-in]'), intro=d.getElementById('flIntro'), cue=d.getElementById('flCue'), flPin=d.getElementById('flPin');
-  var FP=isStatic?(parseFloat(new URLSearchParams(location.search).get('fp'))||0):0;
-  function sm(a,b,x){var t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);}
-  function back(t){var c=1.70158;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2);}
-  function floorTick(){
-    var r=fl.getBoundingClientRect(), P=isStatic?FP:Math.max(0,Math.min(1,-r.top/Math.max(1,r.height-innerHeight)));
-    if(!isStatic&&(r.bottom<0||r.top>innerHeight))return;
-    flEls.forEach(function(el){
-      var a=el.dataset.in.split(','), i;
-      if(el.dataset.ease==='back'){var t=Math.max(0,Math.min(1,(P-a[0])/(a[1]-a[0])));i=t<=0?0:back(t);}else i=sm(+a[0],+a[1],P);
-      el.style.setProperty('--i',i.toFixed(3));
-      if(el.dataset.out){var b=el.dataset.out.split(',');el.style.setProperty('--o',sm(+b[0],+b[1],P).toFixed(3));}
-    });
-    var R=14+(Math.hypot(innerWidth,innerHeight)/2+20)*sm(.015,.11,P), t=sm(0,.05,P);
-    intro.style.setProperty('--R',R.toFixed(1)); intro.style.setProperty('--t',t.toFixed(3)); intro.style.visibility=P>.112?'hidden':'visible';
-    cue.style.setProperty('--t',t.toFixed(3)); flPin.style.setProperty('--z',sm(0,.12,P).toFixed(3));
-  }
-
-  function all(){floorTick();}
-  addEventListener('scroll',all,{passive:true}); addEventListener('resize',all); all();
 
   /* smooth scroll */
   if(!isStatic && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){
@@ -879,10 +701,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
 <script type="module">
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 const D=document, H=D.documentElement, Q=new URLSearchParams(location.search);
 const STATIC=H.classList.contains('static');
@@ -912,15 +730,12 @@ function cell(){
   const sec=D.getElementById('inside'), pin=sec.querySelector('.cell-pin'), cv=D.getElementById('cellgl');
   const caps=[...sec.querySelectorAll('.cap')], bar=D.getElementById('cbar');
   const R=new THREE.WebGLRenderer({canvas:cv,antialias:false,powerPreference:'high-performance'});
-  R.setPixelRatio(Math.min(devicePixelRatio,MOB?1.25:1.5)); R.setClearColor(0x060608,1);
+  R.setPixelRatio(Math.min(devicePixelRatio,MOB?1.25:1.5)); R.setClearColor(0xffffff,1);
   const scene=new THREE.Scene();
   const cam=new THREE.PerspectiveCamera(45,1,.1,80);
-  const comp=new EffectComposer(R); comp.addPass(new RenderPass(scene,cam));
-  const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.5,.45,.1); comp.addPass(bloom);
-  comp.addPass(new OutputPass());
 
   const U={uTime:{value:0},uGlow:{value:1},
-    uRim:{value:new THREE.Color(1.0,.24,.035)},uIn:{value:new THREE.Color(.5,.025,.04)},uCold:{value:new THREE.Color(.13,.135,.15)}};
+    uRim:{value:new THREE.Color(.66,.13,.22)},uIn:{value:new THREE.Color(.86,.5,.55)},uCold:{value:new THREE.Color(.72,.72,.75)}};
   const NOISE=`float h(vec3 p){p=fract(p*.3183099+.1);p*=17.;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}
 float n3(vec3 x){vec3 i=floor(x),f=fract(x);f=f*f*(3.-2.*f);
 return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),
@@ -940,22 +755,23 @@ if(nz<uDis)discard;
 vec3 n=normalize(vN),v=normalize(vV);
 float fr=pow(1.-abs(dot(n,v)),2.4);
 float cr=sin(vP.y*20.+sin(vP.x*8.+uSeed*6.)*1.8+sin(vP.z*6.)*1.2);cr=smoothstep(.62,1.,cr);
-vec3 rim=mix(uRim,uCold,uWorn),inn=mix(uIn,uCold*.55,uWorn);
-float fl=1.-uWorn*.5*step(.55,n3(vP*2.+vec3(uTime*1.7)));
-vec3 c=(rim*fr*.95+inn*cr*.75+inn*.04)*fl*mix(uGlow,1.,uWorn);
+vec3 rim=mix(uRim,uCold,uWorn),inn=mix(uIn,uCold,uWorn);
+float fl=1.-uWorn*.35*step(.55,n3(vP*2.+vec3(uTime*1.7)));
+float a=clamp(fr*1.25+cr*.5+.05,0.,1.)*fl;
+vec3 c=mix(inn,rim,clamp(fr*1.5,0.,1.));
 float e=uDis>.001?smoothstep(uDis+.07,uDis,nz):0.;
-c+=vec3(1.,.42,.1)*e*1.8;
-c*=smoothstep(30.,7.,vD);
-gl_FragColor=vec4(c,1.);}`;
+c=mix(c,vec3(.88,.56,.18),e);a=max(a,e);
+a*=smoothstep(30.,8.,vD);
+gl_FragColor=vec4(c,a);}`;
   const sVS=`uniform float uTime;varying vec3 vN,vV,vP;
 void main(){vec3 p=position;p+=normal*(sin(p.y*5.+uTime*1.3)*.03+sin(p.x*4.-uTime)*.03);vP=position;
 vec4 mv=modelViewMatrix*vec4(p,1.);vV=-mv.xyz;vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*mv;}`;
   const sFS=`uniform float uA,uTime;varying vec3 vN,vV,vP;
 void main(){vec3 n=normalize(vN),v=normalize(vV);float fr=pow(1.-abs(dot(n,v)),2.6);
 float b=.5+.5*sin(vP.y*16.+uTime*2.2);
-gl_FragColor=vec4(vec3(.36,.43,.7)*(fr*.85+b*fr*.35+.01)*uA,1.);}`;
+gl_FragColor=vec4(vec3(.07,.07,.08),(fr*.32+b*fr*.08)*uA);}`;
 
-  const add={transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide};
+  const add={transparent:true,depthWrite:false,blending:THREE.NormalBlending,side:THREE.DoubleSide};
   const rand=rng(11), N=MOB?28:48;
   const mgeo=new THREE.CapsuleGeometry(.32,1.0,12,36), sgeo=new THREE.SphereGeometry(1,48,32);
   const mitos=[];
@@ -981,7 +797,7 @@ gl_FragColor=vec4(vec3(.36,.43,.7)*(fr*.85+b*fr*.35+.01)*uA,1.);}`;
 
   const PVS=`attribute float aA,aS;uniform float uPx;varying float vA;
 void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-mv.z);gl_Position=projectionMatrix*mv;vA=aA*smoothstep(32.,6.,-mv.z);}`;
-  const PFS=`uniform vec3 uC;varying float vA;void main(){float r=length(gl_PointCoord-.5);float a=smoothstep(.5,0.,r);a*=a;gl_FragColor=vec4(uC*a*vA,1.);}`;
+  const PFS=`uniform vec3 uC;varying float vA;void main(){float r=length(gl_PointCoord-.5);float a=smoothstep(.5,0.,r);a*=a;gl_FragColor=vec4(uC,a*vA);}`;
   function cloud(n,color,size){
     const g=new THREE.BufferGeometry();
     const pos=new Float32Array(n*3), aA=new Float32Array(n), aS=new Float32Array(n);
@@ -994,12 +810,12 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
     return {g,pos,aA};
   }
   // ambient dust
-  const DN=MOB?500:1100, dust=cloud(DN,[.10,.105,.12],1.2);
+  const DN=MOB?500:1100, dust=cloud(DN,[.8,.8,.83],1.0);
   for(let i=0;i<DN;i++){dust.pos.set([(rand()*2-1)*16,(rand()*2-1)*10,(rand()*2-1)*12],i*3);dust.aA[i]=.4+rand()*.6;}
   dust.g.attributes.position.needsUpdate=dust.g.attributes.aA.needsUpdate=true;
   const dustPts=scene.children[scene.children.length-1];
   // Urolithin A molecules
-  const UN=MOB?700:1500, ua=cloud(UN,[1.0,.66,.24],.7), uaD=[];
+  const UN=MOB?700:1500, ua=cloud(UN,[.88,.56,.18],.6), uaD=[];
   for(let i=0;i<UN;i++){
     const dir=new THREE.Vector3(rand()-.5,rand()-.5,rand()-.5).normalize();
     const u=new THREE.Vector3().randomDirection(), v=new THREE.Vector3().crossVectors(dir,u).normalize(); u.crossVectors(v,dir).normalize();
@@ -1007,11 +823,11 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
       delay:rand(),u,v,or:.75+rand()*.55,sp:(.6+rand())*(rand()<.5?-1:1),ph:rand()*6.28});
   }
   // energy sparks off working mitochondria
-  const SN=MOB?500:1100, sp=cloud(SN,[1.0,.42,.1],.5), spD=[];
+  const SN=MOB?500:1100, sp=cloud(SN,[.66,.13,.22],.4), spD=[];
   for(let i=0;i<SN;i++)spD.push({mi:mitos[i%N],dir:new THREE.Vector3().randomDirection(),off:rand(),spd:.18+rand()*.25});
 
   const tmp=new THREE.Vector3();
-  function size(){const w=pin.clientWidth,h=pin.clientHeight;R.setSize(w,h,false);comp.setSize(w,h);cam.aspect=w/h;cam.fov=cam.aspect<1?64:45;cam.updateProjectionMatrix();}
+  function size(){const w=pin.clientWidth,h=pin.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.fov=cam.aspect<1?64:45;cam.updateProjectionMatrix();}
   addEventListener('resize',size); size();
 
   let P=STATIC?(Q.has('cp')?+Q.get('cp'):0):0, tx=0,ty=0,px=0,py=0, cap=-1;
@@ -1032,7 +848,6 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
     cam.position.set(Math.sin(ang)*dist,.35+py*.7-P*.5,Math.cos(ang)*dist); cam.lookAt(0,0,0);
     const energy=P<.6?lerp(1,.55,ss(0,.14,P)):lerp(.55,1.7,ss(.6,.85,P));
     U.uGlow.value=lerp(.95,1.12,ss(.62,.85,P));
-    bloom.strength=lerp(.5,.7,ss(.62,.85,P));
 
     for(const o of mitos){
       o.m.rotation.x+=o.spin.x*dt; o.m.rotation.y+=o.spin.y*dt;
@@ -1068,7 +883,7 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
     }
     sp.g.attributes.position.needsUpdate=sp.g.attributes.aA.needsUpdate=true;
     dustPts.rotation.y=t*.01;
-    comp.render();
+    R.render(scene,cam);
   });
 }
 
