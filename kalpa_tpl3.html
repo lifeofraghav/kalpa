@@ -427,6 +427,99 @@ html.no3d .mol{display:none}
 .flinks a:hover{color:#fff}
 .zf .base{max-width:64ch;margin:40px auto 0;font-size:.76rem;color:rgba(255,255,255,.42);line-height:1.7;border:0;padding:0}
 
+
+/* Seed x Apple */
+:root{--apple:#F5F5F7;--ink:#1D1D1F;--ink2:#424245;--muted:#6E6E73}
+body{background:#fff}
+.sh{position:fixed;z-index:70;top:14px;left:var(--gut);right:var(--gut);display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.sh-l,.sh-r{pointer-events:auto;display:flex;align-items:center;gap:22px;padding:6px 8px 6px 18px;border-radius:999px;background:rgba(232,232,237,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);font-size:.86rem}
+.sh-l{padding-right:20px;height:44px}
+.sh-r{gap:14px;height:44px}
+.sh a{text-decoration:none;color:var(--ink2)}
+.sh a:hover{color:var(--ink)}
+.sh .logo{margin-right:6px}
+.sh-cta{background:#fff;color:var(--ink)!important;height:32px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;font-weight:500}
+@media(max-width:820px){.sh .hide-m{display:none}}
+@media(max-width:420px){.sh .hide-s{display:none}.sh-l{gap:16px}}
+.btn{font-weight:500}
+.btn.sm{height:38px;padding:0 18px;font-size:.88rem}
+.btn.dark{background:var(--ink)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.ghost{border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn.ghost-l{border:1px solid rgba(255,255,255,.6);color:#fff;background:transparent}
+
+.ah{background:var(--apple);text-align:center;padding:130px var(--gut) 72px;overflow:hidden}
+.ah-eye{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+.ah h1{font-size:clamp(3.2rem,8vw,7rem);font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:8px}
+.ah-sub{font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--ink2);margin-top:16px}
+.ah-img{max-width:540px;margin:20px auto 0;background:transparent;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 52%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 52%,#000 62%,transparent 100%)}
+.ah-bar{display:inline-flex;align-items:center;gap:22px;background:#fff;border-radius:18px;padding:10px 10px 10px 22px;margin-top:-12px;font-size:.92rem;color:var(--ink2);box-shadow:0 1px 2px rgba(0,0,0,.04);text-align:left}
+.ah-bar b{color:var(--ink);font-weight:600}
+@media(max-width:600px){.ah{padding-top:100px}.ah-bar{flex-direction:column;gap:10px;padding:14px 18px;text-align:center}}
+
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.tile{position:relative;border-radius:28px;background:var(--apple);text-align:center;padding:56px 32px 0;min-height:min(78vh,720px);display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.tile.dark{background:#000;color:#fff}
+.tile h2{font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.05}
+.tile p{margin-top:8px;font-size:1.12rem;color:var(--ink2)}
+.tile.dark p{color:rgba(255,255,255,.75)}
+.t-cta{display:flex;gap:12px;justify-content:center;margin-top:22px}
+.t-img{margin-top:auto;width:min(100%,520px);background:transparent;-webkit-mask-image:radial-gradient(ellipse 50% 60% at 50% 70%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 50% 60% at 50% 70%,#000 62%,transparent 100%)}
+.t-rep{color:var(--ink);margin:auto 0 0;width:min(100%,400px);background:#fff;border-radius:22px 22px 0 0;padding:22px 24px 26px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,.08);transform:translateY(8px)}
+.tr-h{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tr-h i{font-style:normal;font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tr-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.tr-row b{font-weight:600;font-family:"Fragment Mono",monospace;font-size:.86rem}
+.tr-f{font-size:.76rem;color:var(--muted);padding-top:12px}
+@media(max-width:820px){.tiles{grid-template-columns:1fr}.tile{min-height:0;padding-top:44px}}
+
+.anat{padding:clamp(72px,9vw,120px) 0 0}
+.an-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:24px;background:var(--apple);border-radius:28px;padding:clamp(28px,4vw,64px);overflow:hidden}
+.an-eye{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.an-copy h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin-top:14px}
+.an-chip{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:12px 18px;border:1px solid #D2D2D7;border-radius:16px;font-size:.95rem;color:var(--ink2)}
+.an-chip b{font-size:1.8rem;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.an-fine{margin-top:16px;font-size:.84rem;color:var(--muted);max-width:44ch}
+.an-vis{position:relative;min-height:440px;display:grid;place-items:center}
+.an-jar{width:min(62%,320px);background:transparent;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 52%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 52%,#000 60%,transparent 100%)}
+.co{position:absolute;max-width:190px;font-size:.82rem;line-height:1.4}
+.co b{display:block;font-weight:600;font-size:.86rem}
+.co span{color:var(--muted)}
+.co::after{content:"";position:absolute;top:9px;width:56px;border-top:1px dashed #A1A1A6}
+.c1{left:0;top:16%}.c2{left:0;bottom:18%}.c3{right:0;top:22%;text-align:right}.c4{right:0;bottom:14%;text-align:right}
+.c1::after,.c2::after{left:calc(100% + 10px)}.c3::after,.c4::after{right:calc(100% + 10px)}
+@media(max-width:900px){.an-card{grid-template-columns:1fr}.an-vis{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:18px}.an-jar{grid-column:1/-1;justify-self:center}.co{position:static;max-width:none;text-align:left!important}.co::after{display:none}}
+
+#science.light{background:#fff}
+#science .card{background:var(--apple);border:0;border-radius:24px}
+#science .cbars i{background:#D2D2D7}
+.zh h2{font-weight:600;letter-spacing:-.04em;font-size:clamp(2.2rem,4vw,3.4rem)}
+.shop-card{background:var(--apple);border-radius:28px;padding:clamp(20px,3vw,40px)}
+.shop-card .gal-main,.shop-card .thumb{background:#fff}
+.shop-card .buy{top:80px}
+.save{font-style:normal;font-size:.72rem;font-weight:600;color:#fff;background:var(--accent);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+.opt{background:#fff}
+#lab .paper{border-color:#E5E5EA}
+
+.sf{background:var(--ink);color:#fff;padding:72px 0 120px}
+.sf-top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px}
+.sf-big{font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:500;letter-spacing:-.03em;line-height:1.2;margin:22px 0 26px;max-width:24ch}
+.sf-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sf h4{margin:0 0 14px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500}
+.sf-cols a{display:block;color:rgba(255,255,255,.85);text-decoration:none;font-size:.92rem;margin-bottom:9px}
+.sf-cols a:hover{color:#fff}
+.sf-note{margin-top:56px;font-size:.76rem;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 16px;max-width:70ch;line-height:1.6}
+.sf-copy{margin-top:18px;font-size:.76rem;color:rgba(255,255,255,.4)}
+@media(max-width:820px){.sf-top{grid-template-columns:1fr}.sf-cols{grid-template-columns:1fr 1fr}}
+.sbar{position:fixed;z-index:65;left:0;right:0;bottom:0;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);transform:translateY(105%);transition:transform .35s var(--ease)}
+.sbar.on{transform:none}
+.sbar .wrap{height:68px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.sb-who{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--muted)}
+.sb-who img{width:42px;height:42px;border-radius:10px;object-fit:cover}
+.sb-who b{color:var(--ink);font-weight:600;margin-right:6px}
+@media(max-width:520px){.sb-who span{display:none}}
+.cell-top{top:84px}
+
 /* motion */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -434,56 +527,132 @@ html.static .rv{opacity:1;transform:none;transition:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 
-<div class="announce">Founding batch 001: 100 memberships, price locked for life. <a href="#shop">Reserve yours</a></div>
-<header class="site">
-  <div class="wrap">
+<header class="sh" id="sh">
+  <nav class="sh-l" aria-label="Primary">
     <a class="logo" href="#top" aria-label="Myvo home"><span class="mark"></span><span class="word">MYVO</span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#shop">Shop</a>
-      <a class="hide-s" href="#inside">How it works</a>
-      <a class="hide-m" href="#science">Science</a>
-      <a class="hide-m" href="#lab">Lab reports</a>
-      <a class="hide-m" href="#faq">FAQ</a>
-    </nav>
-    <a class="btn dark sm" href="#shop">Reserve</a>
-  </div>
+    <a href="#shop">Shop</a>
+    <a class="hide-s" href="#inside">Science</a>
+    <a class="hide-m" href="#lab">Lab reports</a>
+  </nav>
+  <div class="sh-r"><a class="hide-m" href="#faq">FAQ</a><a class="sh-cta" href="#shop">Reserve</a></div>
 </header>
 
 <main>
 
-<section class="mh" id="top">
-  <div class="wrap mh-in">
-    <div class="mh-copy rv">
-      <h1>Urolithin&nbsp;A<br>500&nbsp;mg</h1>
-      <p class="mh-type">Daily softgels</p>
-      <span class="mh-rule" aria-hidden="true"></span>
-      <p class="mh-sub">Clears out worn mitochondria so your muscles can renew them. Above 99% pure, at the dose studied in human trials.</p>
-      <div class="mh-cta"><a class="btn dark" href="#shop">Reserve batch 001</a><span>&#8377;8,999 a month</span></div>
-    </div>
-    <figure class="lbl mh-img rv">
-      <img src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels">
-      <div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%"><span class="jp-w">MYVO</span><span class="jp-rule"></span><span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span><span class="jp-batch">Batch MYV-27-001</span></div>
+<section class="ah" id="top">
+  <p class="ah-eye rv">Myvo One</p>
+  <h1 class="rv">The real Urolithin&nbsp;A.</h1>
+  <p class="ah-sub rv">Finally in India. Two softgels a day, tested batch by batch.</p>
+  <figure class="lbl ah-img rv"><img src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels"><div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%"><span class="jp-w">MYVO</span><span class="jp-rule"></span><span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span><span class="jp-batch">Batch MYV-27-001</span></div></figure>
+  <div class="ah-bar rv"><span><b>From &#8377;8,999/mo.</b> Founding price, locked for life.</span><a class="btn dark sm" href="#shop">Reserve</a></div>
+</section>
+
+<section class="tiles" aria-label="Highlights">
+  <article class="tile rv">
+    <h2>Myvo One</h2>
+    <p>500 mg of Urolithin A. Every morning.</p>
+    <div class="t-cta"><a class="btn dark sm" href="#shop">Reserve</a><a class="btn ghost sm" href="#inside">How it works</a></div>
+    <figure class="lbl t-img">
+      <img src="__JARMACRO__" alt="Myvo One jar, close up">
+      <div class="jp-label" aria-hidden="true" style="left:27%;right:27%;top:62%;height:30%"><span class="jp-w" style="font-size:4.6cqw">MYVO</span><span class="jp-rule"></span><span class="jp-mono" style="font-size:1.5cqw">Urolithin A / 500 mg</span></div>
     </figure>
-  </div>
+  </article>
+  <article class="tile dark rv">
+    <h2>Every batch, tested.</h2>
+    <p>Purity, dose, metals and microbes, before it ships.</p>
+    <div class="t-cta"><a class="btn light sm" href="#lab">See the report</a><a class="btn ghost-l sm" href="#shop">Reserve</a></div>
+    <div class="t-rep" aria-hidden="true">
+      <div class="tr-h"><span>Batch MYV-27-001</span><i>Sample</i></div>
+      <div class="tr-row"><span>Urolithin A</span><b>99.24%</b></div>
+      <div class="tr-row"><span>Per softgel</span><b>251.6 mg</b></div>
+      <div class="tr-row"><span>Heavy metals</span><b>Not detected</b></div>
+      <div class="tr-row"><span>Microbial panel</span><b>Conforms</b></div>
+      <div class="tr-f">NABL-accredited laboratory</div>
+    </div>
+  </article>
 </section>
 
-<section class="facts-strip" aria-label="Formula">
+<section class="anat" id="formula">
   <div class="wrap">
-    <div><b>500 mg</b><span>Urolithin A per day</span></div>
-    <div><b>&gt;99%</b><span>Purity, verified by HPLC</span></div>
-    <div><b>1</b><span>Ingredient. No blends.</span></div>
-    <div><b>Every batch</b><span>Tested by an NABL lab</span></div>
+    <div class="an-card rv">
+      <div class="an-copy">
+        <p class="an-eye">One ingredient</p>
+        <h2>Most Urolithin A sold online fails its own label. Ours is tested before it ships.</h2>
+        <div class="an-chip"><span class="sku">MYV-01</span><span>Purity</span><b>&gt;99%</b></div>
+        <p class="an-fine">Independent testing found 6 of 10 Urolithin A supplements sold online below the dose on their label.</p>
+      </div>
+      <div class="an-vis">
+        <figure class="lbl an-jar"><img src="__JAR__" alt=""><div class="jp-label" aria-hidden="true" style="left:26%;right:26%;top:42%;height:27%"><span class="jp-w">MYVO</span><span class="jp-rule"></span><span class="jp-mono">Urolithin A / 500 mg<br>Daily cellular renewal<br>60 softgels</span><span class="jp-batch">Batch MYV-27-001</span></div></figure>
+        <div class="co c1"><b>Smoked glass</b><span>Keeps light out and the softgels stable</span></div>
+        <div class="co c2"><b>250 mg per softgel</b><span>Urolithin A, above 99% pure</span></div>
+        <div class="co c3"><b>60 softgels</b><span>A 30-day supply</span></div>
+        <div class="co c4"><b>Batch QR</b><span>Opens the lab report for your jar</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
+<section class="z light" id="science">
+  <div class="wrap">
+    <header class="zh rv">
+      <h2>What the trials measured.</h2>
+      <p>Three results from randomized, placebo-controlled human trials of Urolithin A.</p>
+    </header>
+    <div class="cards">
+      <article class="card rv">
+        <p class="ck">Endurance</p>
+        <h3>Run seven of eight, and your legs still answer.</h3>
+        <div class="cstat"><b>+41%</b><span>muscle endurance against placebo</span></div>
+        <div class="cbars" aria-hidden="true"><i style="--h:30%"></i><i class="m" style="--h:92%"></i></div>
+        <p class="csrc">JAMA Network Open, 2022. 1,000 mg a day for four months, adults 65 to 90.</p>
+      </article>
+      <article class="card rv">
+        <p class="ck">Strength</p>
+        <h3>The fourth set moves like the second.</h3>
+        <div class="cstat"><b>+12%</b><span>leg strength against placebo</span></div>
+        <div class="cbars" aria-hidden="true"><i style="--h:40%"></i><i class="m" style="--h:76%"></i></div>
+        <p class="csrc">Cell Reports Medicine, 2022. 500 mg a day for 16 weeks, adults 40 to 65.</p>
+      </article>
+      <article class="card rv">
+        <p class="ck">Renewal</p>
+        <h3>Forty, and still adding numbers to the log.</h3>
+        <div class="cstat"><b>+39%</b><span>mitochondrial renewal markers</span></div>
+        <div class="cbars" aria-hidden="true"><i style="--h:24%"></i><i class="m" style="--h:88%"></i></div>
+        <p class="csrc">Cell Reports Medicine, 2022. 500 mg a day for 16 weeks.</p>
+      </article>
+    </div>
+    <p class="zfine rv">Not a stimulant, so you won't feel it in an hour. The trials measured these changes over weeks to months. Results vary.</p>
+  </div>
+</section>
+
+<section class="cell" id="inside" aria-label="What Urolithin A does inside a muscle cell">
+  <div class="cell-pin">
+    <canvas id="cellgl" aria-hidden="true"></canvas>
+    <div class="cell-top"><div class="wrap">
+      <p class="cell-kick">Inside one of your muscle cells</p>
+      <ul class="legend">
+        <li><i class="lg-on"></i>Working mitochondria</li>
+        <li><i class="lg-off"></i>Worn mitochondria</li>
+        <li><i class="lg-ua"></i>Urolithin A</li>
+        <li><i class="lg-wrap"></i>Recycling membrane</li>
+      </ul>
+    </div></div>
+    <div class="cell-caps"><div class="wrap">
+      <div class="cap on" data-c="0"><h2>From your thirties, your mitochondria start to wear out.</h2><p>They're the engines in every muscle cell. Worn ones make less energy and leak more waste, and the cell gets slower at clearing them. You feel it as heavier legs and longer recoveries.</p></div>
+      <div class="cap" data-c="1"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
+      <div class="cap" data-c="2"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
+    </div></div>
+    <div class="cell-bar"><i id="cbar"></i></div>
+  </div>
+</section>
 
 <section class="z light" id="shop">
   <div class="wrap">
     <header class="zh rv">
-      <h2>Choose your plan</h2>
+      <h2>Choose your plan.</h2>
       <p>100 founding memberships. The price you lock in today stays for life.</p>
     </header>
-    <div class="pdp-grid">
+    <div class="pdp-grid shop-card">
       <div class="gal-col rv">
         <div class="pola-main">
           <div class="gal-main" id="gal">
@@ -531,7 +700,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
       <fieldset class="opts">
         <legend class="sr" style="position:absolute;left:-9999px">Choose a plan</legend>
         <label class="opt"><input type="radio" name="plan" value="monthly" checked><span><b>Monthly</b><small>Founding price, locked for life</small></span><span class="price">&#8377;8,999<small> /mo</small></span></label>
-        <label class="opt"><input type="radio" name="plan" value="annual"><span><b>Annual</b><small>Two months free</small></span><span class="price"><s>&#8377;1,07,988</s>&#8377;89,990</span></label>
+        <label class="opt"><input type="radio" name="plan" value="annual"><span><b>Annual <em class="save">Save 17%</em></b><small>Two months free</small></span><span class="price"><s>&#8377;1,07,988</s>&#8377;89,990</span></label>
       </fieldset>
       <a class="btn dark full" id="reserve" href="mailto:founders@myvo.life?subject=Founding%20membership%20(monthly)">Reserve a founding spot</a>
       <p class="fine">100 founding spots. We email you before batch 001 ships.</p>
@@ -547,64 +716,10 @@ html.static .rv{opacity:1;transform:none;transition:none}
   </div>
 </section>
 
-<section class="cell" id="inside" aria-label="What Urolithin A does inside a muscle cell">
-  <div class="cell-pin">
-    <canvas id="cellgl" aria-hidden="true"></canvas>
-    <div class="cell-top"><div class="wrap">
-      <p class="cell-kick">Inside one of your muscle cells</p>
-      <ul class="legend">
-        <li><i class="lg-on"></i>Working mitochondria</li>
-        <li><i class="lg-off"></i>Worn mitochondria</li>
-        <li><i class="lg-ua"></i>Urolithin A</li>
-        <li><i class="lg-wrap"></i>Recycling membrane</li>
-      </ul>
-    </div></div>
-    <div class="cell-caps"><div class="wrap">
-      <div class="cap on" data-c="0"><h2>From your thirties, your mitochondria start to wear out.</h2><p>They're the engines in every muscle cell. Worn ones make less energy and leak more waste, and the cell gets slower at clearing them. You feel it as heavier legs and longer recoveries.</p></div>
-      <div class="cap" data-c="1"><h2>Urolithin A flags them for recycling.</h2><p>It switches mitophagy back on, the cell's own clean-up: each worn mitochondrion is sealed in a membrane, broken down, and its parts reused.</p></div>
-      <div class="cap" data-c="2"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
-    </div></div>
-    <div class="cell-bar"><i id="cbar"></i></div>
-  </div>
-</section>
-
-<section class="z light" id="science">
-  <div class="wrap">
-    <header class="zh rv">
-      <h2>What the trials measured</h2>
-      <p>Three results from randomized, placebo-controlled human trials of Urolithin A.</p>
-    </header>
-    <div class="cards">
-      <article class="card rv">
-        <p class="ck">Endurance</p>
-        <h3>Run seven of eight, and your legs still answer.</h3>
-        <div class="cstat"><b>+41%</b><span>muscle endurance against placebo</span></div>
-        <div class="cbars" aria-hidden="true"><i style="--h:30%"></i><i class="m" style="--h:92%"></i></div>
-        <p class="csrc">JAMA Network Open, 2022. 1,000 mg a day for four months, adults 65 to 90.</p>
-      </article>
-      <article class="card rv">
-        <p class="ck">Strength</p>
-        <h3>The fourth set moves like the second.</h3>
-        <div class="cstat"><b>+12%</b><span>leg strength against placebo</span></div>
-        <div class="cbars" aria-hidden="true"><i style="--h:40%"></i><i class="m" style="--h:76%"></i></div>
-        <p class="csrc">Cell Reports Medicine, 2022. 500 mg a day for 16 weeks, adults 40 to 65.</p>
-      </article>
-      <article class="card rv">
-        <p class="ck">Renewal</p>
-        <h3>Forty, and still adding numbers to the log.</h3>
-        <div class="cstat"><b>+39%</b><span>mitochondrial renewal markers</span></div>
-        <div class="cbars" aria-hidden="true"><i style="--h:24%"></i><i class="m" style="--h:88%"></i></div>
-        <p class="csrc">Cell Reports Medicine, 2022. 500 mg a day for 16 weeks.</p>
-      </article>
-    </div>
-    <p class="zfine rv">Not a stimulant, so you won't feel it in an hour. The trials measured these changes over weeks to months. Results vary.</p>
-  </div>
-</section>
-
 <section class="z light" id="lab">
   <div class="wrap">
     <header class="zh rv">
-      <h2>Every batch, tested</h2>
+      <h2>Every batch, tested.</h2>
       <p>An independent NABL-accredited lab checks purity, dose, metals and microbes before anything ships. If a batch fails, it doesn't ship.</p>
     </header>
     <div class="paper-wrap rv">
@@ -647,15 +762,25 @@ html.static .rv{opacity:1;transform:none;transition:none}
 
 </main>
 
-<footer class="mf">
-  <div class="wrap mf-top">
-    <div><a class="logo" href="#top"><span class="mark"></span><span class="word">MYVO</span></a><p>Urolithin A, made simple and tested every batch.</p></div>
-    <div><h4>Shop</h4><a href="#shop">Myvo One</a><a href="#shop">Founding membership</a></div>
-    <div><h4>Learn</h4><a href="#inside">How it works</a><a href="#science">Trial results</a><a href="#lab">Lab reports</a></div>
-    <div><h4>Help</h4><a href="#faq">FAQ</a><a href="mailto:founders@myvo.life">founders@myvo.life</a></div>
+<footer class="sf">
+  <div class="wrap sf-top">
+    <div class="sf-l">
+      <a class="logo" href="#top"><span class="mark"></span><span class="word">MYVO</span></a>
+      <p class="sf-big">Urolithin A at the dose studied in human trials, tested batch by batch, for people who train.</p>
+      <a class="btn light sm" href="mailto:founders@myvo.life?subject=Waitlist">Get launch updates</a>
+    </div>
+    <div class="sf-cols">
+      <div><h4>Shop</h4><a href="#shop">Myvo One</a><a href="#shop">Founding membership</a></div>
+      <div><h4>Science</h4><a href="#inside">How it works</a><a href="#science">Trial results</a><a href="#lab">Lab reports</a></div>
+      <div><h4>Help</h4><a href="#faq">FAQ</a><a href="mailto:founders@myvo.life">Contact</a></div>
+    </div>
   </div>
-  <div class="wrap mf-base">Clinical figures are from published randomized controlled trials of Urolithin A at the doses studied. These statements are not intended to diagnose, treat, cure or prevent any disease. &copy; 2026 Myvo.</div>
+  <div class="wrap"><p class="sf-note">Clinical figures are from published randomized controlled trials of Urolithin A at the doses studied. These statements are not intended to diagnose, treat, cure or prevent any disease.</p><p class="sf-copy">&copy; 2026 Myvo</p></div>
 </footer>
+
+<div class="sbar" id="sbar" aria-hidden="true">
+  <div class="wrap"><div class="sb-who"><img src="__JARMACRO__" alt=""><span><b>Myvo One</b> Urolithin A 500 mg</span></div><a class="btn dark sm" href="#shop" tabindex="-1">Reserve, &#8377;8,999/mo</a></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -684,6 +809,12 @@ html.static .rv{opacity:1;transform:none;transition:none}
   });});
 
 
+
+  /* Seed-style sticky bar after the hero, hidden over the shop and footer */
+  var sbar=d.getElementById('sbar'), hero=d.getElementById('top'), shopEl=d.getElementById('shop'), sf=d.querySelector('.sf');
+  function sb(){var a=hero.getBoundingClientRect().bottom<0, r=shopEl.getBoundingClientRect(), inShop=r.top<innerHeight&&r.bottom>0, nf=sf.getBoundingClientRect().top<innerHeight;
+    var on=a&&!inShop&&!nf; sbar.classList.toggle('on',on); sbar.setAttribute('aria-hidden',on?'false':'true');}
+  if(!isStatic){addEventListener('scroll',sb,{passive:true});sb();}
 
   /* smooth scroll */
   if(!isStatic && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){
