@@ -244,33 +244,15 @@ html.lenis,html.lenis body{height:auto}
 
 /* header over dark sections */
 .site{transition:background .35s,border-color .35s,color .35s}
-.site.dk{background:rgba(8,8,10,.62);border-bottom-color:rgba(255,255,255,.08);color:#fff}
+.site.dk{background:rgba(8,8,10,.94);border-bottom-color:rgba(255,255,255,.08);color:#fff}
 .site.dk .nav a{color:rgba(255,255,255,.72)}
 .site.dk .nav a:hover{color:#fff}
 
-/* 3D hero */
-.hero{position:relative;background:#EEEEF0;overflow:hidden}
-.hero-stage{position:absolute;inset:0}
-.hero-stage canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:pan-y;opacity:0;transition:opacity 1.2s var(--ease)}
-html.gel-ready .hero-stage canvas{opacity:1}
-.hero-fallback{display:none}
-html.no3d .hero-fallback{display:block;position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);width:44%;border-radius:var(--r)}
-.hero .wrap{position:relative;z-index:1;display:flex;align-items:center;min-height:min(calc(100svh - 99px),900px);padding-top:48px;padding-bottom:48px;pointer-events:none}
-.hero-copy{max-width:540px;pointer-events:auto}
-.hero .assure li::before{background-color:#fff}
-.hint{position:absolute;z-index:1;right:var(--gut);bottom:24px;font-size:.8rem;color:var(--muted);pointer-events:none}
-@media(max-width:900px){
-  .hero-stage{position:relative;height:min(92vw,500px)}
-  html.no3d .hero-fallback{position:static;transform:none;width:100%;border-radius:0}
-  .hero .wrap{min-height:0;padding-top:4px;padding-bottom:56px}
-  .hint{top:calc(min(92vw,500px) - 36px);bottom:auto}
-}
-
 /* inside a muscle cell: pinned WebGL story */
-.cell{position:relative;height:640vh;background:#060608;color:#fff}
+.cell{position:relative;height:720vh;background:#060608;color:#fff}
 .cell-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .cell-pin canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-.cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(6,6,8,.9),rgba(6,6,8,0) 48%),linear-gradient(180deg,rgba(6,6,8,.7),rgba(6,6,8,0) 26%)}
+.cell-pin::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(6,6,8,.6),rgba(6,6,8,0) 55%),linear-gradient(0deg,rgba(6,6,8,.9),rgba(6,6,8,0) 48%),linear-gradient(180deg,rgba(6,6,8,.7),rgba(6,6,8,0) 26%)}
 .cell-top{position:absolute;z-index:1;left:0;right:0;top:94px}
 .cell-top .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
 .cell-kick{font-size:.9rem;color:rgba(255,255,255,.6)}
@@ -283,8 +265,18 @@ html.no3d .hero-fallback{display:block;position:absolute;right:var(--gut);top:50
 .lg-wrap{border:1.5px solid rgba(200,210,235,.75)}
 .cell-caps{position:absolute;z-index:1;left:0;right:0;bottom:clamp(40px,9vh,100px)}
 .cell-caps .wrap{position:relative;height:clamp(230px,32vh,300px)}
+.cell-caps .cap.hero-cap{max-width:760px;bottom:104px}
+@media(max-width:700px){.cell-caps .cap.hero-cap{bottom:96px}}
 .cap{position:absolute;left:var(--gut);right:var(--gut);bottom:0;max-width:640px;opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.cap.on{opacity:1;transform:none}
+.cap.on{opacity:1;transform:none;pointer-events:auto}
+.cap{pointer-events:none}
+.hero-cap .hk{margin:0 0 16px;font-size:.9rem;color:rgba(255,255,255,.6)}
+.hero-cap h1{font-size:clamp(2.8rem,6.2vw,5.6rem);line-height:1;max-width:12ch}
+.hero-cap p{max-width:44ch}
+.hero-cap .cta{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:28px}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:#E6E6E9}
+.scrollcue{font-size:.88rem;color:rgba(255,255,255,.55)}
 .cap h2{font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1.03}
 .cap p{margin-top:16px;color:rgba(255,255,255,.68);max-width:46ch;font-size:1.04rem}
 .cap .stat{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
@@ -353,40 +345,6 @@ html.static .rv{opacity:1;transform:none;transition:none}
 
 <main id="top">
 
-<section class="hero" id="hero">
-  <div class="hero-stage" id="heroStage">
-    <canvas id="gel" aria-label="Two Myvo One softgels, rendered in 3D"></canvas>
-    <img class="hero-fallback" src="__JAR__" alt="Myvo One: smoked glass jar with amber softgels">
-  </div>
-  <div class="wrap">
-    <div class="hero-copy rv">
-      <p class="kicker">Urolithin A, 500 mg a day</p>
-      <h1>The real Urolithin&nbsp;A. Finally in&nbsp;India.</h1>
-      <p class="sub">500 mg of Urolithin A, above 99% pure, at the dose studied in human trials. For legs that still answer at the end of the race.</p>
-      <div class="cta">
-        <a class="btn dark" href="#shop">Shop Myvo One</a>
-        <a class="tlink" href="#inside">See what it does</a>
-      </div>
-      <ul class="assure">
-        <li>Above 99% purity, verified by HPLC</li>
-        <li>Independent lab report for every batch</li>
-        <li>Pause or cancel your membership anytime</li>
-      </ul>
-    </div>
-  </div>
-  <p class="hint">Two softgels a day. Drag to turn.</p>
-</section>
-
-<section class="press" aria-label="Where the research is published">
-  <div class="wrap">
-    <span class="lab">The human trials of Urolithin A are published in</span>
-    <span class="j">Cell Reports Medicine</span>
-    <span class="j">Nature Metabolism</span>
-    <span class="j">JAMA Network Open</span>
-    <span class="j">Nature Aging</span>
-  </div>
-</section>
-
 <section class="cell" id="inside" data-dark aria-label="What Urolithin A does inside a muscle cell">
   <div class="cell-pin">
     <canvas id="cellgl" aria-hidden="true"></canvas>
@@ -400,12 +358,18 @@ html.static .rv{opacity:1;transform:none;transition:none}
       </ul>
     </div></div>
     <div class="cell-caps"><div class="wrap">
-      <div class="cap on" data-c="0"><h2>This is where your energy comes from.</h2><p>Every muscle cell carries hundreds of mitochondria. They turn food and oxygen into the fuel behind every rep, every stride, every flight of stairs.</p></div>
-      <div class="cap" data-c="1"><h2>From your thirties, some of them wear out.</h2><p>Worn mitochondria make less energy and leak more waste, and the cell gets slower at clearing them out. You feel it as heavier legs and longer recoveries.</p></div>
-      <div class="cap" data-c="2"><h2>Urolithin A gives the clean-up signal.</h2><p>It switches mitophagy back on: the cell's own recycling system, which finds worn mitochondria and flags them for removal.</p></div>
-      <div class="cap" data-c="3"><h2>The worn ones are wrapped and broken down.</h2><p>The cell seals each damaged mitochondrion inside a membrane, digests it, and keeps the parts to build with.</p></div>
-      <div class="cap" data-c="4"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
-      <div class="cap" data-c="5"><h2>A cleaner engine in every muscle.</h2><p>Same training, same body, more of it working. Here is where you notice it.</p></div>
+      <div class="cap hero-cap on" data-c="0">
+        <p class="hk">Urolithin A, 500 mg a day</p>
+        <h1>The real Urolithin&nbsp;A. Finally in&nbsp;India.</h1>
+        <p>500 mg of Urolithin A, above 99% pure, at the dose studied in human trials. For legs that still answer at the end of the race.</p>
+        <div class="cta"><a class="btn light" href="#shop">Shop Myvo One</a><span class="scrollcue">Scroll to see what it does</span></div>
+      </div>
+      <div class="cap" data-c="1"><h2>This is where your energy comes from.</h2><p>Every muscle cell carries hundreds of mitochondria. They turn food and oxygen into the fuel behind every rep, every stride, every flight of stairs.</p></div>
+      <div class="cap" data-c="2"><h2>From your thirties, some of them wear out.</h2><p>Worn mitochondria make less energy and leak more waste, and the cell gets slower at clearing them out. You feel it as heavier legs and longer recoveries.</p></div>
+      <div class="cap" data-c="3"><h2>Urolithin A gives the clean-up signal.</h2><p>It switches mitophagy back on: the cell's own recycling system, which finds worn mitochondria and flags them for removal.</p></div>
+      <div class="cap" data-c="4"><h2>The worn ones are wrapped and broken down.</h2><p>The cell seals each damaged mitochondrion inside a membrane, digests it, and keeps the parts to build with.</p></div>
+      <div class="cap" data-c="5"><h2>New ones take their place.</h2><p>Fresh, efficient mitochondria grow in the space the worn ones left. This is the renewal the trials measured.</p><div class="stat"><div><b>+39%</b>renewal markers</div><div><b>+12%</b>leg strength</div><div><b>+41%</b>muscle endurance</div></div></div>
+      <div class="cap" data-c="6"><h2>A cleaner engine in every muscle.</h2><p>Same training, same body, more of it working. Here is where you notice it.</p></div>
     </div></div>
     <div class="cell-bar"><i id="cbar"></i></div>
   </div>
@@ -422,6 +386,16 @@ html.static .rv{opacity:1;transform:none;transition:none}
       <li><span class="m-line">Forty, and still adding numbers to the log.</span><span class="m-note">The 2022 strength trial studied adults aged 40 to 65.</span></li>
     </ol>
     <p class="feel-fine">Myvo One is not a stimulant, so you will not feel it in an hour. The trials measured these changes over 16 weeks, and this is where those numbers show up. Results vary from person to person.</p>
+  </div>
+</section>
+
+<section class="press" aria-label="Where the research is published">
+  <div class="wrap">
+    <span class="lab">The human trials of Urolithin A are published in</span>
+    <span class="j">Cell Reports Medicine</span>
+    <span class="j">Nature Metabolism</span>
+    <span class="j">JAMA Network Open</span>
+    <span class="j">Nature Aging</span>
   </div>
 </section>
 
@@ -710,7 +684,7 @@ html.static .rv{opacity:1;transform:none;transition:none}
 
   /* header turns dark over the dark sections */
   var site=d.querySelector('.site'), darks=d.querySelectorAll('[data-dark]');
-  function hdr(){var on=false;darks.forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=62&&r.bottom>62)on=true;});site.classList.toggle('dk',on);}
+  function hdr(){var on=false,hb=site.getBoundingClientRect().bottom;darks.forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=hb+1&&r.bottom>hb)on=true;});site.classList.toggle('dk',on);}
 
   /* where you notice it: words light up as each line crosses the screen */
   var lines=d.querySelectorAll('.m-line'), feelbg=d.getElementById('feelbg'), feel=d.getElementById('feel');
@@ -768,77 +742,7 @@ function loop(el,fn){ // runs fn(t,dt) only while el is on screen
 
 if(!hasGL()){H.classList.add('no3d');}
 else{
-  for(const f of [hero,cell,mol]){try{f();}catch(e){console.error(e);}}
-}
-
-/* ---------- hero: two amber softgels ---------- */
-function hero(){
-  const host=D.getElementById('heroStage'), cv=D.getElementById('gel'), sec=D.getElementById('hero');
-  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true});
-  R.setPixelRatio(Math.min(devicePixelRatio,1.75));
-  R.toneMapping=THREE.ACESFilmicToneMapping; R.toneMappingExposure=1.05;
-  const scene=new THREE.Scene(); scene.background=new THREE.Color(0xEEEEF0);
-  const pm=new THREE.PMREMGenerator(R);
-  scene.environment=pm.fromScene(new RoomEnvironment(),.03).texture;
-  const cam=new THREE.PerspectiveCamera(26,1,.1,60);
-  const key=new THREE.DirectionalLight(0xffffff,2.4); key.position.set(3,5,6); scene.add(key);
-  const rim=new THREE.DirectionalLight(0xffffff,1.2); rim.position.set(-4,1,-3); scene.add(rim);
-
-  const geo=new THREE.CapsuleGeometry(.42,1.0,32,96);
-  const mat=new THREE.MeshPhysicalMaterial({color:0xffffff,transmission:1,thickness:1.3,roughness:.025,ior:1.5,
-    attenuationColor:new THREE.Color(0xE28A26),attenuationDistance:1.0,clearcoat:1,clearcoatRoughness:.03,
-    specularIntensity:1,envMapIntensity:1.35,dispersion:.3});
-
-  const sc=D.createElement('canvas'); sc.width=sc.height=128;
-  const g2=sc.getContext('2d'), gr=g2.createRadialGradient(64,64,0,64,64,64);
-  gr.addColorStop(0,'rgba(24,24,30,.40)'); gr.addColorStop(.45,'rgba(24,24,30,.14)'); gr.addColorStop(1,'rgba(24,24,30,0)');
-  g2.fillStyle=gr; g2.fillRect(0,0,128,128);
-  const stex=new THREE.CanvasTexture(sc);
-
-  const root=new THREE.Group(); scene.add(root);
-  const gels=[{p:[-.55,.3,0],tilt:1.0,ph:0},{p:[1.2,-.45,-.9],tilt:-.5,ph:2.2}].map(c=>{
-    const m=new THREE.Mesh(geo,mat); m.rotation.z=c.tilt;
-    const spin=new THREE.Group(); spin.add(m);
-    const holder=new THREE.Group(); holder.position.set(...c.p); holder.add(spin); root.add(holder);
-    const sh=new THREE.Mesh(new THREE.PlaneGeometry(2.6,1.5),new THREE.MeshBasicMaterial({map:stex,transparent:true,depthWrite:false,toneMapped:false}));
-    sh.rotation.x=-Math.PI/2; sh.position.set(c.p[0],-1.35,c.p[2]); root.add(sh);
-    return {...c,holder,spin,sh};
-  });
-
-  let wide=true;
-  function size(){
-    const r=host.getBoundingClientRect(); if(!r.width)return;
-    R.setSize(r.width,r.height,false); cam.aspect=r.width/r.height;
-    wide=cam.aspect>1.15; cam.fov=wide?26:30; cam.updateProjectionMatrix();
-    const halfW=9*Math.tan(cam.fov*Math.PI/360)*cam.aspect;
-    root.position.x=wide?Math.min(halfW*.46,3.2):-.4;
-    root.scale.setScalar(wide?1.12:1.4);
-  }
-  new ResizeObserver(size).observe(host); size();
-
-  let tx=0,ty=0,px=0,py=0,spin=0,vel=.32,drag=null;
-  addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
-  cv.addEventListener('pointerdown',e=>{drag={x:e.clientX};cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing';});
-  cv.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x;drag.x=e.clientX;vel=clamp(dx*.14,-9,9);});
-  const up=()=>{drag=null;cv.style.cursor='';}; cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
-
-  loop(sec,(t,dt)=>{
-    px+=(tx-px)*.06; py+=(ty-py)*.06;
-    if(!drag) vel+=(.32-vel)*Math.min(1,dt*1.4);
-    spin+=vel*dt;
-    const r=sec.getBoundingClientRect(), k=clamp(-r.top/Math.max(1,r.height),0,1);
-    gels.forEach((g,i)=>{
-      const bob=Math.sin(t*.9+g.ph)*.08;
-      g.holder.position.y=g.p[1]+bob+k*(1.2+i*.7);
-      g.spin.rotation.y=spin*(i?-.75:1)+g.ph+px*.5;
-      g.spin.rotation.x=py*.35+k*1.6;
-      g.sh.material.opacity=(1-k)*(1-bob*2);
-      g.sh.scale.setScalar(1-bob);
-    });
-    cam.position.set(px*.45,.8-py*.3,9-k*1.2); cam.lookAt(0,-.05,0);
-    R.render(scene,cam);
-  });
-  requestAnimationFrame(()=>H.classList.add('gel-ready'));
+  for(const f of [cell,mol]){try{f();}catch(e){console.error(e);}}
 }
 
 /* ---------- inside a muscle cell ---------- */
@@ -948,9 +852,9 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
   function size(){const w=pin.clientWidth,h=pin.clientHeight;R.setSize(w,h,false);comp.setSize(w,h);cam.aspect=w/h;cam.fov=cam.aspect<1?64:45;cam.updateProjectionMatrix();}
   addEventListener('resize',size); size();
 
-  let P=STATIC?(Q.has('cp')?+Q.get('cp'):.9):0, tx=0,ty=0,px=0,py=0, cap=-1;
+  let P=STATIC?(Q.has('cp')?+Q.get('cp'):0):0, tx=0,ty=0,px=0,py=0, cap=-1;
   addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
-  const CUTS=[0,.15,.32,.5,.7,.86];
+  const CUTS=[0,.1,.22,.37,.53,.73,.87];
 
   loop(sec,(t,dt)=>{
     if(!STATIC){const r=sec.getBoundingClientRect();const target=clamp(-r.top/Math.max(1,r.height-innerHeight),0,1);P+=(target-P)*Math.min(1,dt*5);}
@@ -961,10 +865,10 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
     bar.style.width=(P*100).toFixed(2)+'%';
 
     // camera: drift in for the clean-up, pull back for the result
-    const dist=P<.3?lerp(12.5,9.4,ss(0,.3,P)):P<.72?lerp(9.4,7.8,ss(.3,.72,P)):lerp(7.8,13,ss(.72,1,P));
+    const dist=P<.37?lerp(12.5,9.4,ss(0,.37,P)):P<.74?lerp(9.4,7.8,ss(.37,.74,P)):lerp(7.8,13,ss(.74,1,P));
     const ang=-.4+P*.95+px*.18;
     cam.position.set(Math.sin(ang)*dist,.35+py*.7-P*.5,Math.cos(ang)*dist); cam.lookAt(0,0,0);
-    const energy=P<.15?1:P<.72?lerp(1,.55,ss(.15,.3,P)):lerp(.55,1.7,ss(.72,.95,P));
+    const energy=P<.22?1:P<.74?lerp(1,.55,ss(.22,.36,P)):lerp(.55,1.7,ss(.74,.95,P));
     U.uGlow.value=lerp(.95,1.12,ss(.78,.98,P));
     bloom.strength=lerp(.5,.7,ss(.78,.98,P));
 
@@ -974,7 +878,7 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
       let w=0,dis=0,k=1;
       if(o.worn){
         const s=o.st;
-        const wa=ss(.15+s*.08,.27+s*.08,P), g=ss(.50+s*.07,.57+s*.07,P), d=ss(.58+s*.07,.66+s*.07,P), rb=ss(.72+s*.06,.81+s*.06,P);
+        const wa=ss(.22+s*.07,.33+s*.07,P), g=ss(.53+s*.07,.6+s*.07,P), d=ss(.61+s*.06,.69+s*.06,P), rb=ss(.74+s*.05,.83+s*.05,P);
         if(rb>0){w=0;dis=1-rb;k=.6+.4*rb;}else{w=wa;dis=d;}
         if(w>0)o.m.position.x+=Math.sin(t*23+o.ph)*.02*w;
         o.sph.visible=g>0&&d<1;
@@ -986,12 +890,12 @@ void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aS*uPx*(60./-
       o.m.scale.setScalar(o.s*k);
     }
     for(let i=0;i<UN;i++){
-      const d=uaD[i], k=clamp((P-(.31+d.delay*.12))/.1,0,1);
+      const d=uaD[i], k=clamp((P-(.36+d.delay*.11))/.09,0,1);
       if(k<=0){ua.aA[i]=0;continue;}
       const e=k*k*(3-2*k), tg=d.t.m.position, a=t*d.sp+d.ph, R2=d.or*d.t.s;
       tmp.copy(tg).addScaledVector(d.u,Math.cos(a)*R2).addScaledVector(d.v,Math.sin(a)*R2);
       ua.pos[i*3]=lerp(d.start.x,tmp.x,e); ua.pos[i*3+1]=lerp(d.start.y,tmp.y,e); ua.pos[i*3+2]=lerp(d.start.z,tmp.z,e);
-      ua.aA[i]=Math.min(1,k*3)*(1-d.t.dis)*(d.t.worn&&d.t.health>.5&&P>.7?0:1)*.95;
+      ua.aA[i]=Math.min(1,k*3)*(1-d.t.dis)*(d.t.worn&&d.t.health>.5&&P>.72?0:1)*.95;
     }
     ua.g.attributes.position.needsUpdate=ua.g.attributes.aA.needsUpdate=true;
     for(let i=0;i<SN;i++){
